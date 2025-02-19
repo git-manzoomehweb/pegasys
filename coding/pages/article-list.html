@@ -1,0 +1,87 @@
+<basis core="dbsource" source="basiscore" mid="1" name="db" lid="1" catid="[##cms.query.catid##]">
+    <member name="article-list" type="list" link="article.bc" propertyid="" order="date desc" typeid="159" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid##]">
+    <member name="scalar" type="scalar" typeid="150" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" request="seo">
+    <member name="list" type="list" request="cat" id="[##cms.query.catid##]" />
+</basis>
+<!DOCTYPE html>
+<html>
+<title>[##cms.seo.title|db.list.title##]</title>
+<meta charset="UTF-8">
+<meta name="author" content="BasisCore" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta name="description" content="[##cms.seo.title|db.list.title##]" />
+<link rel="apple-touch-icon" href="[##cms.cms.cdn##]/images/flypgs_favicon.png" />
+<link rel="shortcut icon" sizes="57x57" href="[##cms.cms.cdn##]/images/flypgs_favicon.png" />
+<!----------------CSS FILE---------------->
+<!----CSS FONT AWESOME---->
+<link href="[##cms.cms.cdn##]/css/fontawesome.css" type="text/css" rel="stylesheet" />
+<!----CSS MAIN STYLE---->
+<link href="[##cms.cms.cdn##]/css/style.css" type="text/css" rel="stylesheet" />
+<!----------------JS FILE---------------->
+<script src="[##cms.cms.cdn##]/js/library.js" type="text/javascript"></script>
+</head>
+
+<body class="background-color-body">
+    <main>
+        <div class="loginRegister"></div>
+        <basis core="call" file="header.inc" />
+        <section class="content item-container">
+            <div class="bc-main background-color_white dir-rtl">
+                <basis core="print" datamembername="db.scalar">
+                    <face>
+                        <div class="title-container">
+                            <h1 class="dir-rtl color_gray font_18 text-center">@Column1</h1>
+                            <div class="linear-divider text-center">
+                                <i class="fa fa-plane color_1 font_20 text-center"></i>
+                            </div>
+                        </div>
+                    </face>
+                </basis>
+                <basis core="list" datamembername="db.article-list">
+                    <layout>
+                        <ul class="article-list">
+                            @child
+                        </ul>
+                    </layout>
+                    <face filter="link is null" replace="true">
+                        <li class="text-center">
+                            <a href="/article.bc?id=@id" class="color_gray ">
+                                <article class="p-relative">
+                                    <figure class="p-relative">
+                                        <img src="/@type_159" width="250" height="360" alt="@title"
+                                            class="p-relative border-radius" />
+                                        <i class="fa fa-images p-absolute"></i>
+                                    </figure>
+                                    <h2 class="font_14">@title</h2>
+                                    <div class="hover-list p-absolute border-radius transition"></div>
+                                </article>
+                            </a>
+                        </li>
+                    </face>
+                    <face replace="true">
+                        <li class="text-center">
+                            <a href="/@link" class="color_gray ">
+                                <article class="p-relative">
+                                    <figure class="p-relative">
+                                        <img src="/@type_159" width="250" height="360" alt="@title"
+                                            class="p-relative border-radius" />
+                                        <i class="fa fa-images p-absolute"></i>
+                                    </figure>
+                                    <h2 class="font_14">@title</h2>
+                                    <div class="hover-list p-absolute border-radius transition"></div>
+                                </article>
+                            </a>
+                        </li>
+                    </face>
+                </basis>
+            </div>
+        </section>
+        <basis core="call" file="footer.inc" />
+    </main>
+</body>
+
+</html>

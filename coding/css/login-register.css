@@ -1,0 +1,253 @@
+#Login_box {display: none; position: absolute;left: 0;right: 0;margin: 0 auto;z-index: 99999;text-align: center;top: 13em;;box-sizing: border-box;border-radius: 5px;width: 500px;background: #fafafa !important;box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);}
+#Login_box .Section-loginRegister {width: 100%;padding: 10px 20px;}
+#Login_box .Section-loginRegister .fa-times::before {color: #777;}
+#Login_box .Section-loginRegister .fa-times {font-style: inherit;background: #fff;border: 1px solid #777;border-radius: 50%;width: 25px;height: 25px;line-height: 20px;display: block;}
+#Login_box .Section-loginRegister .close {float: left;width: 30px;text-align: center;}
+#bg-popup2{position: fixed;top: 0; width: 100%;height: 100%; z-index: 999;direction: rtl;background: rgba(40, 41, 43, 0.66);}
+.login_OptionInfo {font-size: 13px;text-align: right;color: #777;direction: rtl;float: right; margin: 1.3em 0 0 0;}
+.login_info .resend_code {color: #fff;font-size: 14px;float: right;padding-right: 10px;cursor: pointer;display: none;}
+.login_OptionInfo .forgetpass,
+.login_OptionInfo .register,
+.login_OptionInfo .Login,
+.login_OptionInfo .ResendEmail {color: #777;font-size: 12px;cursor: pointer;border-bottom: 2px solid #777;padding-right: 0; float: none;width: auto;display: inline-block !important;}
+.login_OptionInfo .forgetpass:hover,
+.login_OptionInfo .register:hover,
+.login_OptionInfo .Login:hover,
+.login_OptionInfo .ResendEmail:hover,
+.login_module_new:hover,
+.login_module_prev:hover {color: #000;border-color: #000;}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */ color: #ccc; opacity: 1; /* Firefox */}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ color:  #ccc;}
+::-ms-input-placeholder { /* Microsoft Edge */ color:  #ccc;}
+.login-form_new .shine-hover::after {content: 'ارسال' !important;}
+.form-title {direction: rtl;font-size: 14px;color: #777;text-align: center;margin-bottom: 0.5em;}
+.login-content {width: 75%;margin: 0 auto 15px;}
+.btn_container {float: left;}
+.width_40 {width: 40%;}
+.width_60 {width: 60%;}
+.width_30 {width: 30%;}
+.width_70 {width: 70%;}
+.btn_container button {height: 40px;line-height: 40px;cursor: pointer;}
+.login_module_new,.login_module_prev {cursor: pointer;border-bottom: 2px solid #777;font-size: 12px;}
+.timing {font-size: 14px;color: #777;}
+#time-text {color: #e36b7e;font-size: 20;font-size: 20px;}
+.login_info input:disabled {cursor: not-allowed;}
+.seperator {padding: 0 0.3em;}
+.login_info .fa-lock {position: initial;}
+.error-login{font-size: 14px;}
+.fcap,.fcapForgetpass,.fcapRegMail,.fcapResendmail {color: #e36b7e;font-size: 14px;display: none;}
+.error-result,.errorMsg{color: #e36b7e;font-size: 14px;}
+.successMsg,.true-result {color: #94c963;font-size: 14px;}
+.login-content.email-list,.login-content.email-list .form-title {text-align: right;}
+.email-item-container {max-height: 100px;overflow: auto;text-align: right;}
+.email-item {direction: rtl;font-size: 13px;margin-bottom: 0.5em;}
+.email-item input{appearance: auto !important;-webkit-appearance: auto !important;-moz-appearance: auto !important;-o-appearance: auto !important;-s-appearance: auto !important;}
+.email-label {padding-right: 1em;color: #2d2d2d;}
+.new-user {color: #94c963;}
+.confirm_code {color: #fff;text-align: justify;direction: rtl;font-size: 14px;padding-right: 5px;}
+.login_counter .counter_box {width: 100%;text-align: right;}
+.login_info .label {font-size: 13px;width: 20%;float: right;line-height: 40px;border-left: 1px solid #eaeaea;height: 40px; text-align: center;display: block !important;margin-bottom: 0 !important;position: initial !important;}
+.login_info {width: 75%;margin: 0 auto 15px; border: 1px solid #e0e0e0;margin-bottom: 1.5em;background: #fff;border-radius: 5px;position: relative}
+.login_info input,
+.login_info select {direction: rtl;width: 80%;height: 40px;line-height: 40px;padding-right: 10px;padding-left: 10px;color: #777;font-weight: normal;font-family: 'IRANSansWeb';float: left;font-size: 14px;border-radius: 5px 0 0 5px;background: #f3f3f3;}
+.login_captcha .refreshimg { width: 10%;float: right;line-height: 40px;text-align: center;text-decoration: none;position: absolute;left: 100px;}
+.login_captcha .refreshimg i {vertical-align: middle;line-height: 40px !important;}
+.login_captcha .captcha_img {position: absolute;left: 0;}
+.login_captcha .captcha_img img {float: left;border-bottom-left-radius: 5px; border-top-left-radius: 5px; width: auto !important;}
+.login_info .sendcode {float: left;width: 30%;width: 100%;border-radius: 5px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;}
+.login_info .sendcode,.login_info .submitcode {float: left;width: 100%;padding: unset;cursor: pointer;font-size: 14px;}
+.hover:hover {box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
+.title_text{ color: #777;height: 50px;line-height: 50px;width: 100%;margin: 0 10px;font-size: 25px;}
+.shine-hover {overflow: hidden;position: relative;}
+.shine-hover::before {position: absolute;top: 0;left: -75%;z-index: 2;display: block;content: '';width: 50%;height: 100%;background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);-webkit-transform: skewX(-25deg);transform: skewX(-25deg);}
+.shine-hover:hover::before {-webkit-animation: shine .90s;animation: shine .90s;}
+.sendcode::before {content: '';}
+.shine-hover::after{content: '';}
+#Login_box .submitcode,#Login_box .sendcode{position: relative;z-index: 1000;opacity: 0;width: 100% !important;}
+#Login_box .shine-hover::after{position: absolute;left: 0;right: 0;margin: 0 auto;width: 50px; top: 1px;}
+.ForgetPass-Form .shine-hover::after,
+.RegisterEmail .shine-hover::after,
+.ResendMail-Form .shine-hover::after {content: 'ارسال';}
+.login-form_prev .shine-hover::after {content: 'ورود';}
+.Wrapper-forgetpass,.Wrapper-resendmail,.Wrapper-registerinfo {display: none;}
+.fa-hand-point-left::before {content: "\f0a5";}
+.fa-sync::before {content: "\f021";}
+.infoUser, .info-section, .Panel-Dashboard_link, .Logout_link{display:inline-block;text-align:right;direction:rtl;font-size:14px;font-family:'IRANSansWeb';color:#fff;}
+.Panel-Dashboard_link {margin: 0px 5px;}
+.Panel-Dashboard_link::before, .Logout_link::before  {content: "|";}
+@-webkit-keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+
+@keyframes shine {
+    100% {
+        left: 125%;
+    }
+}
+.loadingLog {display: none;position: initial;}
+#ballsWaveG {position: relative;width: 70px;height: 16px;margin: auto;}
+.ballsWaveG {
+    position: absolute;
+    top: 0;
+    background-color: rgb(186, 186, 186);
+    width: 9px;
+    height: 9px;
+    animation-name: ballsWaveG;
+    -o-animation-name: ballsWaveG;
+    -ms-animation-name: ballsWaveG;
+    -webkit-animation-name: ballsWaveG;
+    -moz-animation-name: ballsWaveG;
+    animation-duration: 1.5s;
+    -o-animation-duration: 1.5s;
+    -ms-animation-duration: 1.5s;
+    -webkit-animation-duration: 1.5s;
+    -moz-animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    -ms-animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-direction: normal;
+    -o-animation-direction: normal;
+    -ms-animation-direction: normal;
+    -webkit-animation-direction: normal;
+    -moz-animation-direction: normal;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+#ballsWaveG_1 {
+    left: 0;
+    animation-delay: 0.6s;
+    -o-animation-delay: 0.6s;
+    -ms-animation-delay: 0.6s;
+    -webkit-animation-delay: 0.6s;
+    -moz-animation-delay: 0.6s;
+}
+
+#ballsWaveG_2 {
+    left: 9px;
+    animation-delay: 0.75s;
+    -o-animation-delay: 0.75s;
+    -ms-animation-delay: 0.75s;
+    -webkit-animation-delay: 0.75s;
+    -moz-animation-delay: 0.75s;
+}
+
+#ballsWaveG_3 {
+    left: 18px;
+    animation-delay: 0.9s;
+    -o-animation-delay: 0.9s;
+    -ms-animation-delay: 0.9s;
+    -webkit-animation-delay: 0.9s;
+    -moz-animation-delay: 0.9s;
+}
+
+#ballsWaveG_4 {
+    left: 26px;
+    animation-delay: 1.05s;
+    -o-animation-delay: 1.05s;
+    -ms-animation-delay: 1.05s;
+    -webkit-animation-delay: 1.05s;
+    -moz-animation-delay: 1.05s;
+}
+
+#ballsWaveG_5 {
+    left: 35px;
+    animation-delay: 1.2s;
+    -o-animation-delay: 1.2s;
+    -ms-animation-delay: 1.2s;
+    -webkit-animation-delay: 1.2s;
+    -moz-animation-delay: 1.2s;
+}
+
+#ballsWaveG_6 {
+    left: 44px;
+    animation-delay: 1.35s;
+    -o-animation-delay: 1.35s;
+    -ms-animation-delay: 1.35s;
+    -webkit-animation-delay: 1.35s;
+    -moz-animation-delay: 1.35s;
+}
+
+#ballsWaveG_7 {
+    left: 53px;
+    animation-delay: 1.5s;
+    -o-animation-delay: 1.5s;
+    -ms-animation-delay: 1.5s;
+    -webkit-animation-delay: 1.5s;
+    -moz-animation-delay: 1.5s;
+}
+
+#ballsWaveG_8 {
+    left: 62px;
+    animation-delay: 1.64s;
+    -o-animation-delay: 1.64s;
+    -ms-animation-delay: 1.64s;
+    -webkit-animation-delay: 1.64s;
+    -moz-animation-delay: 1.64s;
+}
+
+@keyframes ballsWaveG {
+    0% {
+        background-color: rgba(158, 158, 158, 0.97);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-o-keyframes ballsWaveG {
+    0% {
+        background-color: rgba(158, 158, 158, 0.97);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-ms-keyframes ballsWaveG {
+    0% {
+        background-color: rgba(158, 158, 158, 0.97);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-webkit-keyframes ballsWaveG {
+    0% {
+        background-color: rgba(158, 158, 158, 0.97);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+@-moz-keyframes ballsWaveG {
+    0% {
+        background-color: rgba(158, 158, 158, 0.97);
+    }
+
+    100% {
+        background-color: rgb(255, 255, 255);
+    }
+}
+#Login_box .shine-hover{background: #fdaf17;border: 1px solid #fdaf17;color: #fff;border-radius: 5px;line-height: 40px;}
+.login_info i {font-size: 22px;font-style: inherit;color: #fdaf17 !important;line-height: 40px !important;float: none;}
+@media only screen and (max-width:750px){
+#Login_box{width: 90%;}
+.login_info ,.login-content{width: 95%;}
+.login_OptionInfo,.btn_container{width: 100% !important;}
+.login_OptionInfo{text-align: center;}
+.title_text{font-size: 18px}
+}

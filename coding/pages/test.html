@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <heade>
+
+    </heade>
+
+    <body>
+        <input type="text" id="test"/>
+        <script src="../js/library.js"></script>
+        <script>
+ $("#test").bind('keyup', function (event) {
+        $(this).val($(this).val().toUpperCase());
+    });
+        </script>
+    </body>
+</html>

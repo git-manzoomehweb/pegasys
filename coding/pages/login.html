@@ -1,0 +1,445 @@
+                            <basis core="dbsource" source="trust_login" name="captcha" > 
+    <member name="code" type="scalar" request="captcha"/>
+ </basis>
+ <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+    <member name="info" type="view" />
+  </basis>
+<!DOCTYPE html>
+<html>
+    <body class="login-background">
+        <head>
+            <meta charset="UTF-8">
+            <title>ورود با حساب کاربری</title>
+            <meta name="description" content="" />
+            <meta name="author" content="BasisCore">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+            <!----CSS LIBRARY---->
+            <link href="https://www.basisfly.com/css/reservation_tem2_style.css" type="text/css" rel="stylesheet" />
+            <link href="https://www.basisfly.com/css/reservation_font_awesome.css" type="text/css" rel="stylesheet" />
+            <!----CSS CUSTOMIZE---->
+            <link href="/css/style_tem.css" type="text/css" rel="stylesheet" />
+            <!----JS LIBRARY---->
+            <script src="https://www.basisfly.com/js/reservation_js_library.js" type="text/javascript"></script>
+        </head>
+        <main>
+            <section class="content p-relative" >
+                <svg xmlns="http://www.w3.org/2000/svg" id="svg-bg"  version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="100%" height="1000" preserveAspectRatio="none" viewBox="0 0 1440 1000">
+                    <g mask="url("#SvgjsMask1142")" fill="none">
+                        <rect width="1440" height="1000" x="0" y="0" fill=""></rect>
+                            <path d="M0,510.171C95.385,526.38,186.581,469.207,269.467,419.299C354.344,368.193,452.213,314.591,481.836,220.047C511.05,126.808,429.156,36.904,419.752,-60.351C409.67,-164.627,487.035,-283.839,424.956,-368.227C363.664,-451.545,235.835,-449.417,132.412,-450.954C45.965,-452.239,-25.125,-390.083,-110.458,-376.185C-213.56,-359.393,-337.884,-429.501,-417.138,-361.452C-494.212,-295.275,-459.662,-168.632,-469.901,-67.562C-479.67,28.873,-527.256,135.153,-475.766,217.275C-424.158,299.585,-299.137,285.804,-216.407,336.735C-136.058,386.2,-93.021,494.364,0,510.171"></path>
+                            <path d="M1440 1616.6190000000001C1555.466 1630.679 1659.2359999999999 1555.702 1761.4560000000001 1500.195 1871.301 1440.547 1991.383 1388.192 2056.803 1281.684 2125.843 1169.281 2172.292 1025.662 2129.585 900.853 2087.659 778.326 1943.899 731.336 1841.402 652.183 1760.383 589.617 1687.095 520.8820000000001 1591.193 485.08399999999995 1489.719 447.206 1381.569 417.351 1275.8899999999999 441.09299999999996 1166.87 465.586 1084.675 546.067 999.236 618.076 898.715 702.7950000000001 742.661 767.266 733.298 898.392 723.797 1031.447 871.842 1117.606 956.1859999999999 1220.95 1019.414 1298.421 1087.796 1364.286 1165.204 1427.591 1253.046 1499.429 1327.356 1602.902 1440 1616.6190000000001"></path>
+                    </g>
+                    <defs>
+                        <mask id="SvgjsMask1142">
+                            <rect width="1440" height="1000" fill="#ffffff"></rect>
+                        </mask>
+                    </defs>
+                </svg>
+                <div class="dot-pattern p-absolute"></div>
+                <div class="bc-main border-radius p-absolute login-register-container">
+                    <div class="float-right width_60 dir-rtl background-color_white login-register-content border-radius">
+                        <div class="Wrapper-logininfo Wrapper-default">
+                            <div>
+                                <div class="font_13 Link-Register-def cursor-pointer  btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                    <span>قبلاً  ثبت نام نکردی؟</span><span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                     
+                                </div>
+                                <div class="font_13 Link-Forgetpass-def cursor-pointer color_grey" >
+                                    <span>فراموشی رمز عبور</span><span class="icon-container color_2 text-center font_15 border-radius"><i class="fas fa-lock-open"></i></span>
+                                </div>
+                            </div>
+                            <div class="login-register-title">
+                                <basis core="view" datamembername="db.info">
+                                    <face filter="prpid in (7994)">
+                                        <h1>به @Answer خوش آمدید</h1>
+                                    </face>
+                                </basis> 
+                                <p class="font_11 color_grey">اگر حساب کاربری داری, میتونی وارد شی</p>
+                            </div>
+                            <_form method="post" action="/Client_Login_Confirmation.bc" class="Form_User">
+                                <_input type="hidden" value="1" name="redirect_homepage"/>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">نام کاربری (ایمیل)</label>
+                                    <i class="fa fa-user p-absolute font_13"></i>
+                                    <_input name="Username" type="email" class="transition width_100 font_13 border-radius" placeholder="test@gmail.com" required="">
+                                </div>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">رمز عبور</label>
+                                    <i class="fa fa-lock p-absolute font_13"></i>
+                                    <_input  name="Password" type="password" class="transition width_100 font_13 border-radius" placeholder="......." required="">
+                                </div>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">کد امنیتی</label>
+                                    <_input name="Captcha" type="text" class="transition width_100 font_13 EnNum border-radius" placeholder="e6d5" required="">
+                                    <div class="section_captcha float-left">
+                                        <span class="section_captcha_img float-right captchaa1 p-absolute">
+                                            <img class="border-radius" src="[##captcha.code.captcha##]" alt="captcha" width="80" height="33">
+                                            <_input type="hidden" value="[##captcha.code.captcha##]" name="Captchaid"/>
+                                        </span>
+                                        <i class="refresh-img p-absolute fa fa-redo-alt float-left font_15 cursor-pointer"></i>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="text-left">
+                                    <button type="submit"  class="cursor-pointer btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                        ورود اعضا
+                                        <span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="Loading-LoginRegister unvisible">
+                                        <div id="ballsWaveG">
+                                            <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                        </div>
+                                    </div>
+                                    <div class="Message-LoginRegister font_13"></div>
+                                    <div class="CheckCaptcha unvisible fcap font_13">کد امنیتی نادرست است</div>
+                                </div>
+                            </form_>
+                        </div>
+                        <div class="Wrapper-registerinfo Wrapper-default unvisible">
+                            <div>
+                                <div class="font_13 Link-Login-def cursor-pointer  btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                    <span>حساب کاربری داری؟</span><span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                     
+                                </div>
+                                <div class="font_13 Link-ResendMail-def cursor-pointer color_grey" >
+                                    <span>ارسال مجدد ایمیل</span><span class="icon-container color_2 text-center font_15 border-radius"><i class="fas fa-lock-open"></i></span>
+                                </div>
+                            </div>
+                             <div class="login-register-title">
+                                <basis core="view" datamembername="db.info">
+                                    <face filter="prpid in (7994)">
+                                        <h1>به @Answer خوش آمدید</h1>
+                                    </face>
+                                </basis> 
+                                <p class="font_11 color_grey">اگر ثبت نام نکردی, اقدام کن</p>
+                            </div>
+                            <div class="method login-register-input-container p-relative font-size_13 select-arrow">
+                                <_select class="change-method transition width_100 font_13 border-radius" onchange="changemethodReg(this)">
+                                    <_option value="---">-- شیوه ثبت نام --</option_>
+                                    <_option value="email">ارسال ایمیل</option_>
+                                    <_option value="sms">ارسال SMS</option_>
+                                </select_>
+                                <div class="clr"></div>
+                            </div>
+                            <div id="Emailbox" class="Wrapper">
+                                <_form method="post" action="/Client_Register_Confirmation.bc" class="Form_User">
+                                    <_input type="hidden" value="1" name="redirect_homepage"/>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">نام کاربری (ایمیل)</label>
+                                        <i class="fa fa-user p-absolute font_13"></i>
+                                        <_input name="Username" type="email" class="transition width_100 font_13 border-radius" placeholder="test@gmail.com" required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">رمز عبور</label>
+                                        <i class="fa fa-lock p-absolute font_13"></i>
+                                        <_input  name="Password" type="password" class="transition width_100 font_13 border-radius" placeholder="......." required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">تکرار رمز عبور</label>
+                                        <i class="fa fa-lock p-absolute font_13"></i>
+                                        <_input  name="RepeatPassword" type="password" class="transition width_100 font_13 border-radius" placeholder="......." required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">کد امنیتی</label>
+                                        <_input name="Captcha" type="text" class="transition width_100 font_13 EnNum border-radius" placeholder="e6d5" required="">
+                                        <div class="section_captcha float-left">
+                                            <span class="section_captcha_img float-right captchaRegMail p-absolute">
+                                                <img class="border-radius" src="[##captcha.code.captcha##]" alt="captcha" width="80" height="33">
+                                                <_input type="hidden" value="[##captcha.code.captcha##]" name="Captchaid"/>
+                                            </span>
+                                            <i class="refresh-img p-absolute fa fa-redo-alt float-left font_15 cursor-pointer"></i>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="text-left">
+                                        <button type="submit"  class="cursor-pointer btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                            ثبت نام 
+                                            <span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <div class="Loading-LoginRegister unvisible">
+                                            <div id="ballsWaveG">
+                                                <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Message-LoginRegister font_13"></div>
+                                        <div class="CheckCaptcha unvisible fcapRegMail font_13">کد امنیتی نادرست است</div>
+                                    </div>
+                                </form_>
+                            </div>
+                            <div id="Smsbox" class="Wrapper unvisible">
+                                <_form method="post" action="/Client_SMS_Register.bc" class="Form_User">
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">نام کاربری (ایمیل)</label>
+                                        <i class="fa fa-user p-absolute font_13"></i>
+                                        <_input name="Username" type="email" class="transition width_100 font_13 border-radius" placeholder="test@gmail.com" required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">تلفن همراه</label>
+                                        <i class="fa fa-user p-absolute font_13"></i>
+                                        <_input name="Mobile" type="text" class="transition width_100 font_13 border-radius" placeholder="0912111...." required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">رمز عبور</label>
+                                        <i class="fa fa-lock p-absolute font_13"></i>
+                                        <_input  name="Password" type="password" class="transition width_100 font_13 border-radius" placeholder="......." required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">تکرار رمز عبور</label>
+                                        <i class="fa fa-lock p-absolute font_13"></i>
+                                        <_input  name="RepeatPassword" type="password" class="transition width_100 font_13 border-radius" placeholder="......." required="">
+                                    </div>
+                                    <div class="p-relative login-register-input-container">
+                                        <label class="font_14">کد امنیتی</label>
+                                        <_input name="Captcha" type="text" class="transition width_100 font_13 EnNum border-radius" placeholder="e6d5" required="">
+                                        <div class="section_captcha float-left">
+                                            <span class="section_captcha_img float-right captchaRegSMS p-absolute">
+                                                <img class="border-radius" src="[##captcha.code.captcha##]" alt="captcha" width="80" height="33">
+                                                <_input type="hidden" value="[##captcha.code.captcha##]" name="Captchaid"/>
+                                            </span>
+                                            <i class="refresh-img p-absolute fa fa-redo-alt float-left font_15 cursor-pointer"></i>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="text-left">
+                                        <button type="submit"  class="cursor-pointer btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                            ثبت نام 
+                                            <span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <div class="Loading-LoginRegister unvisible">
+                                            <div id="ballsWaveG">
+                                                <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                                <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                            </div>
+                                        </div>
+                                        <div class="Message-LoginRegister font_13"></div>
+                                        <div class="CheckCaptcha unvisible fcapRegSMS font_13">کد امنیتی نادرست است</div>
+                                    </div>
+                                </form_>
+                            </div>
+                        </div>
+                        <div class="Wrapper-forgetpass Wrapper-default unvisible">
+                            <div>
+                                <div class="font_13 Link-Register-def cursor-pointer  btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                    <span>قبلاً  ثبت نام نکردی؟</span><span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                     
+                                </div>
+                                <div class="font_13 Link-Login-def cursor-pointer color_grey" >
+                                    <span>ورود اعضا</span><span class="icon-container color_2 text-center font_15 border-radius"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                            <div class="login-register-title">
+                                <basis core="view" datamembername="db.info">
+                                    <face filter="prpid in (7994)">
+                                        <h1>به @Answer خوش آمدید</h1>
+                                    </face>
+                                </basis> 
+                                <p class="font_11 color_grey">اگر رمز عبورت رو فراموش کردی, اقدام کن </p>
+                            </div>
+                            <_form method="post" action="/Client_Recovery_Pass.bc" class="Form_User">
+                                <_input type="hidden" value="1" name="redirect_homepage"/>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">نام کاربری (ایمیل)</label>
+                                    <i class="fa fa-user p-absolute font_13"></i>
+                                    <_input name="username" type="email" class="transition width_100 font_13 border-radius" placeholder="test@gmail.com" required="">
+                                </div>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">کد امنیتی</label>
+                                    <_input name="Captcha" type="text" class="transition width_100 font_13 EnNum border-radius" placeholder="e6d5" required="">
+                                    <div class="section_captcha float-left">
+                                        <span class="section_captcha_img float-right captchForgetpass p-absolute">
+                                            <img class="border-radius" src="[##captcha.code.captcha##]" alt="captcha" width="80" height="33">
+                                            <_input type="hidden" value="[##captcha.code.captcha##]" name="Captchaid"/>
+                                        </span>
+                                        <i class="refresh-img p-absolute fa fa-redo-alt float-left font_15 cursor-pointer"></i>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="text-left">
+                                    <button type="submit"  class="cursor-pointer btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                        ارسال 
+                                        <span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="Loading-LoginRegister unvisible">
+                                        <div id="ballsWaveG">
+                                            <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                        </div>
+                                    </div>
+                                    <div class="Message-LoginRegister font_13"></div>
+                                    <div class="CheckCaptcha unvisible fcapForgetpass font_13">کد امنیتی نادرست است</div>
+                                </div>
+                            </form_>
+                        </div>
+                        <div class="Wrapper-resendmail Wrapper-default unvisible">
+                            <div>
+                                <div class="font_13 Link-Register-def cursor-pointer  btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                    <span>قبلاً  ثبت نام نکردی؟</span><span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                     
+                                </div>
+                                <div class="font_13 Link-Login-def cursor-pointer color_grey" >
+                                    <span>ورود اعضا</span><span class="icon-container color_2 text-center font_15 border-radius"><i class="fa fa-user"></i></span>
+                                </div>
+                            </div>
+                            <div class="login-register-title">
+                                <basis core="view" datamembername="db.info">
+                                    <face filter="prpid in (7994)">
+                                        <h1>به @Answer خوش آمدید</h1>
+                                    </face>
+                                </basis> 
+                                <p class="font_11 color_grey">اگر ایمیل  رو دریافت نکردی, اقدام کن </p>
+                            </div>
+                            <_form method="post" action="/Client_Email_Resend_Get.bc" class="Form_User">
+                                <_input type="hidden" value="1" name="redirect_homepage"/>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">نام کاربری (ایمیل)</label>
+                                    <i class="fa fa-user p-absolute font_13"></i>
+                                    <_input name="username" type="email" class="transition width_100 font_13 border-radius" placeholder="test@gmail.com" required="">
+                                </div>
+                                <div class="p-relative login-register-input-container">
+                                    <label class="font_14">کد امنیتی</label>
+                                    <_input name="Captcha" type="text" class="transition width_100 font_13 EnNum border-radius" placeholder="e6d5" required="">
+                                    <div class="section_captcha float-left">
+                                        <span class="section_captcha_img float-right captchResendmail p-absolute">
+                                            <img class="border-radius" src="[##captcha.code.captcha##]" alt="captcha" width="80" height="33">
+                                            <_input type="hidden" value="[##captcha.code.captcha##]" name="Captchaid"/>
+                                        </span>
+                                        <i class="refresh-img p-absolute fa fa-redo-alt float-left font_15 cursor-pointer"></i>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="text-left">
+                                    <button type="submit"  class="cursor-pointer btn_1 background-color_1 hvr-horizontal transition color_white font_13">
+                                        ارسال 
+                                        <span class="icon-container background-color_3 text-center font_15 border-radius"><i class="fas fa-external-link-alt"></i></span>
+                                    </button>
+                                </div>
+                                <div>
+                                    <div class="Loading-LoginRegister unvisible">
+                                        <div id="ballsWaveG">
+                                            <div id="ballsWaveG_1" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_2" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_3" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_4" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_5" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_6" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_7" class="ballsWaveG"></div>
+                                            <div id="ballsWaveG_8" class="ballsWaveG"></div>
+                                        </div>
+                                    </div>
+                                    <div class="Message-LoginRegister font_13"></div>
+                                    <div class="CheckCaptcha unvisible fcapResendmail font_13">کد امنیتی نادرست است</div>
+                                </div>
+                            </form_>
+                        </div>
+                 
+                    </div>
+                    <div class="float-left width_40 text-center login-register-image">
+                        <a href="/"><img src="[##cms.cms.cdn##]/images/logo.png" alt="" width="" height=""/></a>
+                        <img src="[##cms.cms.cdn##]/images/login-user.png" width="450" height="450" alt="login-user"/>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+               
+            </section>
+            
+        </main>
+        <script type="text/javascript">
+            /*--------------LOGIN JS--------------*/
+            $(".refresh-img").each(function (index, element) {
+                $(this).click(function () {
+                    $(this).closest("form").find(".section_captcha_img").load("/Client_Captcha.bc");
+                })
+            });
+            /*-----------------------------------------*/
+            $(".Form_User").submit(function (e) {
+                var self = $(this)
+                self.closest("form").find(".Loading-LoginRegister").show()
+                e.preventDefault()
+                $.ajax({
+                    url: self.attr("action"),
+                    type: self.attr("method"),
+                    data: $(self).serialize(),
+                    success: function (response) {
+                        self.closest("form").find(".Loading-LoginRegister").hide()
+                        self.closest("form").find('.Message-LoginRegister').empty().show()
+                            .html(response);
+                    }
+                });
+            }); /*-----------------------------------------*/
+            $(".Link-Register-def").click(function () {
+                $(".Wrapper-registerinfo").show()
+                $(".Wrapper-logininfo").hide()
+                $(".Wrapper-forgetpass").hide()
+                $(".Wrapper-resendmail").hide()
+            })
+            $(".Link-Login-def").click(function () {
+                $(".Wrapper-registerinfo").hide()
+                $(".Wrapper-logininfo").show()
+                $(".Wrapper-forgetpass").hide()
+                $(".Wrapper-resendmail").hide()
+            })
+            $(".Link-Forgetpass-def").click(function () {
+                $(".Wrapper-registerinfo").hide()
+                $(".Wrapper-logininfo").hide()
+                $(".Wrapper-forgetpass").show()
+                $(".Wrapper-resendmail").hide()
+            })
+            $(".Link-ResendMail-def").click(function () {
+                $(".Wrapper-registerinfo").hide()
+                $(".Wrapper-logininfo").hide()
+                $(".Wrapper-forgetpass").hide()
+                $(".Wrapper-resendmail").show()
+            })
+            /*-----------------------------------------*/
+            function changemethodReg(e) {
+                var check_method = $(e).val()
+                if (check_method == 'email') {
+                    $("#Smsbox").hide();
+                    $("#Emailbox").show();
+                } else {
+                    $("#Smsbox").show();
+                    $("#Emailbox").hide();
+        
+                }
+            }
+            $(".container-login-def").click(function(){
+                $(".container-login-def,.container-login-content-def").fadeOut()
+            })
+        </script>
+    </body>
+</html>
+                            

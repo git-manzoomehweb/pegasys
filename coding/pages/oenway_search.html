@@ -1,0 +1,2287 @@
+<basis core="tracking" name="tracking" source="Monitoring" collectionname="activity" dbname="tracking" addcookie="true">
+</basis>
+<basis core="cookie" name="trackingid" value="[##tracking.inserted.id|(0)##]"></basis>
+
+
+
+
+<basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+    <member method="cms" name="dep_city"
+        query='{ "name": "db", "mid": "20", "member":[ { "type":"list", "name": "q", "request": "citySearch",  "functype": "0", "title": "[##cms.query.from##]", "status": "city", "lid": "1"}]}'
+        preview=""></member>
+</basis>
+<basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+    <member method="cms" name="des_city"
+        query='{ "name": "db", "mid": "20", "member":[ { "type":"list", "name": "q", "request": "citySearch", "functype": "0", "title": "[##cms.query.to##]",   "status": "city", "lid": "1"}]}'
+        preview=""></member>
+</basis>
+<basis core="group" name="search">
+    <basis core="inlinesource" name="db">
+        <member name="dep_city_tree" format="json" preview=""> {"root":[##db.dep_city.result##]} </member>
+        <member name="des_city_tree" format="json" preview=""> {"root":[##db.des_city.result##]}</member>
+    </basis>
+    <!DOCTYPE html>
+    <html>
+
+
+    <head>
+        <title>پرواز یکطرفه</title>
+        <meta charset="UTF-8">
+        <meta name="author" content="BasisCore" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+        <meta name="description" content="" />
+        <link rel="apple-touch-icon" sizes="57x57" href="[##cms.cms.cdn##]/images/flypgs_favicon.png" />
+        <link rel="shortcut icon" sizes="57x57" href="[##cms.cms.cdn##]/images/flypgs_favicon.png" />
+        <!----------------CSS FILE---------------->
+        <!----CSS FONT AWESOME---->
+        <link href="[##cms.cms.cdn##]/css/fontawesome.css" type="text/css" rel="stylesheet" />
+        <!----CSS MAIN STYLE---->
+        <link href="[##cms.cms.cdn##]/css/style.css" type="text/css" rel="stylesheet" />
+        <!----CSS CALENDAR---->
+        <link href="[##cms.cms.cdn##]/css/calendar.css" type="text/css" rel="stylesheet" />
+        <!----------------JS FILE---------------->
+        <script src="[##cms.cms.cdn##]/js/library.js" type="text/javascript"></script>
+    </head>
+
+    <body class="background-color-body" onload="onloadFunc();">
+        <main class="list-page">
+            <!-- <div class="notice-wrapper"></div>
+        <div class="notice-container background-color_white border-radius text-justify">
+            <i class="fa fa-times color_2 cursor-pointer"  onclick="close_notice()"></i>
+            <p class="notice-title text-center">Iran Flights Update</p>
+            <p class="color_gray font_15"><span>All passengers traveling to Iran must present a negative PCR test result taken within 0-96 hours before the flight. Passengers are subject to quarantine. </span><span>Please <a href="https://www.flypgs.com/en/where-can-i-fly/?*126" target="_blank">read </a> the information regarding entry rules for the country you are visiting, PCR test rules, and the forms to be completed.</span></p>
+           <br/>
+            <p class="color_gray font_15"><span>* For our flights from Iran to Turkey, all our passengers are required to fill in the <a href="https://register.health.gov.tr/">Turkey Entry Form</a> within 72 hours before the flight's departure and present a negative PCR test result, performed within 72 hours prior to arrival in Turkey. Passengers who have not completed the form and who do not have such a negative test will not be permitted to board the flight.<br></span></p>
+            <div class="text-center"><button class="btn_2 background-color_2 color_white hvr-horizontal transition" onclick="close_notice()">خواندم و موافقم‎</button></div>
+        </div> -->
+            <div class="loginRegister"></div>
+            <basis core="call" file="header.inc" />
+            <section class="content">
+                <div id="bg-popup" class="unvisible"></div>
+                <div class="message_box unvisible">
+                    <i class="fas fa-clock icon_message_box color_5"></i>
+                    <div class="line-one font_18">
+                        <span>اعتبار جستجوی شما پایان یافت.</span>
+                    </div>
+                    <div class="line-two">
+                        <div> لطفا برای دریافت بهترین قیمت ها و بررسی مجدد ظرفیت روی دکمه زیر کلیک کنید.</div>
+                        <button class="btn_2 background-color_1 hvr-horizontal transition color_white font_14"
+                            onClick="window.location='/'">صفحه اصلی</button>
+                        <button class="btn_2 background-color_1 hvr-horizontal transition color_white font_14"
+                            onclick="location.reload()">جستجوی مجدد</button>
+                    </div>
+                </div>
+                <div class="sticky-flight-summary-info-container">
+                    <div class="sticky-flight-summary-info closed">
+                        <div class="sticky-flight-summary-info-wrapper">
+                            <div class="bc-main">
+                                <div class="flight-summary-info dir-rtl">
+                                    <div class="float-right width_50 text-right">
+                                        <span class="departure color_3">
+                                            <basis core="print" datamembername="db.dep_city_tree">
+                                                <face filter="Field = 'title'">
+                                                    @value
+                                                </face>
+                                            </basis>
+                                        </span>
+                                        <i class="fa fas fa-exchange-alt color_1 background-color_white"></i>
+                                        <span class="arrival color_3">
+                                            <basis core="print" datamembername="db.des_city_tree">
+                                                <face filter="Field = 'title'">
+                                                    @value
+                                                </face>
+                                            </basis>
+                                        </span>
+                                    </div>
+                                    <div class="float-left width_50 text-left">
+                                        <i class="far fa-calendar color_1"></i>
+                                        <span class="color_3">[##cms.query.fdate##]</span>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="image-header-content p-relative">
+                    <div class="p-absolute svg-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="329" height="77" viewBox="0 0 329 77">
+                            <g fill="none" fill-rule="evenodd">
+                                <path fill="#FFF" fill-opacity=".94"
+                                    d="M135.892 15.743h-.82c-1.104-3.344-4.071-5.743-7.57-5.743-3.714 0-6.831 2.705-7.751 6.373-2.782 1.244-4.751 4.188-4.751 7.605v.757c0 4.53 3.46 8.237 7.685 8.237h13.207c4.226 0 7.684-3.707 7.684-8.237v-.757c0-4.53-3.458-8.235-7.684-8.235" />
+                                <path fill="#FFF" fill-opacity=".94"
+                                    d="M30.559 8.743C28.877 3.653 24.359 0 19.032 0 13.38 0 8.633 4.118 7.232 9.703 2.997 11.595 0 16.078 0 21.28v1.152c0 6.896 5.266 12.54 11.7 12.54h20.105c6.434 0 11.698-5.644 11.698-12.54V21.28c0-6.896-5.264-12.537-11.698-12.537h-1.246zM322.156 62.622c-.889-2.691-3.277-4.622-6.094-4.622-2.988 0-5.498 2.177-6.238 5.13-2.24 1-3.824 3.37-3.824 6.121v.609c0 3.646 2.784 6.63 6.186 6.63h10.63c3.401 0 6.184-2.984 6.184-6.63v-.609c0-3.646-2.783-6.629-6.185-6.629h-.659z"
+                                    opacity=".2" />
+                                <path fill="#FFF" fill-opacity=".94"
+                                    d="M172.989 8.364h-.399c-.535-1.671-1.976-2.872-3.676-2.872-1.803 0-3.318 1.351-3.764 3.188-1.352.62-2.309 2.094-2.309 3.801v.38c0 2.264 1.68 4.117 3.734 4.117h6.414c2.053 0 3.732-1.853 3.732-4.117v-.38c0-2.264-1.68-4.117-3.732-4.117" />
+                                <path fill="#FFF"
+                                    d="M158.27 61.281h-10.45c-.721 0-1.308-.55-1.308-1.23 0-.68.587-1.23 1.308-1.23h10.45c.72 0 1.306.55 1.306 1.23 0 .68-.585 1.23-1.307 1.23M142.757 53.077h-10.45c-.72 0-1.307-.55-1.307-1.23 0-.68.586-1.231 1.308-1.231h10.449c.721 0 1.306.55 1.306 1.23 0 .68-.585 1.231-1.306 1.231M141.07 48.155h-5.443c-.752 0-1.361-.551-1.361-1.231s.609-1.23 1.36-1.23h5.443c.752 0 1.361.55 1.361 1.23 0 .68-.609 1.23-1.36 1.23M217.651 42.028l-30.298-19.073a2.378 2.378 0 0 0-1.718-.394l-11.512 2.245c-1.66.258-2.538 2.112-1.685 3.558l11.203 18.98 34.01-5.316z" />
+                                <path fill="#525252"
+                                    d="M183.643 48.781a1.42 1.42 0 0 1-1.225-.701L171.215 29.1a3.82 3.82 0 0 1-.171-3.56 3.803 3.803 0 0 1 2.86-2.155l11.46-2.235c1.015-.157 1.992.063 2.795.62l30.246 19.039c.667.42.871 1.306.455 1.98a1.418 1.418 0 0 1-1.962.459l-30.3-19.073c-.255-.175-.501-.228-.745-.194l-11.46 2.235c-.508.08-.707.41-.773.55a.907.907 0 0 0 .043.863l11.202 18.979c.403.683.18 1.564-.494 1.97-.228.138-.48.203-.728.203" />
+                                <path fill="#FFF"
+                                    d="M245.296 38.54c.013-11.229-9.494-14.246-18.988-13.06L156.79 33.4a2.374 2.374 0 0 1-2.15-.913l-8.082-10.52a2.374 2.374 0 0 0-2.458-.857l-11.307.31 13.994 29.314a4.13 4.13 0 0 0 3.57 2.051h75.95c20.175 0 18.989-14.246 18.989-14.246" />
+                                <path fill="#FDB814"
+                                    d="M156.79 33.4a2.374 2.374 0 0 1-2.15-.913l-6.658-7.645a2.374 2.374 0 0 0-2.458-.858l-8.458.31 12.57 26.44 7.154-17.333z" />
+                                <path fill="#525252"
+                                    d="M135.031 22.797l13.04 27.315c.426.723 1.324 1.236 2.286 1.236h75.952c6.752 0 11.673-1.63 14.627-4.842 3.224-3.506 2.944-7.809 2.94-7.854-.002-.035-.005-.077-.005-.114.004-3.726-1.128-6.626-3.364-8.625-3.015-2.691-7.996-3.757-14.023-3.007l-69.534 7.923a3.814 3.814 0 0 1-3.436-1.463l-8.082-10.519a.948.948 0 0 0-.99-.342c-.1.024-.2.039-.303.042l-9.108.25zm91.278 31.425h-75.952a5.569 5.569 0 0 1-4.796-2.76l-14.05-29.418a1.45 1.45 0 0 1 .066-1.373c.251-.415.695-.674 1.177-.688l11.172-.307a3.798 3.798 0 0 1 3.758 1.412l8.081 10.52a.95.95 0 0 0 .866.364l69.518-7.92c6.832-.853 12.61.462 16.245 3.708 2.866 2.558 4.321 6.168 4.326 10.73.042.683.203 5.693-3.654 9.926-3.51 3.853-9.149 5.806-16.757 5.806z" />
+                                <path fill="#FFF"
+                                    d="M210.405 47.6l-24.233 20.213a2.372 2.372 0 0 1-1.638.656h-14.532a2.375 2.375 0 0 1-2.205-3.256L175.99 47.6h34.415z" />
+                                <path fill="#525252"
+                                    d="M184.534 69.906h-14.533a3.786 3.786 0 0 1-3.153-1.689 3.817 3.817 0 0 1-.37-3.543L174.7 46.99a1.419 1.419 0 0 1 1.895-.69 1.442 1.442 0 0 1 .683 1.91l-8.192 17.613c-.127.322.021.636.122.787a.942.942 0 0 0 .792.421h14.533a.938.938 0 0 0 .658-.263l24.305-20.275a1.417 1.417 0 0 1 2.007.193c.5.612.416 1.516-.19 2.022L187.078 68.92c-.638.614-1.566.986-2.545.986M162.7 41.683a1.43 1.43 0 0 1-1.414-1.286 1.433 1.433 0 0 1 1.266-1.58l1.416-.152a1.433 1.433 0 0 1 1.567 1.278 1.435 1.435 0 0 1-1.267 1.58l-1.415.151a1.354 1.354 0 0 1-.153.01M219.863 35.547a1.43 1.43 0 0 1-1.416-1.287 1.434 1.434 0 0 1 1.267-1.58l2.788-.298c.767-.09 1.482.487 1.566 1.278a1.434 1.434 0 0 1-1.267 1.58l-2.788.298a1.33 1.33 0 0 1-.15.009m-8.362.898a1.43 1.43 0 0 1-1.416-1.286 1.434 1.434 0 0 1 1.266-1.58l2.787-.299a1.43 1.43 0 0 1 1.569 1.278 1.434 1.434 0 0 1-1.268 1.58l-2.787.298a1.33 1.33 0 0 1-.151.009m-8.362.897c-.72 0-1.337-.548-1.414-1.286a1.433 1.433 0 0 1 1.266-1.58l2.787-.299c.77-.088 1.483.487 1.567 1.278a1.434 1.434 0 0 1-1.266 1.58l-2.788.298a1.373 1.373 0 0 1-.152.009m-8.362.898c-.72 0-1.337-.547-1.414-1.286a1.432 1.432 0 0 1 1.266-1.58l2.787-.299a1.439 1.439 0 0 1 1.567 1.278 1.434 1.434 0 0 1-1.266 1.58l-2.787.299a1.373 1.373 0 0 1-.153.008m-8.362.897A1.43 1.43 0 0 1 185 37.852a1.435 1.435 0 0 1 1.267-1.58l2.787-.3a1.43 1.43 0 0 1 1.567 1.278 1.434 1.434 0 0 1-1.266 1.58l-2.787.298a1.373 1.373 0 0 1-.153.009m-8.361.898a1.43 1.43 0 0 1-1.415-1.285 1.433 1.433 0 0 1 1.265-1.58l2.787-.301c.77-.09 1.484.487 1.567 1.276a1.433 1.433 0 0 1-1.265 1.581l-2.787.3a1.373 1.373 0 0 1-.152.01m-8.362.896a1.43 1.43 0 0 1-1.416-1.285 1.436 1.436 0 0 1 1.266-1.58l2.787-.3a1.423 1.423 0 0 1 1.569 1.278 1.434 1.434 0 0 1-1.268 1.58l-2.787.298a1.33 1.33 0 0 1-.151.01M226.81 33.362a1.433 1.433 0 0 1 1.266-1.58l4.833-.565a1.435 1.435 0 0 1 1.567 1.278 1.435 1.435 0 0 1-1.266 1.58l-4.833.565a1.43 1.43 0 0 1-1.567-1.278z" />
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="bc-main p-relative search-box-container research dir-rtl">
+                        <div id="item-Flight" class="p-relative border-radius">
+                            <div class="half-circle p-absolute background-color_white"><svg id="_x31_-outline-expand"
+                                    enable-background="new 0 0 64 64" height="45" fill="#fa660b" viewBox="0 0 64 64"
+                                    width="45" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m63.317 16.523c-.869-2.348-3.465-3.754-5.928-3.129l-3.442-2.099c-1.3-.787-2.871-.941-4.309-.424l-12.592 4.582-10.34-14.611c-.26-.367-.737-.515-1.158-.362l-5.63 2.05c-.52.189-.787.762-.598 1.281l5.808 15.977-12.52 4.556-6.725-7.522c-.271-.304-.702-.414-1.087-.273l-3.759 1.368c-.52.188-.787.763-.598 1.281l5.471 15.034c.144.396.52.658.939.658h.013l21.19-.26c.112-.001.225-.022.33-.061l1.877-.685 5.473 15.036c.147.406.531.659.939.659.113 0 .229-.02.342-.061l5.639-2.053c.424-.154.692-.573.654-1.022l-1.395-16.797 18.42-6.708c1.967-.716 3.288-2.608 3.288-4.709.001-.568-.099-1.139-.302-1.706zm-41.776-12.455 3.974-1.447 9.584 13.54-8.092 2.944zm-16.146 22.901-2.735-7.514 2.184-.794 5.741 6.42zm31.875 20.328-6.841-18.794 9.106-3.314 1.716 20.66zm22.378-26.236-17.908 6.521-.321-3.863c-.025-.311-.194-.592-.457-.76s-.59-.202-.881-.098l-11.276 4.104c-.249.091-.452.277-.564.517-.112.241-.124.516-.033.765l1.368 3.758-1.718.627-20.311.25-1.466-4.033 44.238-16.097c.865-.312 1.811-.219 2.59.252l.958.584-2.936 1.069.684 1.88 4.438-1.615.677.413c.257.158.574.189.855.089 1.592-.567 3.303.294 3.853 1.783.121.34.183.684.183 1.024-.001 1.263-.794 2.4-1.973 2.83z" />
+                                    <path d="m44.634 16.648h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -3.284 16.662)" />
+                                    <path d="m40.875 18.016h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -3.978 15.459)" />
+                                    <path d="m37.117 19.385h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -4.672 14.257)" />
+                                    <path d="m33.358 20.753h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -5.366 13.054)" />
+                                    <path d="m29.599 22.121h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -6.06 11.852)" />
+                                    <path d="m25.84 23.489h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -6.754 10.65)" />
+                                    <path d="m22.081 24.857h1.999v2h-1.999z"
+                                        transform="matrix(.94 -.342 .342 .94 -7.448 9.447)" />
+                                    <path d="m18.323 26.225h2v2h-2z"
+                                        transform="matrix(.94 -.342 .342 .94 -8.151 8.257)" />
+                                    <path d="m14.564 27.593h2v2h-2z"
+                                        transform="matrix(.94 -.342 .342 .94 -8.846 7.054)" />
+                                    <path
+                                        d="m19 44h6.184c.414 1.161 1.514 2 2.816 2 1.654 0 3-1.346 3-3s-1.346-3-3-3c-1.302 0-2.402.839-2.816 2h-6.184c-3.309 0-6 2.691-6 6s2.691 6 6 6h17v-2h-17c-2.206 0-4-1.794-4-4s1.794-4 4-4zm9-2c.552 0 1 .449 1 1s-.448 1-1 1-1-.449-1-1 .448-1 1-1z" />
+                                    <path d="m38 52h2v2h-2z" />
+                                    <path
+                                        d="m50.5 52h-8.5v2h8.5c1.379 0 2.5 1.122 2.5 2.5s-1.121 2.5-2.5 2.5h-31.5v2h31.5c2.481 0 4.5-2.019 4.5-4.5s-2.019-4.5-4.5-4.5z" />
+                                    <path
+                                        d="m5 57c-1.654 0-3 1.346-3 3s1.346 3 3 3c1.302 0 2.402-.839 2.816-2h9.184v-2h-9.184c-.414-1.161-1.514-2-2.816-2zm0 4c-.552 0-1-.449-1-1s.448-1 1-1 1 .449 1 1-.448 1-1 1z" />
+                                </svg>
+                            </div>
+                            <ul class="flight-type font-weight">
+                                <li id="oneway"
+                                    onclick="document.getElementById('flight-form').action='/oneway_search.bc';"
+                                    class="section-input_list p-relative active-flight-type color_gray">
+                                    <input type="radio" name="" value="0" class="p-absolute" checked />
+                                    <label class="cursor-pointer"><span class="checkbox font_14">
+                                            <div class="text-checkbox">یک طرفه</div>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li id="backtoback"
+                                    onclick="document.getElementById('flight-form').action='/roundtrip_search.bc';"
+                                    class="section-input_list p-relative color_gray">
+                                    <input type="radio" name="" value="0" class="p-absolute" />
+                                    <label class="cursor-pointer"><span class="checkbox font_14">
+                                            <div class="text-checkbox">رفت و برگشت</div>
+                                        </span>
+                                    </label>
+                                </li>
+                                <div class="clr"></div>
+                            </ul>
+                            <form id="flight-form" class="form-search border-radius p-relative" method="get"
+                                action="/oneway_search.bc">
+                                <input type="hidden" value="[##cms.query.select-age##]" name="select-age"
+                                    class="select-age-value" />
+                                <input type="hidden" value="[##cms.query.persiancurrent##]" class="persiancurrent"
+                                    name="persiancurrent" />
+                                <div class="city p-relative float-right width_20 cursor-pointer">
+                                    <div onclick="empty_value(this)" class="click-content">
+                                        <label class="font_14 color_3">مبدا</label>
+                                        <div class="input-container p-relative">
+                                            <p class="font_20 font-weight dep-txt split-text"></p>
+                                            <basis core="print" datamembername="db.dep_city_tree">
+                                                <face filter="Field = 'title'">
+                                                    <input type="hidden" class="title-searched" value="@value" />
+                                                    <input type="text" class="font_13 width_100 FCD1 color_3 text-value"
+                                                        required="" autocomplete="off" value="@value" />
+                                                </face>
+                                            </basis>
+                                        </div>
+                                    </div>
+                                    <input value="[##cms.query.from##]" class="co-id FCDid1" type="hidden"
+                                        name="from" />
+                                    <div class="searchList unvisible float-right font_12 p-absolute">
+                                        <input type="text" oninput="city_search(this)" data-type="1"
+                                            class="country form-search-input border-radius width_100" autocomplete="off"
+                                            value="" />
+                                        <span class="mini-loading p-absolute unvisible"><i
+                                                class="fas fa-spinner fa-spin"></i></span>
+                                        <div class="countryFlight"></div>
+                                        <ul class="ul-list">
+                                            <li class="category-title background-color_1"><span>مسیرهای
+                                                    پرتردد</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1203548"><i
+                                                    class="fa fa-map-marker-alt"></i><span>تهران - Tehran - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1177676"><i
+                                                    class="fa fa-map-marker-alt"></i><span>استانبول- Istanbul -
+                                                    همه فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1415294"><i
+                                                    class="fa fa-map-marker-alt"></i><span>ارجان - Ercan - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1211085"><i
+                                                    class="fa fa-map-marker-alt"></i><span>تبریز - Tabriz - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1168073"><i
+                                                    class="fa fa-map-marker-alt"></i><span> آنکارا - Ankara -
+                                                    همه فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1172375"><i
+                                                    class="fa fa-map-marker-alt"></i><span> کلن - Cologne - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1184034"><i
+                                                    class="fa fa-map-marker-alt"></i><span> پاریس - Paris - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1180000"><i
+                                                    class="fa fa-map-marker-alt"></i><span> لندن - London – همه
+                                                    فرودگاه ها</span></li>
+                                        </ul>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <i class="fas fa-exchange-alt p-absolute color_1 background-color_white cursor-pointer"
+                                        data-index="0"></i>
+                                </div>
+                                <div class="city p-relative float-right width_20 des cursor-pointer">
+                                    <div onclick="empty_value(this)" class="click-content">
+                                        <label class="font_14 color_3">مقصد</label>
+                                        <div class="input-container p-relative">
+                                            <p class="font_20 font-weight des-txt split-text"></p>
+                                            <basis core="print" datamembername="db.des_city_tree">
+                                                <face filter="Field = 'title'">
+                                                    <input type="hidden" class="title-searched" value="@value" />
+                                                    <input type="text" class="font_13 width_100 FCD2 color_3 text-value"
+                                                        required="" autocomplete="off" value="@value" />
+                                                </face>
+                                            </basis>
+                                        </div>
+                                    </div>
+                                    <input value="[##cms.query.to##]" class="co-id FCDid2" type="hidden" name="to" />
+                                    <div class="searchList unvisible float-right font_12 p-absolute">
+                                        <input type="text" oninput="city_search(this)" data-type="1"
+                                            class="country form-search-input border-radius width_100" autocomplete="off"
+                                            value="" />
+                                        <span class="mini-loading p-absolute unvisible"><i
+                                                class="fas fa-spinner fa-spin"></i></span>
+                                        <div class="countryFlight"></div>
+                                        <ul class="ul-list">
+                                            <li class="category-title background-color_1"><span>مسیرهای
+                                                    پرتردد</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1177676"><i
+                                                    class="fa fa-map-marker-alt"></i><span>استانبول- Istanbul -
+                                                    همه فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1203548"><i
+                                                    class="fa fa-map-marker-alt"></i><span>تهران - Tehran - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1415294"><i
+                                                    class="fa fa-map-marker-alt"></i><span>ارجان - Ercan - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1211085"><i
+                                                    class="fa fa-map-marker-alt"></i><span>تبریز - Tabriz - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1168073"><i
+                                                    class="fa fa-map-marker-alt"></i><span> آنکارا - Ankara -
+                                                    همه فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1172375"><i
+                                                    class="fa fa-map-marker-alt"></i><span> کلن - Cologne - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1184034"><i
+                                                    class="fa fa-map-marker-alt"></i><span> پاریس - Paris - همه
+                                                    فرودگاه ها</span></li>
+                                            <li onclick="SelectPlace(this)" data-id="1180000"><i
+                                                    class="fa fa-map-marker-alt"></i><span> لندن - London – همه
+                                                    فرودگاه ها</span></li>
+                                        </ul>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="Basis_Date_Box float-right width_40">
+                                    <div class="width_50 float-right result-for p-relative dep">
+                                        <label class="font_14"><span class="color_3">تاریخ رفت</span> <i
+                                                class="fa fa-angle-down color_1"></i></label>
+                                        <p class=""><span class="font_20 font-weight selected-day"> </span><span
+                                                class="font_13 color_3 selected-month">
+                                            </span></p>
+
+                                        <input type="text" value="[##cms.query.fdate##]"
+                                            class="font_13 width_100 Basis_Date start_date color_3 p-absolute"
+                                            onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                            data-cache="0" readonly="" name="fdate" required="" />
+                                        <span
+                                            class="gregorian_date research-date">([##cms.query.mstring_fdate##])</span>
+                                        <input value="[##cms.query.mstring_fdate##]" class="mstring_date mstring_fdate"
+                                            type="hidden" name="mstring_fdate" />
+                                    </div>
+                                    <div class="width_50 float-right result-for p-relative des Noactive-date">
+                                        <label class="font_14"><span class="color_3">تاریخ برگشت</span> <i
+                                                class="fa fa-angle-down color_1"></i></label>
+                                        <p class=""><span class="font_20 font-weight selected-day"> -
+                                            </span><span class="font_13 color_3 selected-month">
+                                            </span></p>
+                                        <input type="text" value="[##cms.query.tdate##]"
+                                            class="font_13 width_100 Basis_Date end_date color_3 p-absolute  end_date_filled"
+                                            onclick="Basis_Calendar(this,'[##cms.cms.date##]', 1)" data-active="0"
+                                            data-cache="0" readonly="" name="tdate" required="" id="inp2" disabled />
+                                        <span class="gregorian_date research-date"></span>
+                                        <input value="[##cms.query.mstring_tdate##]" class="mstring_date mstring_tdate"
+                                            type="hidden" name="mstring_tdate" />
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="passenger_section p-relative float-left width_20 cursor-pointer"
+                                    onclick="show_passengers(this)">
+                                    <label class="font_14"><span class="color_3">تعداد مسافران و کلاس
+                                            پروازی</span> <i class="fa fa-angle-down color_1"></i></label>
+                                    <p class="count-passengers"><span
+                                            class="font_20 font-weight selected-number adult-count">
+                                            [##cms.query.adult##]
+                                        </span><span class="font_13 color_3"> بزرگسال </span></p>
+                                    <basis core="group" name="exist-child" if="'[##cms.query.child##]' <> '0'">
+                                        <p class="count-passengers count-passenger-child"><span
+                                                class="font_20 font-weight selected-number child-count">
+                                                [##cms.query.child##] </span><span class="font_13 color_3"> کودک
+                                            </span></p>
+                                    </basis>
+                                    <basis core="group" name="exist-child" if="'[##cms.query.child##]' = '0'">
+                                        <p class="count-passengers unvisible count-passenger-child"><span
+                                                class="font_20 font-weight selected-number child-count"> 0
+                                            </span><span class="font_13 color_3"> کودک </span></p>
+                                    </basis>
+                                    <p class="font_13 color_3 class-select"> [##cms.query.FlightClass##] </p>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="clr"></div>
+                                <button type="submit"
+                                    class="p-absolute btn_2 background-color_1 hvr-horizontal transition form-search-btn color_white font_14">
+                                    <i class="fas fa-search font_15"></i>
+                                    جستجو
+                                </button>
+                                <div class="CountPassenger p-absolute font_12 unvisible width_40">
+                                    <div class="item-CountPassenger">
+                                        <div class="first-part-CountPassenger">بزرگسال (+12)</div>
+                                        <div class="second-part-CountPassenger">
+                                            <ul class="select_adult">
+                                                <li class="selected" data-cy="1" onclick="select_adult(this)">1
+                                                </li>
+                                                <li class="" data-cy="2" onclick="select_adult(this)">2</li>
+                                                <li class="" data-cy="3" onclick="select_adult(this)">3</li>
+                                                <li class="" data-cy="4" onclick="select_adult(this)">4</li>
+                                                <li class="" data-cy="5" onclick="select_adult(this)">5</li>
+                                                <li class="" data-cy="6" onclick="select_adult(this)">6</li>
+                                                <li class="" data-cy="7" onclick="select_adult(this)">7</li>
+                                                <li class="" data-cy="8" onclick="select_adult(this)">8</li>
+                                            </ul>
+                                            <input type="hidden" name="adult" class="adult"
+                                                value="[##cms.query.adult##]" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item-CountPassenger width_50 float-right">
+                                        <div class="first-part-CountPassenger">کودک (-12)</div>
+                                        <div class="second-part-CountPassenger">
+                                            <ul class="select_child">
+                                                <li class="selected" data-cy="0" data-val="0"
+                                                    onclick="select_child(this)">0</li>
+                                                <li class="" data-cy="1" data-val="1," onclick="select_child(this)">1
+                                                </li>
+                                                <li class="" data-cy="2" data-val="2," onclick="select_child(this)">2
+                                                </li>
+                                                <li class="" data-cy="3" data-val="3," onclick="select_child(this)">3
+                                                </li>
+                                                <li class="" data-cy="4" data-val="4," onclick="select_child(this)">4
+                                                </li>
+                                            </ul>
+                                            <input type="hidden" name="child" class="child"
+                                                value="[##cms.query.child##]" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="item-CountPassenger width_50 float-left">
+                                        <div class="first-part-CountPassenger">کلاس پروازی</div>
+                                        <div class="second-part-CountPassenger">
+                                            <ul class="flight-class">
+                                                <li class="selected" data-cy="Economy" data-val="Economy"
+                                                    onclick="select_class(this)">Economy</li>
+                                                <li class="" data-cy="Business" data-val="BusinessClass"
+                                                    onclick="select_class(this)">Business</li>
+                                                <li class="" data-cy="First" data-val="FirstClass"
+                                                    onclick="select_class(this)">First</li>
+                                            </ul>
+                                            <input type="hidden" name="FlightClass" class="FlightClass"
+                                                value="[##cms.query.FlightClass##]" />
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="section-select-age"></div>
+                                    <div class="clr"></div>
+                                    <button type="button" onclick="confirm_search(this)"
+                                        class="confirm_search float-left btn_2  hvr-horizontal transition color_white font_14 background-color_1">
+                                        تایید
+                                    </button>
+                                </div>
+                                <div class="share section-input_list p-absolute unvisible font_11">
+                                    <input type="checkbox" onchange="sharing(this)" name="share"
+                                        value="[##cms.query.share##]" class="p-absolute">
+                                    <label>
+                                        <span class="checkbox">
+                                            <div class="text-checkbox">جستجو در سهمیه</div>
+                                        </span>
+                                    </label>
+                                </div>
+                            </form>
+                            <div class="clr"></div>
+                            <div class="warning font_12 unvisible color_5 p-absolute"><span>تعداد نوزادان بیشتر
+                                    از
+                                    تعداد بزرگسال است و یا تعداد مسافران بیش از حد مجاز است.</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-countainer result-container-list">
+                    <div class="bc-main">
+                        <div class="text-center wating-search">
+                            <div id="default-loading"></div>
+                            <div id="default-loading-text" class="dir-rtl">
+                                <div id="default-loading-text-inner">در حال جستجو ...</div>
+                            </div>
+                        </div>
+                        <div id="app"></div>
+                    </div>
+                </div>
+            </section>
+            <basis core="call" file="footer.inc" />
+            <basis core="call" file="Client_Basis_Calendar.inc" />
+        </main>
+        <!----------------JS FILE---------------->
+        <script type="text/javascript">
+            $(document).ready(function () {
+                fetch('/Client_Oneway_Json.bc?from=[##cms.query.from##]&to=[##cms.query.to##]&fdate=[##cms.query.fdate##]&adult=[##cms.query.adult##]&child=[##cms.query.child##]&select-age=[##cms.query.select-age##]&share=[##cms.query.share|(0)##]&FlightClass=[##cms.query.FlightClass##]', {
+                    method: 'get',
+                })
+                    .then(response => response.text())
+                    .then(text => {
+                        let Maindata = JSON.parse(text.replace(/\'/g, '"'))
+                        $('.wating-search').hide()
+                        load_data(Maindata)
+                    }).catch(error => console.error(error))
+            })
+
+            function onloadFunc() {
+                var timer = ""
+                var counter = 600;
+                setInterval(function () {
+                    counter--;
+                    var m = parseInt(counter / 60);
+                    var s = counter % 60;
+                    if (counter >= 0) {
+                        timer = document.getElementById("timer");
+                        if (timer !== null) {
+                            if (s < 10) {
+                                s = "0" + s;
+                            }
+                            if (m < 10) {
+                                m = "0" + m;
+                            }
+                            if (m < 2) {
+                                document.getElementById("timer").classList.add("blink_me")
+                            }
+                            timer.innerHTML = "00:" + m + ":" + s;
+                        }
+
+                    }
+                    if (counter === 0) {
+                        $(".message_box,#bg-popup").fadeIn();
+                        $(".message_box").css("top", "200px")
+                        clearInterval(counter)
+                    }
+                }, 1000)
+            }
+            var persian_fdate_split = $(".start_date").val().split("-")
+            var persian_tdate_split = $(".end_date").val().split("-")
+            var months = {
+                "01": "فروردین",
+                "02": "اردیبهشت",
+                "03": "خرداد",
+                "04": "تیر",
+                "05": "مرداد",
+                "06": "شهریور",
+                "07": "مهر",
+                "08": "آبان",
+                "09": "آذر",
+                "10": "دی",
+                "11": "بهمن",
+                "12": "اسفند"
+            };
+
+
+            $(".start_date").closest("div").find(".selected-day").text(persian_fdate_split[2])
+            $(".start_date").closest("div").find(".selected-month").text(months[persian_fdate_split[1]])
+            $(".end_date").closest("div").find(".selected-day").text(persian_tdate_split[2])
+            $(".end_date").closest("div").find(".selected-month").text(months[persian_tdate_split[1]])
+
+            // function close_notice(){
+            //         $(".notice-wrapper").addClass("hide-notice-wrapper")
+            //         $(".notice-container").addClass("hide-notice-wrapper")
+            //   }
+        </script>
+        <script type="text/babel">
+            function load_data(load_data) {
+                class App extends React.Component {
+                    constructor(props) {
+                        super(props);
+                        this.state = {
+                            data: [],
+                            data_provider: [],
+                            library: null,
+                            librarySecond: null,
+                            perPage: 20,
+                            currentPage: 1,
+                            currentPage2: 2,
+                            currentPage3: 3,
+                            maxPage: null,
+                            filterExitTimeDepF: "00",
+                            filterExitTimeDepS: "24",
+                            rangevalExitTimeDepF: "00:00",
+                            rangevalExitTimeDepS: "24:00",
+                            filterTotalF: "",
+                            filterTotalS: "",
+                            rangevalTotalF: "",
+                            rangevalTotalS: "",
+                            filterTimeDepF: "",
+                            filterTimeDepS: "",
+                            rangevalTimeDepF: "",
+                            rangevalTimeDepS: "",
+                            visibleDetails: {},
+                            visibleAll: {},
+                            visibleBar: {},
+                            visibleRule: {},
+                            loadingBarDep: {},
+                            loadingRuleDep: {},
+                            barDepTxt: {},
+                            ruleDepTxt: {},
+                            priceS: {},
+                            defaultactive: {},
+                            priceactive: {},
+                            stopS: {},
+                            stopactive: {},
+                            timeS: {},
+                            takeoffS: {},
+                            timeactive: {},
+                            checkkeyprice: 0,
+                            checkkeystop: 0,
+                            checkkeytime: 0,
+                            checkkeytakeoff: 0,
+                            activedefault: "active",
+                            activeprice: "",
+                            activestop: "",
+                            activetime: "",
+                            activetakeoff: "",
+                            activeTab_details: {},
+                            activeTab_bar: {},
+                            activeTab_rule: {},
+                            state_airlines: "",
+                            state_stops: "",
+                            state_isSystemFlight: "",
+                            state_airbaggage: "",
+                            state_checktype: "",
+                            state_checkkey: ""
+                        };
+                        this.airlines = [];
+                        this.stops = [];
+                        this.isSystemFlight = [];
+                        this.airbaggage = [];
+                        this.handleClick = this.handleClick.bind(this);
+                    }
+                    componentDidMount() {
+                        this.setState(state => ({
+                            ...state,
+                            data: load_data
+                        }), () => {
+                            this.reorganiseLibrary()
+                        })
+                        $(document).on('update_result', (event, airlines, stops, isSystemFlight, airbaggage, checktype, checkkey) => {
+                            this.reorganiseLibrary(airlines, stops, isSystemFlight, airbaggage, checktype, checkkey)
+                        })
+
+                        const value = `; ${document.cookie}`;
+                        const parts = value.split(`; ${'rkey'}=`);
+                        if (parts.length === 2) {
+                            fetch('/Client_User_Type.inc')
+                                .then(response => response.text())
+                                .then(user => {
+                                    if (user == 1) {
+                                        fetch('/Client_Provider_Library.bc')
+                                            .then(response => response.json())
+                                            .then(provider => {
+                                                this.setState({ data_provider: provider })
+                                            }).catch(error => console.error(error));
+
+                                    }
+                                }).catch(error => console.error(error))
+                        }
+
+                    }
+                    componentDidUpdate() {
+                        $(".unit_content").each(function () {
+                            if ($(this).text() == 'ریالريال' || $(this).text() == 'ريالریال') {
+                                $(this).text('ریال')
+                            }
+                        })
+                        $(".airline_filter").sort(function (a, b) {
+                            a = $(".min_total", a).text().replace(/,/g, '');
+                            b = $(".min_total", b).text().replace(/,/g, '');
+                            return a - b;
+                        }).appendTo(".airline_results");
+
+                    }
+                    reorganiseLibrary = (airlines, stops, isSystemFlight, airbaggage, checktype, checkkey) => {
+                        const { filterExitTimeDepF, filterExitTimeDepS, filterTotalF, filterTotalS, filterTimeDepF, filterTimeDepS, perPage, data } = this.state;
+                        let library = data;
+                        let librarySecond = data;
+                        librarySecond = _.chunk(librarySecond, perPage);
+                        this.setState({
+                            librarySecond,
+                            currentPage: 1,
+                            maxPage: librarySecond.length === 0 ? 1 : librarySecond.length
+                        })
+
+                        let defaultFilterTimeDepF = null;
+                        defaultFilterTimeDepF = filterTimeDepF
+                            ? (filterTimeDepF)
+                            : (this.renderMinFilterTimeDep(librarySecond));
+                        let defaultFilterTimeDepS = null;
+                        defaultFilterTimeDepS = filterTimeDepS
+                            ? (filterTimeDepS)
+                            : (this.renderMaxFilterTimeDep(librarySecond));
+                        if (filterTimeDepS !== "" || filterTimeDepF !== "") {
+                            let lenLibraryDef = library.length
+                            if (lenLibraryDef !== undefined) {
+                                library = library.filter(item =>
+                                    parseInt(this.renderStoppinfoF(item.ticketinfooo.stoppinfoo.showtiming)) >= parseInt(defaultFilterTimeDepF) && parseInt(this.renderStoppinfoS(item.ticketinfooo.stoppinfoo.showtiming)) <= parseInt(defaultFilterTimeDepS)
+                                )
+                                let lenLibrary = library.length
+                                $('.list_count').text(lenLibrary)
+                            }
+                        }
+
+                        let defaultFilterTotalF = null;
+                        defaultFilterTotalF = filterTotalF
+                            ? (filterTotalF)
+                            : (this.renderMinFilterTotal(librarySecond));
+                        let defaultFilterTotalS = null;
+                        defaultFilterTotalS = filterTotalS
+                            ? (filterTotalS)
+                            : (this.renderMaxFilterTotal(librarySecond));
+                        if (filterTotalF !== "" || filterTotalS !== "") {
+                            let lenLibraryDef = library.length
+                            if (lenLibraryDef !== undefined) {
+                                library = library.filter(item =>
+                                    item.totalCom >= defaultFilterTotalF && item.totalCom <= defaultFilterTotalS
+                                )
+                                let lenLibrary = library.length
+                                $('.list_count').text(lenLibrary)
+                            }
+                        }
+
+                        if (checktype == 'default') {
+                            library.sort((a, b) => a.total - b.total);
+                            library.sort((a, b) => a.ticketinfooo.stoppinfoo.showstopinfo - b.ticketinfooo.stoppinfoo.showstopinfo);
+                            library.sort((a, b) => this.rendertimesorting(a.ticketinfooo.stoppinfoo.showtiming) - this.rendertimesorting(b.ticketinfooo.stoppinfoo.showtiming));
+                            library.sort((a, b) => this.rendertakeoffsorting(a.ticketinfooo.exitinfo.showexittime) - this.rendertakeoffsorting(b.ticketinfooo.exitinfo.showexittime));
+                            this.setState({ checkkeyprice: 0 });
+                            this.setState({ checkkeystop: 0 });
+                            this.setState({ checkkeytime: 0 });
+                            this.setState({ checkkeytakeoff: 0 });
+                            this.setState({ activedefault: "active" })
+                            this.setState({ activeprice: "" })
+                            this.setState({ activestop: "" })
+                            this.setState({ activetime: "" })
+                            this.setState({ activetakeoff: "" })
+                            if (this.state.priceS[0] == true) {
+                                this.setState(prevState => ({
+                                    priceS: { ...prevState.priceS, [0]: !prevState.priceS[0] }
+                                }))
+                            }
+                            if (this.state.stopS[0] == true) {
+                                this.setState(prevState => ({
+                                    stopS: { ...prevState.stopS, [0]: !prevState.stopS[0] }
+                                }))
+                            }
+                            if (this.state.timeS[0] == true) {
+                                this.setState(prevState => ({
+                                    timeS: { ...prevState.timeS, [0]: !prevState.timeS[0] }
+                                }))
+                            }
+                            if (this.state.takeoffS[0] == true) {
+                                this.setState(prevState => ({
+                                    takeoffS: { ...prevState.takeoffS, [0]: !prevState.takeoffS[0] }
+                                }))
+                            }
+
+                        }
+
+                        if (checktype == 'price') {
+                            if (checkkey == 0) {
+
+                                library.sort((a, b) => b.total - a.total);
+                                this.setState({ checkkeyprice: 1 });
+                            } else {
+                                library.sort((a, b) => a.total - b.total);
+                                this.setState({ checkkeyprice: 0 });
+                            }
+                            this.setState(prevState => ({
+                                priceS: { ...prevState.priceS, [0]: !prevState.priceS[0] }
+                            }))
+                            this.setState({ activeprice: "active" })
+                            this.setState({ activedefault: "" })
+                            this.setState({ activestop: "" })
+                            this.setState({ activetime: "" })
+                            this.setState({ activetakeoff: "" })
+                            // if (this.state.stopS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         stopS: { ...prevState.stopS, [0]: !prevState.stopS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.timeS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         timeS: { ...prevState.timeS, [0]: !prevState.timeS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.takeoffS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         takeoffS: { ...prevState.takeoffS, [0]: !prevState.takeoffS[0] }
+                            //     }))
+                            // }
+                        }
+
+                        if (checktype == 'stop') {
+                            if (checkkey == 0) {
+                                library.sort((a, b) => b.ticketinfooo.stoppinfoo.showstopinfo - a.ticketinfooo.stoppinfoo.showstopinfo);
+                                this.setState({ checkkeystop: 1 });
+                            } else {
+                                library.sort((a, b) => a.ticketinfooo.stoppinfoo.showstopinfo - b.ticketinfooo.stoppinfoo.showstopinfo);
+                                this.setState({ checkkeystop: 0 });
+                            }
+                            this.setState(prevState => ({
+                                stopS: { ...prevState.stopS, [0]: !prevState.stopS[0] }
+                            }))
+                            this.setState({ activeprice: "" })
+                            this.setState({ activedefault: "" })
+                            this.setState({ activestop: "active" })
+                            this.setState({ activetime: "" })
+                            this.setState({ activetakeoff: "" })
+                            // if (this.state.priceS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         priceS: { ...prevState.priceS, [0]: !prevState.priceS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.timeS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         timeS: { ...prevState.timeS, [0]: !prevState.timeS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.takeoffS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         takeoffS: { ...prevState.takeoffS, [0]: !prevState.takeoffS[0] }
+                            //     }))
+                            // }
+                        }
+
+                        if (checktype == 'Time') {
+                            if (checkkey == 0) {
+                                library.sort((a, b) => this.rendertimesorting(b.ticketinfooo.stoppinfoo.showtiming) - this.rendertimesorting(a.ticketinfooo.stoppinfoo.showtiming));
+                                this.setState({ checkkeytime: 1 });
+                            } else {
+                                library.sort((a, b) => this.rendertimesorting(a.ticketinfooo.stoppinfoo.showtiming) - this.rendertimesorting(b.ticketinfooo.stoppinfoo.showtiming));
+                                this.setState({ checkkeytime: 0 });
+                            }
+                            this.setState(prevState => ({
+                                timeS: { ...prevState.timeS, [0]: !prevState.timeS[0] }
+                            }))
+                            this.setState({ activeprice: "" })
+                            this.setState({ activedefault: "" })
+                            this.setState({ activestop: "" })
+                            this.setState({ activetime: "active" })
+                            this.setState({ activetakeoff: "" })
+                            // if (this.state.priceS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         priceS: { ...prevState.priceS, [0]: !prevState.priceS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.stopS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         stopS: { ...prevState.stopS, [0]: !prevState.stopS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.takeoffS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         takeoffS: { ...prevState.takeoffS, [0]: !prevState.takeoffS[0] }
+                            //     }))
+                            // }
+                        }
+                        if (checktype == 'takeoff') {
+                            if (checkkey == 0) {
+                                library.sort((a, b) => this.rendertakeoffsorting(b.ticketinfooo.exitinfo.showexittime) - this.rendertakeoffsorting(a.ticketinfooo.exitinfo.showexittime));
+                                this.setState({ checkkeytakeoff: 1 });
+                            } else {
+                                library.sort((a, b) => this.rendertakeoffsorting(a.ticketinfooo.exitinfo.showexittime) - this.rendertakeoffsorting(b.ticketinfooo.exitinfo.showexittime));
+                                this.setState({ checkkeytakeoff: 0 });
+                            }
+                            this.setState(prevState => ({
+                                takeoffS: { ...prevState.takeoffS, [0]: !prevState.takeoffS[0] }
+                            }))
+                            this.setState({ activeprice: "" })
+                            this.setState({ activedefault: "" })
+                            this.setState({ activestop: "" })
+                            this.setState({ activetime: "" })
+                            this.setState({ activetakeoff: "active" })
+                            // if (this.state.priceS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         priceS: { ...prevState.priceS, [0]: !prevState.priceS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.stopS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         stopS: { ...prevState.stopS, [0]: !prevState.stopS[0] }
+                            //     }))
+                            // }
+                            // if (this.state.timeS[0] == true) {
+                            //     this.setState(prevState => ({
+                            //         timeS: { ...prevState.timeS, [0]: !prevState.timeS[0] }
+                            //     }))
+                            // }
+                        }
+
+
+                        if (airlines !== undefined) {
+                            if (airlines !== "") {
+                                airlines = airlines.split(",");
+                                library = library.filter(item => {
+                                    if (
+                                        this.renderAirlineFilter(item.routeshow).some(r => airlines.includes(r))
+                                    ) return item;
+                                })
+                            }
+                            let lenLibrary = library.length
+                            $('.list_count').text(lenLibrary)
+                        }
+
+                        if (stops !== undefined) {
+                            if (stops !== "") {
+                                stops = stops.split(",");
+                                library = library.filter(item => {
+                                    if (stops.includes(this.renderStopsFilter(item.ticketinfooo.stoppinfoo.showstopinfo))) return item;
+                                })
+                            }
+                            let lenLibrary = library.length
+                            $('.list_count').text(lenLibrary)
+                        }
+
+                        if (isSystemFlight !== undefined) {
+                            if (isSystemFlight !== "") {
+                                isSystemFlight = isSystemFlight.split(",");
+                                library = library.filter(item => {
+                                    let keyToLowerCase = {};
+                                    for (var key in item) {
+                                        keyToLowerCase[key.toLowerCase()] = item[key];
+                                    }
+                                    if (isSystemFlight.includes(keyToLowerCase.issystemflight)) return item;
+                                })
+                            }
+                            let lenLibrary = library.length
+                            $('.list_count').text(lenLibrary)
+                        }
+                        if (airbaggage !== undefined) {
+                            if (airbaggage !== "") {
+                                airbaggage = airbaggage.split(",");
+                                library = library.filter(item => {
+                                    if (
+                                        this.renderAirbaggageFilter(item.routeshow).some(r => airbaggage.includes(r))
+                                    ) return item;
+                                })
+                            }
+                            let lenLibrary = library.length
+                            $('.list_count').text(lenLibrary)
+                        }
+                        if (filterExitTimeDepF !== "00" || filterExitTimeDepS !== "24") {
+                            let lenLibraryDef = library.length
+                            if (lenLibraryDef !== undefined) {
+                                library = library.filter(item =>
+                                    this.rendershowexittimeDepF(item.ticketinfooo.exitinfo.showexittime) >= filterExitTimeDepF && this.rendershowexittimeDepS(item.ticketinfooo.exitinfo.showexittime) <= filterExitTimeDepS
+                                )
+                                let lenLibrary = library.length
+                                $('.list_count').text(lenLibrary)
+                            }
+                        }
+
+
+
+                        let lenLibrary = library.length
+                        if (lenLibrary == undefined) {
+                            $('.list_count').text(0)
+                        } else {
+                            $('.list_count').text(lenLibrary)
+                        }
+
+                        library = _.chunk(library, perPage);
+                        this.setState({
+                            library,
+                            currentPage: 1,
+                            maxPage: library.length === 0 ? 1 : library.length
+                        })
+                    }
+
+
+                    renderAirbaggageFilter(element) {
+                        let elementAdd = []
+                        for (let i = 0; i < element.routesinfoo.length; i++) {
+                            elementAdd.push(element.routesinfoo[i].airbaggage)
+
+                        }
+                        return elementAdd
+                    }
+
+                    rendershowexittimeDepF(element) {
+                        let SplitElement = element.split(':')
+                        let SplitElementFirst = SplitElement[0]
+                        return SplitElementFirst
+                    }
+                    rendershowexittimeDepS(element) {
+                        let SplitElement = element.split(':')
+                        let SplitElementFirst = SplitElement[0]
+                        let SplitElementSecond = SplitElement[1]
+                        if (SplitElementSecond > 0) {
+                            return parseInt(SplitElementFirst) + 1
+                        } else {
+                            return SplitElementFirst
+                        }
+                    }
+
+
+                    renderMinFilterTotal = (librarySecond) => {
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMin = Math.min(...lib.map(item => item.totalCom))
+                            return acc === undefined ? libMin : libMin < acc ? libMin : acc
+                        }, undefined)
+                    }
+                    renderMaxFilterTotal = (librarySecond) => {
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMax = Math.max(...lib.map(item => item.totalCom))
+                            return libMax > acc ? libMax : acc
+                        }, 0)
+                    }
+                    renderMinFilterTimeDep = (librarySecond) => {
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMin = Math.min(...lib.map(item => this.renderStoppinfo(item.ticketinfooo.stoppinfoo.showtiming)))
+                            return acc === undefined ? libMin : libMin < acc ? libMin : acc
+                        }, undefined)
+                    }
+                    renderMaxFilterTimeDep = (librarySecond) => {
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMax = Math.max(...lib.map(item => this.renderStoppinfoS(item.ticketinfooo.stoppinfoo.showtiming)))
+                            return libMax > acc ? libMax : acc
+                        }, 0)
+                    }
+
+                    renderStopsFilter(element) {
+                        let elementToSting = element.toString()
+                        return elementToSting
+
+                    }
+                    renderAirlineFilter(element) {
+                        let elementAdd = []
+                        for (let i = 0; i < element.routesinfoo.length; i++) {
+                            elementAdd.push(element.routesinfoo[i].routesinfoodetails.otherdetails.detailsairline)
+
+                        }
+
+                        return elementAdd
+                    }
+
+
+                    // Previous Page
+                    previousPage = event => {
+                        let maxPage = this.state.maxPage
+                        let len = this.renderLibrary().length
+                        let Multi = len * maxPage
+                        for (let i = 0; i <= Multi; i++) {
+                            this.setState(prevState => ({
+                                visibleDetails: { ...prevState.visibleDetails, [i]: "" },
+                                visibleRule: { ...prevState.visibleRule, [i]: "" },
+                                visibleBar: { ...prevState.visibleBar, [i]: "" },
+                                visibleAll: { ...prevState.visibleAll, [i]: "" }
+                            }))
+                        }
+                        this.handleClick(event)
+                        this.setState({
+                            currentPage: this.state.currentPage - 1,
+                            currentPage2: this.state.currentPage2 - 1,
+                            currentPage3: this.state.currentPage3 - 1
+                        })
+                    }
+
+                    // Next Page 
+                    nextPage = event => {
+                        let maxPage = this.state.maxPage
+                        let len = this.renderLibrary().length
+                        let Multi = len * maxPage
+                        for (let i = 0; i <= Multi; i++) {
+                            this.setState(prevState => ({
+                                visibleDetails: { ...prevState.visibleDetails, [i]: "" },
+                                visibleRule: { ...prevState.visibleRule, [i]: "" },
+                                visibleBar: { ...prevState.visibleBar, [i]: "" },
+
+                                visibleAll: { ...prevState.visibleAll, [i]: "" }
+                            }))
+                        }
+                        this.handleClick(event)
+                        this.setState({
+                            currentPage: this.state.currentPage + 1,
+                            currentPage2: this.state.currentPage2 + 1,
+                            currentPage3: this.state.currentPage3 + 1
+                        })
+                    }
+
+                    // Next Page3
+                    nextPage3 = event => {
+                        let maxPage = this.state.maxPage
+                        let len = this.renderLibrary().length
+                        let Multi = len * maxPage
+                        for (let i = 0; i <= Multi; i++) {
+                            this.setState(prevState => ({
+                                visibleDetails: { ...prevState.visibleDetails, [i]: "" },
+                                visibleRule: { ...prevState.visibleRule, [i]: "" },
+                                visibleBar: { ...prevState.visibleBar, [i]: "" },
+
+                                visibleAll: { ...prevState.visibleAll, [i]: "" }
+                            }))
+                        }
+                        this.handleClick(event)
+                        this.setState({
+                            currentPage: this.state.currentPage3,
+                            currentPage2: this.state.currentPage3 + 1,
+                            currentPage3: this.state.currentPage3 + 2
+                        })
+                    }
+
+                    //start handler filter ExitTime
+                    handlerFilterExitDep = evt => {
+                        const { state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey } = this.state;
+                        let value = evt.target.value
+                        let key = evt.target.getAttribute("data-key")
+                        if (key == '1') {
+                            if (value < 10) {
+                                this.setState(
+                                    {
+                                        filterExitTimeDepF: "0" + evt.target.value,
+                                        rangevalExitTimeDepF: "0" + evt.target.value + ": 00",
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            }
+                            else {
+                                this.setState(
+                                    {
+                                        filterExitTimeDepF: evt.target.value,
+                                        rangevalExitTimeDepF: evt.target.value + ": 00",
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            }
+                        } else if (key == '2') {
+                            if (value < 10) {
+
+                                this.setState(
+                                    {
+                                        filterExitTimeDepS: "0" + evt.target.value,
+                                        rangevalExitTimeDepS: "0" + evt.target.value + ": 00",
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            }
+                            else {
+                                this.setState(
+                                    {
+                                        filterExitTimeDepS: evt.target.value,
+                                        rangevalExitTimeDepS: evt.target.value + ": 00",
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            }
+                        }
+
+                    }//end handler filter ExitTime
+
+
+
+                    // start handler filter price
+                    handlerFilterTotal = evt => {
+                        const { state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey } = this.state;
+                        let renderMax = this.renderMaxTotal()
+                        let value = evt.target.value
+                        let key = evt.target.getAttribute("data-key")
+                        if (key == '1') {
+                            this.setState(
+                                {
+                                    filterTotalF: evt.target.value,
+                                    rangevalTotalF: evt.target.value,
+                                },
+                                () => {
+                                    this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                }
+                            )
+                        } else if (key == '2') {
+                            evt.target.max = renderMax
+                            this.setState(
+                                {
+                                    filterTotalS: evt.target.value,
+                                    rangevalTotalS: evt.target.value,
+                                },
+                                () => {
+                                    this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                }
+                            )
+                        }
+                    } // end handler filter price
+
+                    // start handler filter StopTime
+                    handlerFilterTimeDep = evt => {
+                        const { state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey } = this.state;
+                        let value = evt.target.value
+                        let key = evt.target.getAttribute("data-key")
+                        if (key == '1') {
+                            if (value < 10) {
+                                this.setState(
+                                    {
+                                        filterTimeDepF: evt.target.value,
+                                        rangevalTimeDepF: "0" + evt.target.value,
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            } else {
+                                this.setState(
+                                    {
+                                        filterTimeDepF: evt.target.value,
+                                        rangevalTimeDepF: evt.target.value,
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            }
+
+                        } else if (key == '2') {
+                            if (value < 10) {
+                                this.setState(
+                                    {
+                                        filterTimeDepS: evt.target.value,
+                                        rangevalTimeDepS: "0" + evt.target.value,
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            } else {
+                                this.setState(
+                                    {
+                                        filterTimeDepS: evt.target.value,
+                                        rangevalTimeDepS: evt.target.value,
+                                    },
+                                    () => {
+                                        this.reorganiseLibrary(state_airlines, state_stops, state_isSystemFlight, state_airbaggage, state_checktype, state_checkkey);
+                                    }
+                                )
+                            }
+
+                        }
+
+                    } // end handler filter StopTime
+                    // handler per page
+                    handlePerPage = (evt) =>
+                        this.setState({
+                            perPage: evt.target.value
+                        }, () => this.reorganiseLibrary());
+
+                    // handler render of library
+                    renderLibrary = () => {
+                        const { library, currentPage } = this.state;
+                        if (!library || (library && library.length === 0)) {
+                            return <div className="message_box_nodata">
+                                <i className="fas fa-exclamation-triangle icon_message_box color_5"></i>
+                                <div className="line-one font_18">
+                                    <span>برای جستجوی شما نتیجه ای یافت نشد .</span>
+                                </div>
+                                <div className="line-two">
+                                    <div> لطفا برای دریافت بهترین قیمت ها و بررسی مجدد ظرفیت روی دکمه زیر کلیک کنید.</div>
+                                    <button className="background-color_5 font-weight hvr-horizontal" onClick={this.renderhomepage}>صفحه اصلی</button>
+                                    <button className="background-color_5 font-weight hvr-horizontal" onClick={this.renderResearch}  >جستجوی مجدد</button>
+                                </div>
+                            </div>
+                        }
+                        return library[currentPage - 1].map((item, i) => (
+                            <div className="search-item transition background-color_white border-radius dir-rtl">
+                                <form method="post" action="/OnewayView.bc" key={item._id}>
+                                    <input type="hidden" value="[##cms.query.from##]" name="from" />
+                                    <input type="hidden" value="[##cms.query.to##]" name="to" />
+                                    <input type="hidden" value="[##cms.query.fdate##]" name="fdate" />
+                                    <input type="hidden" value="[##cms.query.adult##]" name="adult" />
+                                    <input type="hidden" value="[##cms.query.child##]" name="child" />
+                                    <input type="hidden" value="[##cms.query.select-age##]" name="select-age" />
+                                    <input type="hidden" value="[##cms.query.FlightClass##]" name="FlightClass" />
+                                    <input type="hidden" value={item.supplier} name="supplier" />
+                                    <input type="hidden" value={item.share} name="share" />
+                                    <input type="hidden" value={item.ticketinfooo.classes.classname} name="classname" />
+                                    <input type="hidden" value={item._id.value} name="idvalue" />
+                                    {this.renderproviderId(item._id)}
+                                    {this.renderprovider(item)}
+                                    {this.renderid(item)}
+                                    {this.renderProductid(item)}
+                                    <input type="hidden" value={this.renderChildrenCount(item)} name="childcount" />
+                                    <input type="hidden" value={this.renderInfantsCount(item)} name="infants" />
+                                    <input type="hidden" value={this.renderAdultsCount(item)} name="adultcount" />
+                                    <div className="flight-info p-relative">
+                                        <div className="d-row top-item">
+                                            <div className="img-item float-right text-center">
+                                                <img src={item.ticketinfooo.showstartairline} alt={item.routeshow.routesinfoo[0].routesinfoodetails.otherdetails.detailsairline} width="90" height="36" />
+                                                {this.renderProviderName(item)}
+                                                <div className="class-item font_10 text-center width_70">
+                                                    {item.ticketinfooo.classes.classname} | شماره پرواز: {item.routeshow.routesinfoo[0].routesinfoodetails.otherdetails.detailsroutecode}
+                                                </div>
+                                                <span className="provider-item font_11 text-center width_70 background-color_1">{this.renderisSystemFlight(item)}</span>
+                                            </div>
+                                            <div className="width_70 float-left">
+                                                <div className="info-item float-right text-right">
+                                                    <p className="color_gray font_13">{item.infooo.showstartcity}</p>
+                                                    <div className="airport-item font_12 font-weight">{item.ticketinfooo.exitinfo.shortstartairport}</div>
+                                                    <div className="time-item font-weight color_5" >{item.ticketinfooo.exitinfo.showexittime}</div>
+                                                </div>
+                                                <div className="duration-item float-right text-center width_60">
+                                                    <div className="item-hour font_11 color_gray">
+                                                        <span>زمان سفر: </span>
+                                                        <span className="hour">{item.ticketinfooo.stoppinfoo.showtiming}</span>
+                                                    </div>
+                                                    <div className="d-flex p-relative">
+                                                        {this.renderStopinfo_shape(item.ticketinfooo.stoppinfoo.showstopinfo)}
+                                                        <svg className="svg-icon-flight p-absolute">
+                                                            <path fill="#FEC529" fill-rule="evenodd"
+                                                                d="M12 1.37C6.139 1.37 1.37 6.138 1.37 12c0 5.86 4.769 10.63 10.63 10.63 5.861 0 10.63-4.77 10.63-10.63 0-5.862-4.77-10.63-10.63-10.63M12 24C5.384 24 0 18.617 0 12S5.384 0 12 0s12 5.383 12 12-5.384 12-12 12m-1.878-4.93l.77.002a.88.88 0 00.715-.367l3.881-5.376h2.91v-.004c.01 0 .019.004.03.004a1.34 1.34 0 001.35-1.33 1.34 1.34 0 00-1.35-1.328c-.011 0-.02.003-.03.003v-.003h-2.91l-3.881-5.377a.882.882 0 00-.715-.366l-.77.001a.443.443 0 00-.413.595l2.052 5.59H9.033L7.577 9.34H5.635L6.7 12l-1.064 2.659h1.942l1.456-1.774h2.728l-2.052 5.59a.442.442 0 00.413.595">
+                                                            </path>
+                                                        </svg>
+                                                        <span className="stop-item p-absolute font_10">{this.renderStopinfo(item.ticketinfooo.stoppinfoo.showstopinfo)}</span>
+                                                        <span className="airbaggage-def p-absolute font_11">{this.renderairbaggage(item.routeshow.routesinfoo[0])}</span>
+                                                    </div>
+                                                </div>
+                                                <div className="info-item text-left float-left">
+                                                    <p className="color_gray font_13">{item.infooo.showendcity}</p>
+                                                    <div className="airport-item font_12 font-weight">{item.ticketinfooo.arrivalinfo.shortendairport}</div>
+                                                    <div className="time-item font-weight color_5">{item.ticketinfooo.arrivalinfo.showarrivaltime}</div>
+                                                </div>
+                                                <div className="clr"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="cost-item p-relative background-color_white">
+                                        {this.renderCommission(item)}
+                                        <div className="width_30 float-left text-left btn-item"><span
+                                            className="details-link font_13 cursor-pointer" onClick={((e) => this.showAllDetails(e, i))}>جزئیات پرواز</span><button
+                                                type="submit"
+                                                className="btn_2 background-color_1 color_white hvr-horizontal transition">خرید بلیط </button> </div>
+                                        <div className="clr"></div>
+                                    </div>
+
+                                    <div key={i} className={`bg-details  width_100 ${!this.state.visibleAll[i] ? "unvisible" : "visible"}`} onClick={((e) => this.closeAllDetails(e, i))}> </div>
+                                    <div key={i} className={`details-container border-radius background-color_white width_60 dir-rtl font_13 ${!this.state.visibleAll[i] ? "unvisible" : "visible"}`}>
+                                        <div className="float-right width_70">
+                                            <div className="details-header">
+                                                <i className="fa fa-times font_14 cursor-pointer text-center background-color_white color_gray" onClick={((e) => this.closeAllDetails(e, i))}></i>
+                                                <span className="start-city">{item.infooo.showstartcity}</span><i className="fas fa-exchange-alt color_1 font_16"></i>
+                                                <span>{item.infooo.showendcity}</span>
+                                                <div className="clr"></div>
+                                                <ul className="details-tab">
+                                                    <li className={`cursor-pointer color_gray ${!this.state.activeTab_details[i] ? "" : "active"}`} onClick={((e) => this.showDetails(e, i))}>
+                                                        جزئیات پرواز</li>
+                                                    <li className={`cursor-pointer color_gray ${!this.state.activeTab_bar[i] ? "" : "active"}`} onClick={(e) => this.showBar(e, i)}>
+                                                        قوانین بار</li>
+                                                    <li className={`cursor-pointer color_gray ${!this.state.activeTab_rule[i] ? "" : "active"}`} onClick={((e) => this.showRule(e, i))}>
+                                                        قوانین پرواز</li>
+                                                </ul>
+                                            </div>
+                                            <div key={i} className={`details-item-container ${!this.state.visibleDetails[i] ? "unvisible" : "visible"}`}>
+                                                {this.renderFlightDetails(item, 'dep')}
+                                            </div>
+                                            <div key={i} className={`details-item-container ${!this.state.visibleRule[i] ? "unvisible" : "visible"}`}>
+                                                {this.renderRule(item, i)}
+                                            </div>
+                                            <div key={i} className={`details-item-container ${!this.state.visibleBar[i] ? "unvisible" : "visible"}`}>
+                                                {this.renderBar(item, i)}
+                                            </div>
+                                        </div>
+                                        <div className="float-left width_30 price">
+                                            <p className="price-title text-center">جزئیات قیمت</p>
+                                            {this.renderCost_table(item)}
+                                            <div className="price-details-total">
+                                                <div className="width_30 float-right font-weight color_gray">مبلغ نهایی</div>
+                                                <div className="width_70 float-left text-left dir-rtl">
+                                                    <span className="font_20 color_5">{new Intl.NumberFormat().format(item.totalCom)}</span><span className="font_11 unit-price"
+                                                    >{item.moneytype}</span></div>
+                                                <div className="clr"></div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </form>
+                                <div className="clr"></div>
+                            </div>
+                        ))
+                    }
+
+
+                    render() {
+                        const { library, currentPage, perPage, maxPage, rangevalExitTimeDepF, rangevalExitTimeDepS, rangevalExitTimeDesF, rangevalExitTimeDesS, rangevalTotalF, rangevalTotalS, rangevalTimeDepF, rangevalTimeDepS, rangevalTimeDesF, rangevalTimeDesS, librarySecond } = this.state;
+                        let defaultRangeTotalF = null;
+                        defaultRangeTotalF = rangevalTotalF
+                            ? (<span>{new Intl.NumberFormat().format(rangevalTotalF)}</span>)
+                            : (<span>{new Intl.NumberFormat().format(this.renderMinTotal())}</span>);
+                        let defaultRangeTotalS = null;
+                        defaultRangeTotalS = rangevalTotalS
+                            ? (<span>{new Intl.NumberFormat().format(rangevalTotalS)}</span>)
+                            : (<span>{new Intl.NumberFormat().format(this.renderMaxTotal())}</span>);
+
+                        let defaultRangeTimeDepF = null;
+                        defaultRangeTimeDepF = rangevalTimeDepF
+                            ? (<span>{rangevalTimeDepF}</span>)
+                            : (<span>{this.renderMinTimeDep()}</span>);
+                        let defaultRangeTimeDepS = null;
+                        defaultRangeTimeDepS = rangevalTimeDepS
+                            ? (<span>{rangevalTimeDepS}</span>)
+                            : (<span>{this.renderMaxTimeDep()}</span>);
+
+                        return (<div className="list-container">
+                            <div className="section-sidebar float-right">
+                                <p className="dir-rtl"><span className="color_5 font-weight list_count">{this.renderCount()}</span> بلیط پیدا شد.</p>
+                                <p className="section-timer dir-rtl">مدت زمان باقی مانده : <span id="timer"
+                                    className="font-weight EnNum font_20">00:00:00</span></p>
+
+                                <div className="filters-container">
+                                    <p>فیلترها</p>
+                                    {this.ShowFilterFlight()}
+                                    <div className="filter-container part_2">
+                                        <p className="filter-head"><span className="font_14 float-right">ساعت حرکت (رفت)</span><i
+                                            className="fa fa-angle-up float-left"></i>
+                                            <div className="clr"></div>
+                                        </p>
+                                        <div className="content-filter margin-top p-relative">
+                                            <i className="fa fa-moon p-absolute color_3 font_11"></i>
+                                            <fieldset>
+                                                <hr />
+                                                <div class="slider-wrapper">
+                                                    <input id="min" type="range" min="0" max="24" defaultValue="24" step="1" onChange={((e) => this.handlerFilterExitDep(e))} data-value="2_ETDep" data-key="2" />
+                                                    <input id="max" type="range" min="0" max="24" defaultValue="0" step="1" onChange={((e) => this.handlerFilterExitDep(e))} data-value="1_ETDep" data-key="1" />
+                                                </div>
+                                            </fieldset>
+                                            <div className="rangevalSecond p-absolute font_11">{this.state.rangevalExitTimeDepS}
+                                            </div>
+                                            <i className="fa fa-cloud-sun p-absolute color_3 font_11"></i>
+                                            <div className="rangevalFirst p-absolute font_11">
+                                                {this.state.rangevalExitTimeDepF}
+                                            </div>
+                                            <i className="fa fa-sun p-absolute color_3 font_11"></i>
+                                        </div>
+                                    </div>
+                                    <div className="filter-container part_2">
+                                        <p className="filter-head"> <span className="font_14 float-right">بازه قیمت </span><i
+                                            className="fa fa-angle-up float-left"></i>
+                                            <div className="clr"></div>
+                                        </p>
+                                        <div className="content-filter  p-relative">
+                                            <fieldset>
+                                                <hr />
+                                                <div class="slider-wrapper">
+                                                    <input id="min" type="range" min={this.renderMinTotal() || 0} max='999999999' defaultValue='999999999' step="1000" onChange={((e) => this.handlerFilterTotal(e))} data-value="2_T" data-key="2" />
+                                                    <input id="max" type="range" min={this.renderMinTotal()} max={this.renderMaxTotal()} defaultValue={this.renderMinTotal()} step="1000" onChange={((e) => this.handlerFilterTotal(e))} data-value="1_T" data-key="1" />
+                                                </div>
+                                            </fieldset>
+                                            <div className="rangevalSecond_2 p-absolute font_11">{defaultRangeTotalS}<span
+                                                className="font_10 unit_content">ریال</span>
+                                            </div>
+                                            <div className="rangevalFirst_2 p-absolute font_11">{defaultRangeTotalF}<span
+                                                className="font_10 unit_content">ریال</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="filter-container">
+                                        <p className="filter-head"><span className="font_14 float-right">مدت زمان پرواز (رفت)</span><i
+                                            className="fa fa-angle-up float-left"></i>
+                                            <div className="clr"></div>
+                                        </p>
+                                        <div className="content-filter p-relative">
+                                            <fieldset>
+                                                <hr />
+                                                <div class="slider-wrapper">
+                                                    <input id="min" type="range" min={this.renderMinTimeDep()} max={this.renderMaxTimeDep()} defaultValue='100' step="1" onChange={((e) => this.handlerFilterTimeDep(e))} data-value="2_TDep" data-key="2" />
+                                                    <input id="max" type="range" min={this.renderMinTimeDep()} max={this.renderMaxTimeDep()} defaultValue='0' step="1" onChange={((e) => this.handlerFilterTimeDep(e))} data-value="1_TDep" data-key="1" />
+                                                </div>
+                                            </fieldset>
+                                            <div className="rangevalFirst_2 p-absolute font_11">{defaultRangeTimeDepF} <span>ساعت</span>
+                                            </div>
+                                            <div className="rangevalSecond_2 p-absolute font_11">{defaultRangeTimeDepS} <span>ساعت</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div className="section-list float-left width_70">
+                                <div className="dir-rtl">
+                                    <div className="sort-box float-right width_70 flight">
+                                        <ul className="sort-items d-flex background-color_white border-radius">
+                                            <li className={`p-relative font_13 cursor-pointer text-center ${this.state.activeprice}`} data-type="price" data-key={this.state.checkkeyprice} onClick={((e) => this.handleChange(e))}> قیمت<i className={`fa fa-sort-amount-down font_14 float-left ${!this.state.priceS[0] ? "fa-sort-amount-down" : "fa-sort-amount-up"}`}></i></li>
+                                            <li className={`p-relative font_13 cursor-pointer text-center ${this.state.activestop}`} data-type="stop" data-key={this.state.checkkeystop} onClick={((e) => this.handleChange(e))}> توقف<i className={`fa fa-sort-amount-down font_14 float-left  ${!this.state.stopS[0] ? "fa-sort-amount-down" : "fa-sort-amount-up"}`}></i></li>
+                                            <li className={`p-relative font_13 cursor-pointer text-center ${this.state.activetime}`} data-type="Time" data-key={this.state.checkkeytime} onClick={((e) => this.handleChange(e))}> مدت پرواز<i className={`fa fa-sort-amount-down font_14 float-left ${!this.state.timeS[0] ? "fa-sort-amount-down" : "fa-sort-amount-up"}`}></i></li>
+                                            <li className={`p-relative font_13 cursor-pointer text-center ${this.state.activetakeoff}`} data-type="takeoff" data-key={this.state.checkkeytakeoff} onClick={((e) => this.handleChange(e))}> ساعت پرواز<i className={`fa fa-sort-amount-down font_14 float-left ${!this.state.takeoffS[0] ? "fa-sort-amount-down" : "fa-sort-amount-up"}`}></i></li>
+                                            <li className={`p-relative font_13 cursor-pointer text-center ${this.state.activedefault}`} data-type="default" data-key="0" onClick={((e) => this.handleChange(e))}> پیشفرض<i className="fa fa-sort-amount-down font_14 float-left"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div
+                                        className="border-radius background-color_white float-left font_13 next-prev-container text-center p-relative">
+                                        <span className="before-btn float-right p-absolute border-radius font_13 color_1 cursor-pointer"><i
+                                            className="fa fa-angle-right float-right"></i>روز
+                                            قبل</span>
+                                        <span className="date font_12">[##cms.query.fdate##]</span>
+                                        <span className="after-btn float-right p-absolute border-radius font_13 color_1 cursor-pointer">روز
+                                            بعد<i className="fa fa-angle-left float-left"></i></span>
+                                    </div>
+                                    <div className="clr"></div>
+                                </div>
+                                <div className="section-list">
+                                    {this.renderLibrary()}
+                                    <ul id="page-numbers">
+                                        <li className="nexprev">
+                                            {currentPage !== 1 && (
+                                                <button onClick={this.previousPage}><i className="fa fa-backward"></i></button>
+                                            )}
+                                        </li>
+                                        <li className="controls background-color_1 font-weight">{this.state.currentPage}</li>
+                                        {(this.state.currentPage2 < maxPage) && (<li className="controls" onClick={this.nextPage}>{this.state.currentPage2}</li>
+                                        )}
+                                        {(this.state.currentPage3 < maxPage) && (<li className="controls" onClick={this.nextPage3}>{this.state.currentPage3}</li>
+                                        )}
+                                        <li className="restControls">...</li>
+                                        <li className="controls">{this.state.maxPage}</li>
+                                        <li className="nexprev">
+                                            {(this.state.currentPage < maxPage) && (<button onClick={this.nextPage}><i className="fa fa-forward"></i></button>
+                                            )}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="clr"></div>
+                        </div>
+                        )
+                    }
+
+                    renderMinTotal = () => {
+                        const { librarySecond } = this.state;
+                        if (!librarySecond || (librarySecond && librarySecond.length === 0)) {
+                            return ''
+                        }
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMin = Math.min(...lib.map(item => item.totalCom))
+                            return acc === undefined ? libMin : libMin < acc ? libMin : acc
+                        }, undefined)
+                    }
+                    renderMaxTotal = () => {
+                        const { librarySecond } = this.state;
+
+                        if (!librarySecond || (librarySecond && librarySecond.length === 0)) {
+                            return ''
+                        }
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMax = Math.max(...lib.map(item => item.totalCom))
+                            return libMax > acc ? libMax : acc
+                        }, 0)
+                    }
+                    renderMinTimeDep = () => {
+                        const { librarySecond } = this.state;
+                        if (!librarySecond || (librarySecond && librarySecond.length === 0)) {
+                            return ''
+                        }
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMin = Math.min(...lib.map(item => this.renderStoppinfo(item.ticketinfooo.stoppinfoo.showtiming)))
+                            return acc === undefined ? libMin : libMin < acc ? libMin : acc
+                        }, undefined)
+                    }
+                    renderMaxTimeDep = () => {
+                        const { librarySecond } = this.state;
+
+                        if (!librarySecond || (librarySecond && librarySecond.length === 0)) {
+                            return ''
+                        }
+                        return librarySecond.reduce((acc, lib) => {
+                            const libMax = Math.max(...lib.map(item => this.renderStoppinfoS(item.ticketinfooo.stoppinfoo.showtiming)))
+                            return libMax > acc ? libMax : acc
+                        }, 0)
+                    }
+
+                    ShowFilterFlight() {
+                        let element = this.state.data;
+                        if (!element) return null;
+                        return <div>
+                            <div className="filter-container part_2">
+                                <p className="filter-head"><span className="font_14 float-right">شرکت های هواپیمایی</span><i className="fa fa-angle-up float-left"></i><div className="clr"></div></p>
+                                <div className="filter-row airline_results">
+                                    {this.renderairlines(element)}
+                                </div>
+                            </div>
+                            <div className="filter-container part_2">
+                                <p className="filter-head"><span className="font_14 float-right">تعداد توقف</span><i className="fa fa-angle-up float-left"></i><div className="clr"></div></p>
+                                <div className="filter-row">
+                                    {this.renderstop(element)}
+                                </div>
+                            </div>
+                            <div className="filter-container part_2">
+                                <p className="filter-head"><span className="font_14 float-right">نوع بلیط</span><i className="fa fa-angle-up float-left"></i><div className="clr"></div></p>
+                                <div className="filter-row">
+                                    <div className="filter-body"><div className="section-input_list p-relative" data-index="1"><input type="checkbox" className="isSystemFlight p-absolute" onChange={((e) => this.handleChange(e))} defaultChecked={this.props.defaultChecked} value="false" /><label><span className="checkbox"><div className="text-checkbox">چارتر</div></span></label></div><div className="clr"></div></div>
+                                    <div className="filter-body"><div className="section-input_list p-relative" data-index="1"><input type="checkbox" className="isSystemFlight p-absolute" onChange={((e) => this.handleChange(e))} defaultChecked={this.props.defaultChecked} value="true" /><label><span className="checkbox"><div className="text-checkbox">سیستمی</div></span></label></div><div className="clr"></div></div>
+                                </div>
+                            </div>
+                            <div className="filter-container part_2">
+                                <p className="filter-head"><span className="font_14 float-right">بار پرواز</span><i className="fa fa-angle-up float-left"></i><div className="clr"></div></p>
+                                <div className="filter-row">
+                                    {this.renderBaggages(element)}
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    renderairlines(element) {
+                        let indents = [];
+                        if (element.length !== undefined) {
+                            let sentences = [...(new Set(element.map(d => d['routeshow']['routesinfoo']).flat().map(info => info['routesinfoodetails']['otherdetails']['detailsairline'])))]
+                            let sentencesimg = [...(new Set(element.map(d => d['routeshow']['routesinfoo']).flat().map(info => info['routesinfoodetails']['otherdetails']['detailsairlineimage'])))]
+                            for (let i = 0; i < sentences.length; i++) {
+                                let singleSentence = <div className="filter-body airline_filter"><div className="section-input_list p-relative" data-index="1"><input type="checkbox" value={sentences[i]} className="startairline p-absolute" onChange={((e) => this.handleChange(e))} defaultChecked={this.props.defaultChecked} /><label><img src={sentencesimg[i]} alt={sentences[i]} width="50" height="20" className="img_airline p-absolute" /><span className="checkbox"><div className="name_airline text-checkbox font_11 float-right">{sentences[i]}</div></span><span className="total_content font_11 float-left ">از <span className="min_total">{new Intl.NumberFormat().format(this.min_totalByAirline(element, sentences[i]))}</span><span className="unit_content">{[...(new Set(element.map(x => x.moneytype)))]}</span></span></label></div><div className="clr"></div></div>
+                                let output = singleSentence
+                                indents.push(singleSentence)
+                            }
+
+                            return (
+                                indents
+                            )
+
+                        }
+                    }
+
+
+                    min_totalByAirline = (data, name) => {
+                        const totals = data
+                            .filter(x =>
+                                x.routeshow.routesinfoo.find(y => y.routesinfoodetails.otherdetails.detailsairline === name)
+                            ).map(x => x.total);
+                        return Math.min(...totals);
+                    }
+
+                    renderstop(element) {
+                        if (element.length !== undefined) {
+                            let sentences = [...(new Set(element.map(d => d['ticketinfooo']['stoppinfoo']['showstopinfo']).flat()))]
+                            let singleSentence = sentences.map(s => <React.Fragment><div className="filter-body"><div className="section-input_list p-relative" data-index="1"><input type="checkbox" value={s} className="stops p-absolute" onChange={((e) => this.handleChange(e))} defaultChecked={this.props.defaultChecked} /><label><span className="checkbox"><div className="text-checkbox">{s}</div></span></label></div><div className="clr"></div></div></React.Fragment>);
+                            let output = singleSentence
+                            return (
+                                output
+                            )
+                        }
+                    }
+
+                    renderBaggages(element) {
+                        let indents = [];
+                        if (element.length !== undefined) {
+                            let sentences = [...(new Set(element.map(d => d['routeshow']['routesinfoo']).flat().map(info => info['airbaggage'])))]
+                            for (let i = 0; i < sentences.length; i++) {
+                                let singleSentence = <div className="filter-body"><div className="section-input_list p-relative" data-index="1">
+                                    <input type="checkbox" value={sentences[i]} className="airbaggage p-absolute" onChange={((e) => this.handleChange(e))}
+                                        defaultChecked={this.props.defaultChecked} />
+                                    <label><span className="checkbox"><div className="text-checkbox">{sentences[i]}</div></span></label>
+                                </div><div className="clr"></div></div>
+                                indents.push(singleSentence)
+                            }
+
+                            return (
+                                indents
+                            )
+
+                        }
+                    }
+                    handleChange = (e) => {
+                        // window.scrollTo({
+                        //     top: 0,
+                        //     behavior: 'smooth'
+                        // });
+                        let checktype = e.target.getAttribute("data-type")
+                        let checkkey = e.target.getAttribute("data-key")
+                        let isChecked = e.target.checked
+                        let valu = e.target.value
+                        let classname = e.target.getAttribute("class");
+                        switch (classname) {
+                            case 'startairline p-absolute':
+                                if (isChecked) {
+                                    this.airlines.push(valu + ',')
+                                } else {
+                                    this.airlines.splice(this.airlines.indexOf(valu + ','), 1)
+                                }
+                                break;
+                            case 'stops p-absolute':
+                                if (isChecked) {
+                                    this.stops.push(valu + ',')
+                                } else {
+                                    this.stops.splice(this.stops.indexOf(valu + ','), 1)
+                                }
+                                break;
+                            case 'isSystemFlight p-absolute':
+                                if (isChecked) {
+                                    this.isSystemFlight.push(valu + ',')
+                                } else {
+                                    this.isSystemFlight.splice(this.isSystemFlight.indexOf(valu + ','), 1)
+                                }
+                                break;
+                            case 'airbaggage p-absolute':
+                                if (isChecked) {
+                                    this.airbaggage.push(valu + ',')
+                                } else {
+                                    this.airbaggage.splice(this.airbaggage.indexOf(valu + ','), 1)
+                                }
+                                break;
+                        }
+                        $(document).trigger('update_result', [this.airlines.join(), this.stops.join(), this.isSystemFlight.join(), this.airbaggage.join(), checktype, checkkey])
+                        this.setState({
+                            state_airlines: this.airlines.join(),
+                            state_stops: this.stops.join(),
+                            state_isSystemFlight: this.isSystemFlight.join(),
+                            state_airbaggage: this.airbaggage.join(),
+                            state_checktype: checktype,
+                            state_checkkey: checkkey,
+                        })
+                    }
+                    rendertimesorting(element) {
+                        if (element !== "-") {
+                            let splitElement = element.split(" ")
+                            let SplitElementmin = splitElement[1].slice(0, -1)
+                            let SplitElementhour = parseInt(splitElement[0].slice(0, -1)) * 60
+                            let sumsplits = SplitElementhour + parseInt(SplitElementmin)
+                            return sumsplits
+                        } else {
+                            return 0
+                        }
+                    }
+                    rendertakeoffsorting(element) {
+                        let splitElement = element.split(":")
+                        let SplitElementmin = splitElement[1]
+                        let SplitElementhour = parseInt(splitElement[0]) * 60
+                        let sumsplits = SplitElementhour + parseInt(SplitElementmin)
+                        return sumsplits
+                    }
+                    renderStoppinfo(element) {
+                        let splitElement = element.split(" ")
+                        return splitElement[0].slice(0, -1)
+                    }
+                    renderStoppinfoF(element) {
+                        let splitElement = element.split(" ")
+                        return splitElement[0].slice(0, -1)
+
+                    }
+                    renderStoppinfoS(element) {
+                        let splitElement = element.split(" ")
+                        let SplitElementSecond = splitElement[1]
+                        if (SplitElementSecond !== undefined) {
+                            let SliceElementSecond = splitElement[1].slice(0, -1)
+                            if (SliceElementSecond > 0) {
+                                return parseInt(splitElement[0].slice(0, -1)) + 1
+                            } else {
+                                return splitElement[0].slice(0, -1)
+                            }
+                        }
+
+                    }
+                    renderCount(element) {
+                        let maxPage = this.state.maxPage
+                        let len = this.renderLibrary().length
+                        let sum = len * maxPage
+                        sum = sum || 0
+                        if (sum == '0') {
+                            $("#page-numbers").hide()
+                            $(".message_box_nodata").show()
+
+                        } else {
+                            $("#page-numbers").show()
+                            $(".message_box_nodata").hide()
+                        }
+
+                    }
+                    renderhomepage = event => {
+                        return window.location = '/'
+                    }
+                    renderResearch = event => {
+                        return location.reload()
+                    }
+                    renderid(element) {
+                        let id = element._id
+                        if (typeof id === 'string') {
+                            return <input type="hidden" value={id} name="idnows" />
+                        } else if (typeof id === 'object') {
+                            return <input type="hidden" value={JSON.stringify(id)} name="idws" />
+                        }
+                    }
+                    renderProductid(element) {
+                        if (typeof element._id === 'string') {
+                            return <input type="hidden" value={element._id} name="productid" />
+                        } else if (typeof element._id === 'object') {
+                            return <input type="hidden" value={element._id.value} name="productid" />
+                        }
+                    }
+
+                    renderChildrenCount(element) {
+                        if (element.special_cost_table) {
+                            let elementAdd = 0;
+                            for (let i = 0; i < element.special_cost_table.childs.length; i++) {
+                                elementAdd += parseInt(element.special_cost_table.childs[i].count)
+                            }
+                            return elementAdd
+                        } else {
+                            return element.childs.count
+                        }
+                    }
+                    renderInfantsCount(element) {
+                        if (element.special_cost_table) {
+                            let elementAdd = 0;
+                            for (let i = 0; i < element.special_cost_table.infants.length; i++) {
+                                elementAdd += parseInt(element.special_cost_table.infants[i].count)
+                            }
+                            return elementAdd
+                        } else {
+                            return element.infants.count
+                        }
+                    }
+                    renderAdultsCount(element) {
+                        if (element.special_cost_table) {
+                            let elementAdd = 0;
+                            for (let i = 0; i < element.special_cost_table.adults.length; i++) {
+                                elementAdd += parseInt(element.special_cost_table.adults[i].count)
+                            }
+                            return elementAdd
+                        } else {
+                            return element.adults.count
+                        }
+                    }
+                    renderprovider(element) {
+                        let provider = element._id.provider
+                        if (provider == undefined) {
+                            return '';
+                        } else {
+                            return <input type="hidden" value={JSON.stringify(provider)} name="mainprovider" />
+                        }
+                    }
+                    renderproviderId(element) {
+                        let provider = element.provider
+                        if (provider == undefined) {
+                            return <input type="hidden" value="0" name="provider" />;
+                        } else {
+                            let providerId = element.provider.provider_id
+                            return <input type="hidden" value={providerId} name="provider" />;
+                        }
+                    }
+
+                    renderCommission(element) {
+                        if (element.commissioncost == 0) {
+                            return <div className="float-right width_70"><div className="row-price">
+                                <span className="color_gray font_11">قیمت :</span><span
+                                    className="item-cost color_5 font_20 font-weight">{new Intl.NumberFormat().format(element.total)}</span><span
+                                        className="color_gray font_11">{element.moneytype}</span></div></div>;
+                        } else {
+                            return <div className="float-right width_70"><div className="row-price">
+                                <span className="color_gray font_11">قیمت :</span><span
+                                    className="item-cost color_gray font_14 font-weight">{new Intl.NumberFormat().format(element.total)}</span><span
+                                        className="color_gray font_11">{element.moneytype}</span> | </div>
+                                <div className="row-price">
+                                    <span className="color_gray font_11">کمیسیون :</span><span
+                                        className="item-cost color_gray font_14 font-weight">{new Intl.NumberFormat().format(element.commissioncost)}</span><span
+                                            className="color_gray font_11">{element.moneytype}</span> | </div>
+                                <div className="row-price">
+                                    <span className="color_gray font_11">قیمت نهایی :</span><span
+                                        className="item-cost color_5 font_20 font-weight">{new Intl.NumberFormat().format(element.totalCom)}</span><span
+                                            className="color_gray font_11">{element.moneytype}</span>
+                                </div>   </div>
+
+                        }
+                    }
+
+
+                    renderFlightDetails(element, deps) {
+                        let len = element.routeshow.routesinfoo.length
+                        let indents = [];
+                        for (let i = 0; i < len; i++) {
+                            indents.push(<div className="details-item">
+                                <p className="font_14 details-title font-weight color_1">{this.renderDepOrDes(deps)} ({element.routeshow.routesinfoo[i].routesinfoodetails.detailscityinfo.detailsstartcity} - {element.routeshow.routesinfoo[i].routesinfoodetails.detailscityinfo.detailsendcity})</p>
+                                <div className="d-row">
+                                    <div className="details-col d-row width_100">
+                                        <div className="width_20 float-right">
+                                            <p className="details_hour_dep p-relative font_16 color_gray font-weight">{element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsexittimeinfo.detailsexittime}</p>
+                                        </div>
+                                        <div className="width_80 float-left">
+                                            <p className="width_100">({element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsexittimeinfo.detailsexitairport})</p>
+                                            <span className="font_12 color_gray">
+                                                {element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsexittimeinfo.exit_date.sstring} </span>
+                                            <span className="mstring EnNum font_10 color_gray">
+                                                ( {element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsexittimeinfo.exit_date.mstring})</span>
+                                        </div>
+                                    </div>
+                                    <div className="details-col d-row p-relative middle-col">
+                                        <div className="middle-content width_100 font_11 color_gray">
+                                            <img src={element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsairlineimage} alt={element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsairline} width="90" height="36" />
+                                            <div><span>{element.ticketinfooo.classes.classname}</span><span className="middle-airline-name">{element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsairline}</span></div>
+                                            <span className="details-duration-time">مدت پرواز: {element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailstiming}</span> |
+                                            <span className="details-flight-code"> شماره پرواز: {element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsroutecode}</span> | <div className="details-flight-airbaggage">{this.renderairbaggage(element.routeshow.routesinfoo[i])}</div>
+                                        </div>
+
+                                    </div>
+                                    <div className="details-col d-row width_100">
+                                        <div className="width_20 float-right">
+                                            <p className="details_hour_des p-relative font_16 color_gray font-weight">{element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsarrivaltimeinfo.detailsarrivaltime}</p>
+                                        </div>
+                                        <div className="width_80 float-left">
+                                            <p className="width_100">({element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsarrivaltimeinfo.detailsarrivalairport})</p>
+                                            <span className="font_12 color_gray">
+                                                {element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsarrivaltimeinfo.arrival_date.sstring} </span>
+                                            <span className="mstring EnNum font_10 color_gray">
+                                                ( {element.routeshow.routesinfoo[i].routesinfoodetails.otherdetails.detailsarrivaltimeinfo.arrival_date.mstring})</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>);
+                        }
+                        return (
+                            indents
+                        )
+                    }
+                    renderairbaggage(element) {
+                        if (element.airbaggage !== '-') {
+                            if (element.airbaggage !== undefined) {
+                                let airbaggage = element.airbaggage
+                                return <div className="airbaggage dir-ltr"><svg viewBox="0 0 20 23" width="1.1rem" height="1.1rem" fill="currentColor" className="text-grays-400" data-v-73e1bbdf=""><path d="M8.107 2.8a.8.8 0 0 1 .8-.8h5.5a.8.8 0 0 1 0 1.6h-5.5a.8.8 0 0 1-.8-.8Zm6.9 5.7h-7a1.5 1.5 0 0 0-1.5 1.5v8a1.5 1.5 0 0 0 1.5 1.5h7a1.5 1.5 0 0 0 1.5-1.5v-8a1.5 1.5 0 0 0-1.5-1.5Zm-7-1.5a3 3 0 0 0-3 3v8a3 3 0 0 0 2.218 2.897 1.181 1.181 0 0 0-.018.224v.22a1.65 1.65 0 0 0 3.3 0v-.22c0-.043-.002-.083-.005-.121h2.01a1.421 1.421 0 0 0-.005.12v.22a1.65 1.65 0 0 0 3.3 0v-.22c0-.085-.007-.159-.02-.223A3.001 3.001 0 0 0 18.008 18v-8a3 3 0 0 0-3-3h-1.1V3.6h-1.4V7h-1.6V3.6h-1.4V7h-1.5Zm6.686 14c.009.039.014.08.014.12v.22a.55.55 0 0 1-1.1 0v-.22c0-.04.004-.081.013-.12h1.073Zm-6.386.12c0-.04.004-.081.013-.12h1.073c.009.039.014.08.014.12v.22a.55.55 0 0 1-1.1 0v-.22Zm.2-10.82a.6.6 0 0 0-.6.6v6.452a.6.6 0 0 0 1.2 0V10.9a.6.6 0 0 0-.6-.6Zm2.956 0a.6.6 0 0 0-.6.6v6.452a.6.6 0 0 0 1.2 0V10.9a.6.6 0 0 0-.6-.6Zm2.357.6a.6.6 0 1 1 1.2 0v6.452a.6.6 0 0 1-1.2 0V10.9Z" fill-rule="evenodd"></path></svg><span>{airbaggage}</span></div>
+                            }
+                        }
+                    }
+                    renderDepOrDes(element) {
+                        if (element == 'dep') {
+                            return 'پرواز رفت '
+
+                        } else {
+                            return 'پرواز برگشت '
+                        }
+                    }
+                    renderCost_table(element) {
+                        if (element.special_cost_table) {
+                            return <div className="price-details">
+                                {this.renderSpecial_cost_table_adults(element.special_cost_table.adults)}
+                                {this.renderSpecial_cost_table_childs(element.special_cost_table.childs)}
+                                {this.renderSpecial_cost_table_infants(element.special_cost_table.infants)}
+                            </div>
+                        } else {
+                            return <div className="price-details">
+                                <div className="price-details-item">
+                                    <div className="width_30 float-right color_gray">بزرگسال</div>
+                                    <div className="width_70 float-left text-left dir-rtl">
+                                        <span className="count"> {element.adults.count}<span className="multi"
+                                        >x</span></span><span>{new Intl.NumberFormat().format(element.adults.unit)}</span><span className="font_11 unit-price"
+                                        >{element.moneytype}</span></div>
+                                    <div className="clr"></div>
+                                </div>
+                                {this.renderTolCh(element.childs)}
+                                {this.renderTolInf(element.infants)}</div>
+                        }
+                    }
+
+                    renderTolCh(element) {
+                        if (element.count == 0) {
+                            return '';
+                        } else {
+                            return <div className="price-details-item">
+                                <div className="width_30 float-right color_gray">کودک</div>
+                                <div className="width_70 float-left text-left dir-rtl">
+                                    <span className="count"> {element.count}<span className="multi"
+                                    >x</span></span><span>{new Intl.NumberFormat().format(element.unit)}</span><span className="font_11 unit-price"
+                                    >{element.moneytype}</span></div>
+                                <div className="clr"></div>
+                            </div>
+
+                        }
+                    }
+                    renderTolInf(element) {
+                        if (element.count == 0) {
+                            return '';
+                        } else {
+                            return <div className="price-details-item">
+                                <div className="width_30 float-right color_gray">نوزاد</div>
+                                <div className="width_70 float-left text-left dir-rtl">
+                                    <span className="count"> {element.count}<span className="multi"
+                                    >x</span></span><span>{new Intl.NumberFormat().format(element.unit)}</span><span className="font_11 unit-price"
+                                    >{element.moneytype}</span></div>
+                                <div className="clr"></div>
+                            </div>
+                        }
+                    }
+
+                    renderSpecial_cost_table_adults(element) {
+                        let elementAdd = []
+                        for (let i = 0; i < element.length; i++) {
+                            elementAdd.push(<div className="price-details-item">
+                                <div className="width_30 float-right color_gray">بزرگسال</div>
+                                <div className="width_70 float-left text-left dir-rtl">
+                                    <span className="count">{element[i].count}<span className="multi"
+                                    >x</span></span><span>{new
+                                        Intl.NumberFormat().format(element[i].unit)}</span><span className="font_11 unit-price"
+                                        >{element[i].moneytype}</span></div>
+                                <div className="clr"></div>
+                            </div>)
+                        }
+                        return elementAdd
+                    }
+                    renderSpecial_cost_table_childs(element) {
+                        let elementAdd = []
+                        for (let i = 0; i < element.length; i++) {
+                            elementAdd.push(<div className="price-details-item">
+                                <div className="width_30 float-right color_gray">کودک</div>
+                                <div className="width_70 float-left text-left dir-rtl">
+                                    <span className="count">{element[i].count}<span className="multi"
+                                    >x</span></span><span>{new
+                                        Intl.NumberFormat().format(element[i].unit)}</span><span className="font_11 unit-price"
+                                        >{element[i].moneytype}</span></div>
+                                <div className="clr"></div>
+                            </div>
+                            )
+                        }
+                        return elementAdd
+                    }
+                    renderSpecial_cost_table_infants(element) {
+                        let elementAdd = []
+                        for (let i = 0; i < element.length; i++) {
+                            elementAdd.push(<div className="price-details-item">
+                                <div className="width_30 float-right color_gray">نوزاد</div>
+                                <div className="width_70 float-left text-left dir-rtl">
+                                    <span className="count">{element[i].count}<span className="multi"
+                                    >x</span></span><span>{new
+                                        Intl.NumberFormat().format(element[i].unit)}</span><span className="font_11 unit-price"
+                                        >{element[i].moneytype}</span></div>
+                                <div className="clr"></div>
+                            </div>)
+                        }
+                        return elementAdd
+                    }
+                    renderStopinfo(element) {
+                        if (element == 0) {
+                            return <span>بدون توقف</span>
+                        } else {
+                            return <span>{element} توقف</span>
+                        }
+                    }
+                    renderStopinfo_shape(element) {
+                        if (element == 0) {
+                            return <div className="duration-line p-absolute hr"></div>
+                        } else {
+                            return <div className="duration-line p-absolute hr">{this.renderCountStop(element)}</div>
+                        }
+                    }
+                    renderCountStop(element) {
+                        let indents = [];
+                        for (let i = 0; i < element; i++) {
+                            indents.push(<div className="background-color_white font_18 flight-duration-stop p-relative"></div>)
+                        }
+                        return (indents)
+                    }
+                    renderProviderName(element) {
+                        if (element._id.provider == undefined) {
+                            const providerName = this.state.data_provider
+                                .filter((x) => x.id === 0)
+                                .map((x) => x.name);
+                            return <div className="provider_name_F font_10 color_1">{providerName}</div>;
+                        } else {
+                            const providerName = this.state.data_provider
+                                .filter((x) => x.id === parseInt(element._id.provider.provider_id))
+                                .map((x) => x.name);
+                            return <div className="provider_name_F font_10 color_1">{providerName}</div>;
+                        }
+                    }
+                    renderisSystemFlight(element) {
+                        let keyToLowerCase = {};
+                        for (var key in element) {
+                            keyToLowerCase[key.toLowerCase()] = element[key];
+                        }
+                        if (keyToLowerCase.issystemflight == 'true') {
+                            return <span>سیستمی</span>
+                        } else {
+                            return <span>چارتر</span>
+                        }
+                    }
+                    renderRule(element, i) {
+                        if (typeof element.routeshow.description === 'string') {
+                            return <div className="details-item font_13">
+                                <p className="color_1 dir-rtl">قوانین پرواز رفت : </p>
+                                <p dir="auto" className="text-justify max-height details-result" dangerouslySetInnerHTML={{ __html: element.routeshow.description }}></p>
+                            </div>
+
+
+                        } else {
+                            return <div className="details-item font_13">
+                                <p className="color_1 dir-rtl  cursor-pointer" onClick={e => this.ruleDep(e, element, i)}>برای مشاهده قوانین پرواز رفت <span className="clicked  font-weight">کلیک</span> کنید</p>
+                                <div key={i} className={`${!this.state.loadingRuleDep[i] ? "unvisible" : "visible"}`}>
+                                    <div id="ballsWaveG">
+                                        <div id="ballsWaveG_1" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_2" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_3" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_4" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_5" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_6" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_7" className="ballsWaveG"></div>
+                                        <div id="ballsWaveG_8" className="ballsWaveG"></div>
+                                    </div>
+                                </div>
+                                <p dir="auto" className="text-justify  max-height details-result" dangerouslySetInnerHTML={{ __html: this.state.ruleDepTxt[i] }}></p>
+                            </div>
+
+                        }
+                    }
+                    renderBar(element, i) {
+                        if (typeof element.routeshow.description === 'string') {
+                            return <div className="details-item font_13 ">
+                                <p className="color_1 dir-rtl">بار پرواز رفت : </p>
+                                <p className="text-justify details-result">
+                                    <div dir="auto"><span dangerouslySetInnerHTML={{ __html: element.bar.bar2 }}></span></div>
+                                    <div dir="auto"><span dangerouslySetInnerHTML={{ __html: element.bar.bar1 }} ></span></div>
+                                </p>
+                            </div>
+
+                        } else {
+                            return <div>
+                                <div className="details-item font_13">
+                                    <p className="color_1 dir-rtl cursor-pointer" onClick={e => this.bardep(e, element, i)}>برای مشاهده قوانین بار رفت <span className="clicked font-weight">کلیک</span> کنید</p>
+                                    <div key={i} className={`${!this.state.loadingBarDep[i] ? "unvisible" : "visible"}`}>
+                                        <div id="ballsWaveG">
+                                            <div id="ballsWaveG_1" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_2" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_3" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_4" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_5" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_6" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_7" className="ballsWaveG"></div>
+                                            <div id="ballsWaveG_8" className="ballsWaveG"></div>
+                                        </div>
+                                    </div>
+                                    <p dir="auto" className="text-justify max-height details-result" dangerouslySetInnerHTML={{ __html: this.state.barDepTxt[i] }}></p>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                    ruleDep = (e, element, i) => {
+                        this.showloadingRuleDep(e, i);
+                        const obj = new Object();
+                        obj["id"] = element._id
+                        obj["adults"] = element.adults.count
+                        obj["childs"] = element.childs.count
+                        obj["infant"] = element.infants.count
+                        delete obj["bar_info"];
+                        setTimeout(() => {
+                            let return_rule = function () {
+                                let tmp = null;
+                                $.ajax({
+                                    'async': false,
+                                    'type': "POST",
+                                    'global': false,
+                                    'dataType': 'html',
+                                    'url': "Client_Flight_Rule.bc",
+                                    'data': { 'id': JSON.stringify(obj) },
+                                    'success': (response) => {
+                                        tmp = response;
+                                    }
+                                });
+                                return tmp;
+                            }();
+                            return this.setState(prevState => ({
+                                ruleDepTxt: { ...prevState.ruleDepTxt, [i]: return_rule },
+                                loadingRuleDep: { ...prevState.loadingRuleDep, [i]: "" }
+                            }))
+
+                        }, 1000)
+                    }
+
+
+                    bardep = (e, element, i) => {
+                        this.showloadingBarDep(e, i);
+                        let id = element.routeshow.description
+                        setTimeout(() => {
+                            let return_rule = function () {
+                                let tmp = null;
+                                $.ajax({
+                                    'async': false,
+                                    'type': "POST",
+                                    'global': false,
+                                    'dataType': 'html',
+                                    'url': "Client_Baggage_Rule.bc",
+                                    'data': { 'id': JSON.stringify(id) },
+                                    'success': (response) => {
+                                        tmp = response;
+                                    }
+                                });
+
+                                return tmp;
+                            }();
+                            return this.setState(prevState => ({
+                                barDepTxt: { ...prevState.barDepTxt, [i]: return_rule },
+                                loadingBarDep: { ...prevState.loadingBarDep, [i]: "" }
+                            }))
+
+                        }, 1000);
+                    };
+                    handleClick(event) {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth',
+                        })
+                        this.setState({
+                            currentPage: Number(event.target.id)
+                        })
+                    }
+
+
+                    showAllDetails = (e, i) => {
+                        this.setState(prevState => ({
+                            visibleAll: { ...prevState.visibleAll, [i]: !prevState.visibleAll[i] },
+                            visibleDetails: { ...prevState.visibleDetails, [i]: !prevState.visibleDetails[i] },
+                            activeTab_details: { ...prevState.activeTab_details, [i]: !prevState.activeTab_details[i] }
+                        }))
+                    }
+                    closeAllDetails = (e, i) => {
+                        this.setState(prevState => ({
+                            visibleAll: { ...prevState.visibleAll, [i]: !prevState.visibleAll[i] },
+                            visibleDetails: { ...prevState.visibleDetails, [i]: !prevState.visibleDetails[i] },
+                            activeTab_details: { ...prevState.activeTab_details, [i]: !prevState.activeTab_details[i] }
+                        }))
+                    }
+                    showDetails = (e, i) => {
+                        this.setState(prevState => ({
+                            visibleDetails: { ...prevState.visibleDetails, [i]: !prevState.visibleDetails[i] },
+                            activeTab_details: { ...prevState.activeTab_details, [i]: !prevState.activeTab_details[i] }
+                        }))
+                        if (this.state.visibleBar[i] == true) {
+                            this.setState(prevState => ({
+                                visibleBar: { ...prevState.visibleBar, [i]: !prevState.visibleBar[i] },
+                                activeTab_bar: { ...prevState.activeTab_bar, [i]: !prevState.activeTab_bar[i] }
+                            }))
+                        }
+
+                        if (this.state.visibleRule[i] == true) {
+                            this.setState(prevState => ({
+                                visibleRule: { ...prevState.visibleRule, [i]: !prevState.visibleRule[i] },
+                                activeTab_rule: { ...prevState.activeTab_rule, [i]: !prevState.activeTab_rule[i] }
+                            }))
+                        }
+                    }
+
+                    showBar = (e, i) => {
+                        this.setState(prevState => ({
+                            visibleBar: { ...prevState.visibleBar, [i]: !prevState.visibleBar[i] },
+                            activeTab_bar: { ...prevState.activeTab_bar, [i]: !prevState.activeTab_bar[i] }
+                        }))
+                        if (this.state.visibleDetails[i] == true) {
+                            this.setState(prevState => ({
+                                visibleDetails: { ...prevState.visibleDetails, [i]: !prevState.visibleDetails[i] },
+                                activeTab_details: { ...prevState.activeTab_details, [i]: !prevState.activeTab_details[i] }
+                            }))
+                        }
+
+                        if (this.state.visibleRule[i] == true) {
+                            this.setState(prevState => ({
+                                visibleRule: { ...prevState.visibleRule, [i]: !prevState.visibleRule[i] },
+                                activeTab_rule: { ...prevState.activeTab_rule, [i]: !prevState.activeTab_rule[i] }
+                            }))
+                        }
+                    }
+
+                    showRule = (e, i) => {
+                        this.setState(prevState => ({
+                            visibleRule: { ...prevState.visibleRule, [i]: !prevState.visibleRule[i] },
+                            activeTab_rule: { ...prevState.activeTab_rule, [i]: !prevState.activeTab_rule[i] }
+                        }))
+                        if (this.state.visibleDetails[i] == true) {
+                            this.setState(prevState => ({
+                                visibleDetails: { ...prevState.visibleDetails, [i]: !prevState.visibleDetails[i] },
+                                activeTab_details: { ...prevState.activeTab_details, [i]: !prevState.activeTab_details[i] }
+                            }))
+                        }
+                        if (this.state.visibleBar[i] == true) {
+                            this.setState(prevState => ({
+                                visibleBar: { ...prevState.visibleBar, [i]: !prevState.visibleBar[i] },
+                                activeTab_bar: { ...prevState.activeTab_bar, [i]: !prevState.activeTab_bar[i] }
+                            }))
+                        }
+
+                    }
+                    showloadingBarDep = (e, i) => {
+                        this.setState(prevState => ({
+                            loadingBarDep: { ...prevState.loadingBarDep, [i]: !prevState.loadingBarDep[i] }
+
+                        }))
+                    };
+
+                    showloadingRuleDep = (e, i) => {
+                        this.setState(prevState => ({
+                            loadingRuleDep: { ...prevState.loadingRuleDep, [i]: !prevState.loadingRuleDep[i] }
+                        }))
+                    }
+
+
+                }
+                ReactDOM.render(<App ></App>, document.getElementById('app'))
+                if ($(".start_date").val() == $(".persiancurrent").val()) {
+                    $(".before-btn").hide()
+                    $('.after-btn').click(NextDate);
+                } else {
+                    $('.before-btn').click(PrevDate);
+                    $('.after-btn').click(NextDate);
+                }
+            }
+
+
+        </script>
+        <!----------------JS REACT---------------->
+        <script src="[##cms.cms.cdn##]/js/react.production.min.js"></script>
+        <script src="[##cms.cms.cdn##]/js/react_dom.production.min.js"></script>
+        <script src="[##cms.cms.cdn##]/js/babel.min.js"></script>
+        <script src="[##cms.cms.cdn##]/js/react_paging.js"></script>
+        <script src="[##cms.cms.cdn##]/js/search.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            <basis core="call" file="Client_Basis_Calendar_js.inc" />
+        </script>
+    </body>
+
+    </html>
+</basis>
