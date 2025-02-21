@@ -45,15 +45,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const faqBtn = document.querySelectorAll(".faq-btn");
+  const faqBox = document.querySelectorAll(".faq-box");
+  const faqBtns = document.querySelectorAll(".faq-btn");
   const faqAnswers = document.querySelectorAll(".faq-answer");
 
-  faqBtn.forEach((button, index) => {
+  faqBox.forEach((button, index) => {
     button.addEventListener("click", function () {
       const faqAnswer = faqAnswers[index];
+      const faqBtn = faqBtns[index];
 
-      button.classList.toggle("rotate-180");
-      faqAnswer.classList.toggle("mt-2");
+      faqBtn.classList.toggle("rotate-180");
+      button.style.backgroundColor = "#FFF3E0";
+      button.style.border = "1px solid #FFDFB1";
 
       if (faqAnswer.classList.contains("max-h-0")) {
         faqAnswer.classList.remove("max-h-0", "opacity-0");
@@ -61,6 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         faqAnswer.classList.add("max-h-0", "opacity-0");
         faqAnswer.classList.remove("max-h-screen", "opacity-100");
+
+        // بازگشت به حالت اولیه بلافاصله بعد از بسته شدن
+        button.style.backgroundColor = ""; // یا رنگ اولیه
+        button.style.border = ""; // یا رنگ اولیه
       }
     });
   });

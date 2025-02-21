@@ -35,9 +35,9 @@
     --secondary-900: #c8000e;
     --secondary-950: #AC000C;
   
-    --special-1: #262626CC;
-    --special-2: #00568C80;
-    --special-3: #0B1524CC;
+    --special-1: #00000066;
+    --special-2: #FFFFFF33;
+
     
 
     ---icon: url("");
@@ -89,11 +89,17 @@
     opacity: 30%;
   }
 
-  .footer-swiper .swiper-pagination-bullet-active{
+  .direction-ltr{
+    direction: ltr;
+  }
+  .swiper-fly .swiper-pagination-bullet-active{
     background-color: #F3706F;
   }
-  .footer-swiper .swiper-pagination-bullet{
-    width: 6px;
-    height: 6px;
+  .swiper-fly .swiper-pagination-bullet{
+    width: 10px;
+    height: 10px;
     margin: 0 2px !important;
+  }
+  .text-gradient{
+    background: linear-gradient(360deg, rgba(255, 255, 255, 0) -7.06%, #999999 269.11%);
   }

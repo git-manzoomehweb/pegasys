@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../assets/css/output.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="bg-defaultBg bg-center bg-cover h-[835px]">
+        <header class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl pt-4 lg:pt-11">
+            <section class="relative z-30 bg-white rounded-2xl px-4 lg:rounded-3xl">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2 h-16 lg:h-24 lg:flex-row-reverse lg:w-full lg:justify-between">
+                        <div class="flex items-center">
+                            <svg width="48" height="48" class="flex-shrink-0 cursor-pointer bars3 lg:hidden"
+                                viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M32 32H16C15.448 32 15 31.553 15 31C15 30.447 15.448 30 16 30H32C32.552 30 33 30.447 33 31C33 31.553 32.552 32 32 32Z"
+                                    fill="#E31F26" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M32 18H16C15.448 18 15 17.553 15 17C15 16.447 15.448 16 16 16H32C32.552 16 33 16.447 33 17C33 17.553 32.552 18 32 18Z"
+                                    fill="#E31F26" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M32 25H16C15.448 25 15 24.553 15 24C15 23.447 15.448 23 16 23H32C32.552 23 33 23.447 33 24C33 24.553 32.552 25 32 25Z"
+                                    fill="#E31F26" />
+                            </svg>
+                            <div
+                                class="Login_Information overflow-hidden relative group z-10 flex items-center text-white text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600 rounded-lg bg-secondary-700 lg:px-3">
+                                <!-- <basis core="call" file="authentication/modal" lid="1"></basis> -->
+                                <div class="w-12 h-12 flex items-center justify-center">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.4009 14.5156C7.42189 14.5156 5.19189 17.2696 5.19189 19.9996C5.19189 20.1986 5.27089 20.3896 5.41189 20.5306C5.55189 20.6706 5.74289 20.7496 5.94189 20.7496L18.8599 20.7316C19.2739 20.7306 19.6089 20.3946 19.6089 19.9816C19.6089 17.2606 17.3799 14.5156 12.4009 14.5156Z"
+                                            fill="#fff" />
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12.4009 13.001C15.0889 13.001 17.2759 10.813 17.2759 8.125C17.2759 5.437 15.0889 3.25 12.4009 3.25C9.71288 3.25 7.52588 5.437 7.52588 8.125C7.52588 10.813 9.71288 13.001 12.4009 13.001Z"
+                                            fill="#fff" />
+                                    </svg>
+                                </div>
+                                <span>ورود/ثبت نام</span>
+                               
+                            </div>
+                        </div>
+                        <div class="flex items-center h-full gap-7">
+                            <a href="/"><img src="../assets/images/main-logo.png" alt="logo-header" width="126"
+                                    height="21" loading="lazy"
+                                    class="hidden transition-transform duration-300 lg:block hover:scale-90" /></a>
+                            <nav class="hidden h-full lg:flex">
+                                <ul class="flex items-center gap-6">
+                                    <li class="flex">
+                                        <a href="/Articles"
+                                            class="transition-all duration-300 pl-3 text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">صفحه
+                                            اصلی</a>
+                                    </li>
+                                    <li class="relative flex items-center h-full group">
+                                        <a href="Hotels"
+                                            class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">
+                                            تور ها
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="transition-all duration-300 group-hover:rotate-180" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none">
+                                                <path fill-rule="evenodd" class="group-hover:fill-primary-600"
+                                                    clip-rule="evenodd"
+                                                    d="M12.2499 16.914L3.83594 8.5L5.24994 7.086L12.2499 14.086L19.2499 7.086L20.6639 8.5L12.2499 16.914Z"
+                                                    fill="#18181B" />
+                                            </svg>
+                                        </a>
+                                        <!-- submenu -->
+                                        <ul
+                                            class="absolute z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
+                                            <li
+                                                class="py-1 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
+                                                <a href=""
+                                                    class="transition-all duration-300 block text-secondary-800 group-hover/leveltwo:text-white">ویزای
+                                                    شینگن</a>
+                                            </li>
+                                            <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                            <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                        </ul>
+                                        <!-- submenu end -->
+                                    </li>
+                                    <li class="relative flex items-center h-full group">
+                                        <a href=""
+                                            class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">اخبار
+                                            و مقاله
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="transition-all duration-300 group-hover:rotate-180" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none">
+                                                <path fill-rule="evenodd" class="group-hover:fill-primary-600"
+                                                    clip-rule="evenodd"
+                                                    d="M12.2499 16.914L3.83594 8.5L5.24994 7.086L12.2499 14.086L19.2499 7.086L20.6639 8.5L12.2499 16.914Z"
+                                                    fill="#18181B" />
+                                            </svg>
+
+                                        </a>
+                                        <!-- submenu -->
+                                        <ul
+                                            class="absolute z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
+                                            <li
+                                                class="py-1 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
+                                                <a href=""
+                                                    class="transition-all duration-300 block text-zinc-900 group-hover/leveltwo:text-white">ویزای
+                                                    شینگن</a>
+                                            </li>
+                                            <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                            <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                        </ul>
+                                        <!-- submenu end -->
+                                    </li>
+                                    <li class="relative flex items-center h-full group">
+                                        <a href="Hotels"
+                                            class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">سوالات
+                                            متداول
+                                            <svg xmlns="http://www.w3.org/2000/svg"
+                                                class="transition-all duration-300 group-hover:rotate-180" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none">
+                                                <path fill-rule="evenodd" class="group-hover:fill-primary-600"
+                                                    clip-rule="evenodd"
+                                                    d="M12.2499 16.914L3.83594 8.5L5.24994 7.086L12.2499 14.086L19.2499 7.086L20.6639 8.5L12.2499 16.914Z"
+                                                    fill="#18181B" />
+                                            </svg>
+
+                                        </a>
+                                        <!-- submenu -->
+                                        <ul
+                                            class="absolute z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
+                                            <li
+                                                class="py-1 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
+                                                <a href=""
+                                                    class="transition-all duration-300 block text-zinc-900 group-hover/leveltwo:text-white">ویزای
+                                                    شینگن</a>
+                                            </li>
+                                            <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                            <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                        </ul>
+                                        <!-- submenu end -->
+                                    </li>
+                                    <li class="flex items-center h-full">
+                                        <a href=""
+                                            class="flex items-center transition-all duration-300 text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">درباره
+                                            ما</a>
+                                    </li>
+
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <a href="/"><img src="../assets/images/main-logo.png" alt="logo-header" width="67" height="11"
+                            loading="lazy" class="transition-transform duration-300 lg:hidden hover:scale-90" /></a>
+                </div>
+                <!-- header menu -->
+                <div
+                    class="header-menu bg-white fixed z-30 translate-x-[1024px] lg:translate-x-0 lg:invisible lg:opacity-0 inset-0 w-full transition-all duration-300 overflow-scroll lg:absolute lg:inset-auto lg:shadow-md lg:right-0 lg:top-16 lg:w-60 lg:rounded lg:overflow-auto">
+                    <div>
+                        <div class="flex items-center justify-between py-3 mx-auto w-[90%]">
+                            <a href="/"><img src="../assets/images/main-logo.png" alt="logo-header" width="94"
+                                    height="34" loading="lazy"
+                                    class="transition-transform duration-300 hover:scale-105" /></a>
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                class="cursor-pointer header-menu-close" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M24.8129 23.5001L29.7277 18.5853C30.0908 18.2222 30.0908 17.6354 29.7277 17.2723C29.3646 16.9092 28.7778 16.9092 28.4148 17.2723L23.5 22.1871L18.5852 17.2723C18.2222 16.9092 17.6354 16.9092 17.2723 17.2723C16.9092 17.6354 16.9092 18.2222 17.2723 18.5853L22.187 23.5001L17.2723 28.415C16.9092 28.778 16.9092 29.3649 17.2723 29.7279C17.4534 29.909 17.6911 30 17.9288 30C18.1665 30 18.4042 29.909 18.5852 29.7279L23.5 24.8132L28.4148 29.7279C28.5958 29.909 28.8335 30 29.0712 30C29.3089 30 29.5466 29.909 29.7277 29.7279C30.0908 29.3649 30.0908 28.778 29.7277 28.415L24.8129 23.5001Z"
+                                    fill="#284E65" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pb-5 bg-white w-[90%] mx-auto">
+                        <nav class="pt-2">
+                            <ul class="text-sm divide-y divide-primary-50">
+                                <li class="py-3"><a href="/" class="text-zinc-900">صفحه اصلی</a></li>
+                                <li class="">
+                                    <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                        <a href="" class="ttext-zinc-900">تورهای گردشگران</a>
+                                        <svg width="48" class="transition-all duration-300 dropdown-icon" height="48"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <!-- submenu -->
+                                    <ul
+                                        class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
+                                        <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    </ul>
+                                    <!-- submenu end -->
+                                </li>
+                                <li class="">
+                                    <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                        <a href="" class="text-zinc-900">تور های نوروز1404</a>
+                                        <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <!-- submenu -->
+                                    <ul
+                                        class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
+                                        <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    </ul>
+                                    <!-- submenu end -->
+
+                                </li>
+
+                                <li class="">
+                                    <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                        <a href="" class="text-zinc-900">تور های نمایشگاهی</a>
+                                        <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <!-- submenu -->
+                                    <ul
+                                        class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
+                                        <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    </ul>
+                                    <!-- submenu end -->
+
+                                </li>
+                                <li class="flex items-center py-3 ">
+                                    <a href="" class="w-full text-zinc-900">خدمات ویزا</a>
+                                </li>
+                                <li class="">
+                                    <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                        <a href="" class="text-zinc-900">سبک سفر</a>
+                                        <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <!-- submenu -->
+                                    <ul
+                                        class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
+                                        <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    </ul>
+                                    <!-- submenu end -->
+
+                                </li>
+                                <li class="">
+                                    <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                        <a href="" class="text-zinc-900">مجله گردشگری</a>
+                                        <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <!-- submenu -->
+                                    <ul
+                                        class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
+                                        <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                        <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
+                                    </ul>
+                                    <!-- submenu end -->
+
+                                </li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- header menu -->
+            </section>
+        </header>   
+
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
+            <div class="bg-white p-1 rounded-lg grid grid-cols-2">
+                <a href="" class="flex items-center justify-center gap-1 bg-secondary-700 rounded-lg py-3 px-4">
+                    <svg width="24" height="26">
+                        <use xlink:href="../assets/images/icons.svg#icon-search-flight"></use>
+                    </svg>
+                    <span class="text-sm text-white">جستجوی پرواز</span>
+                </a>
+
+                <a href="" class="flex items-center justify-center gap-1 rounded-lg py-3 px-4">
+                    <svg width="24" height="24">
+                        <use xlink:href="../assets/images/icons.svg#icon-online-checkin"></use>
+                    </svg>
+                    <span class="text-sm text-zinc-400">checkin آنلاین</span>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <main>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <h2 class="text-zinc-900 font-bold text-center mb-4">سفرهای پرطرفدار</h2>
+
+            <div class="flex flex-col gap-3">
+                <div class="border border-zinc-200 border-solid rounded-xl p-2">
+                    <img src="../assets/images/popular-travel.jpg" alt="" class="h-[102px] object-cover rounded-lg" width="100%" height="102" loading="lazy">
+                    <div class="flex flex-wrap items-center gap-1 mt-3">
+                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
+                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
+                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
+                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
+                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
+                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
+                    </div>
+                    <div class="flex items-center justify-between mt-4">
+                        <h3 class="text-zinc-900 font-bold">تبریز</h3>
+                        <svg width="166" height="36">
+                            <use xlink:href="../assets/images/icons.svg#icon-gray-airplane"></use>
+                        </svg>
+                        <h3 class="text-zinc-900 font-bold">استانبول</h3>
+                    </div>
+                    <a href="" class="w-full flex items-center justify-center bg-primary-600 text-white font-medium py-3 mt-3 rounded-lg">مشاهده</a>
+                </div>
+            </div>
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-12 px-3 py-6 bg-primary-50 rounded-3xl">
+            <div class="flex items-center gap-5 mb-6">
+                <h2 class="font-bold text-zinc-900">خدمات ما</h2>
+                <span class="flex-1 h-px bg-primary-200"></span>           
+            </div>
+            <div class="flex flex-col gap-4">
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="42">
+                        <use xlink:href="../assets/images/icons.svg#icon-first-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">قوانین و مقررات</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="44">
+                        <use xlink:href="../assets/images/icons.svg#icon-two-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">بسته اینترنت</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="44">
+                        <use xlink:href="../assets/images/icons.svg#icon-three-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">خرید اضافه بار</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="42">
+                        <use xlink:href="../assets/images/icons.svg#icon-four-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">قوانین بار</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="42">
+                        <use xlink:href="../assets/images/icons.svg#icon-five-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">انتخاب صندلی</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="44">
+                        <use xlink:href="../assets/images/icons.svg#icon-six-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">آنلاین checking</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="42">
+                        <use xlink:href="../assets/images/icons.svg#icon-seven-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">انتخاب غذا</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg width="42" height="42">
+                        <use xlink:href="../assets/images/icons.svg#icon-last-services"></use>
+                    </svg>
+                    <div class="flex flex-col gap-1">
+                        <h3 class="font-bold text-zinc-900">پیگیری بار گم شده</h3>
+                        <div class="text-zinc-700 text-sm">لورم ایپسوم متن ساختگی با تولید </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-12">
+            <h2 class="text-zinc-900 font-bold text-center mb-4">پرواز به 130 مقصد</h2>
+            <ul class="flex place-items-center justify-between bg-primary-50 p-2 rounded-lg">
+                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
+                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
+                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
+                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
+            </ul>
+            <!-- Slider main container -->
+<div class="swiper swiper-fly pb-16 mt-7">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide flex flex-col gap-8">
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+    </div>
+    <div class="swiper-slide flex flex-col gap-8">
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+    </div>
+    <div class="swiper-slide flex flex-col gap-8">
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+        <a href="" class="group flex items-center gap-3">
+            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+            <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        </a>
+    </div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+  </div>
+        </section>
+
+        <div class=" mt-9 bg-zinc-100 py-6">
+            <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
+                <div class="flex items-center gap-5 mb-6">
+                    <h2 class="font-bold text-zinc-900">مقالات</h2>
+                    <span class="flex-1 h-px bg-zinc-300"></span>           
+                </div>
+                <div class="flex flex-col gap-6">
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
+                            <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                </svg>
+                                1402/12/12
+                            </span>
+                        </div>
+                        <div class="relative mt-2">
+                            <img src="../assets/images/pool-case.jpg" alt="" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                            <a href="" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
+                            <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز قدرت، فرهنگ و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است. </div>
+                        </div>
+                    </article>
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
+                            <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                </svg>
+                                1402/12/12
+                            </span>
+                        </div>
+                        <div class="relative mt-2">
+                            <img src="../assets/images/pool-case.jpg" alt="" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                            <a href="" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
+                            <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز قدرت، فرهنگ و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است. </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-5">
+                <div class="flex items-center gap-5 mb-5">
+                    <h2 class="font-bold text-zinc-900">دیگر اخبار</h2>
+                    <span class="flex-1 h-px bg-zinc-300"></span>           
+                </div>
+                <div class="flex flex-col">
+                    <div class="flex flex-col gap-6">
+                        <div>
+                            <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
+                            <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                            </div>
+                            <a href="" class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                        </div>
+                        <div class="border border-solid border-zinc-300 w-full h-px"></div>
+                        <div>
+                            <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
+                            <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
+                            </div>
+                            <a href="" class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <h2 class="text-zinc-900 font-bold mb-3">درباره پگاسوس</h2>
+            <div class="text-sm text-zinc-900 text-justify">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات 
+            </div>
+            <a href="" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
+        </section>
+        <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto my-9">
+                <h2 class="text-center text-lg text-zinc-900 font-bold mb-9">سوالات متداول</h2>
+                <ul class="flex place-items-center justify-between bg-primary-50 p-2 rounded-lg mb-3">
+                    <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">استرداد</li>
+                    <li class="text-zinc-700 p-3 rounded-lg">نحوه خرید</li>
+                    <li class="text-zinc-700 p-3 rounded-lg">ترنسفر</li>
+                </ul>
+            <div class="flex flex-col gap-1">
+                <div class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
+                    <div class="flex items-center">
+                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
+                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>   
+                    </div>
+                        <div class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
+                        </div>                         
+                </div>
+                <div class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
+                    <div class="flex items-center">
+                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
+                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>   
+                    </div>
+                        <div class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
+                        </div>                         
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
+    <script>
+        var swiperFly = new Swiper(".swiper-fly", {
+            slidesPerView: 1,
+            speed: 400,
+          centeredSlides: false,
+          spaceBetween: 30,
+          grabCursor: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          loop:true,
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        
+        });
+      </script>
+      <script src="../assets/js/pegasos-core.js"></script>
+  </body>
+</html>
