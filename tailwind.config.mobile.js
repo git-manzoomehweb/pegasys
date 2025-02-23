@@ -9,7 +9,7 @@ module.exports = {
         defaultBg: "var(--default-bg)",
         tourListBg: "var(--tourlist-bg)",
         articleListBg: "var(--articlelist-bg)",
-        contactBg: "var(--contact-bg)",
+        articleBg: "var(--article-bg)",
       },
       colors: {
         primary: {

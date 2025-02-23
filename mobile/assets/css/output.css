@@ -632,8 +632,20 @@ body {
   bottom: -1.5rem;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .left-3 {
   left: 0.75rem;
+}
+
+.right-0 {
+  right: 0px;
+}
+
+.top-\[5px\] {
+  top: 5px;
 }
 
 .top-full {
@@ -668,6 +680,14 @@ body {
   margin-bottom: 2.25rem;
 }
 
+.-mt-48 {
+  margin-top: -12rem;
+}
+
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -688,6 +708,10 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
 .mb-9 {
   margin-bottom: 2.25rem;
 }
@@ -702,6 +726,10 @@ body {
 
 .mr-auto {
   margin-right: auto;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
 .mt-12 {
@@ -794,12 +822,20 @@ body {
   height: 10px;
 }
 
+.h-\[119px\] {
+  height: 119px;
+}
+
 .h-\[1340px\] {
   height: 1340px;
 }
 
 .h-\[217px\] {
   height: 217px;
+}
+
+.h-\[218px\] {
+  height: 218px;
 }
 
 .h-\[232px\] {
@@ -812,6 +848,10 @@ body {
 
 .h-\[411px\] {
   height: 411px;
+}
+
+.h-\[790px\] {
+  height: 790px;
 }
 
 .h-\[835px\] {
@@ -904,6 +944,10 @@ body {
   place-items: center;
 }
 
+.items-start {
+  align-items: flex-start;
+}
+
 .items-center {
   align-items: center;
 }
@@ -952,14 +996,38 @@ body {
   gap: 2rem;
 }
 
+.divide-x > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 0;
+  border-right-width: calc(1px * var(--tw-divide-x-reverse));
+  border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+}
+
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
   border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 
+.divide-x-reverse > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-x-reverse: 1;
+}
+
 .divide-primary-50 > :not([hidden]) ~ :not([hidden]) {
   border-color: var(--primary-50);
+}
+
+.divide-secondary-300 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--secondary-300);
+}
+
+.divide-white > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(255 255 255 / var(--tw-divide-opacity, 1));
+}
+
+.divide-zinc-300 > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-opacity: 1;
+  border-color: rgb(212 212 216 / var(--tw-divide-opacity, 1));
 }
 
 .overflow-hidden {
@@ -1080,6 +1148,10 @@ body {
   background-color: rgb(212 212 216 / var(--tw-bg-opacity, 1));
 }
 
+.bg-articleBg {
+  background-image: var(--article-bg);
+}
+
 .bg-articleListBg {
   background-image: var(--articlelist-bg);
 }
@@ -1182,6 +1254,10 @@ body {
   padding-bottom: 1.5rem;
 }
 
+.pl-2 {
+  padding-left: 0.5rem;
+}
+
 .pl-3 {
   padding-left: 0.75rem;
 }
@@ -1206,16 +1282,21 @@ body {
   padding-top: 1rem;
 }
 
-.pl-2 {
-  padding-left: 0.5rem;
-}
-
 .text-center {
   text-align: center;
 }
 
 .text-justify {
   text-align: justify;
+}
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .text-\[6rem\] {
@@ -1276,6 +1357,11 @@ body {
 .text-zinc-700 {
   --tw-text-opacity: 1;
   color: rgb(63 63 70 / var(--tw-text-opacity, 1));
+}
+
+.text-zinc-800 {
+  --tw-text-opacity: 1;
+  color: rgb(39 39 42 / var(--tw-text-opacity, 1));
 }
 
 .text-zinc-900 {
@@ -1360,7 +1446,7 @@ body {
   --default-bg: url("../images/default-back.png");
   --tourlist-bg: url("../images/tour-list-back.jpg");
   --articlelist-bg: url("../images/article-list-back.jpg");
-  --contact-bg: url("../images/contact-back.jpg");
+  --article-bg: url("../images/article-back.jpg");
 }
 
 @font-face {
@@ -1464,7 +1550,7 @@ body {
 }
 
 .text-gradient {
-  background: linear-gradient(360deg, rgba(255, 255, 255, 0) -7.06%, #999999 269.11%);
+  background: linear-gradient(360deg, rgba(255, 255, 255, 0.1) -7.06%, #999999 269.11%);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -1589,6 +1675,10 @@ body {
     flex-direction: row-reverse;
   }
 
+  .lg\:items-center {
+    align-items: center;
+  }
+
   .lg\:justify-between {
     justify-content: space-between;
   }
@@ -1612,6 +1702,10 @@ body {
 
   .lg\:pt-11 {
     padding-top: 2.75rem;
+  }
+
+  .lg\:pt-7 {
+    padding-top: 1.75rem;
   }
 
   .lg\:opacity-0 {
