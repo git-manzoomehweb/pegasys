@@ -69,19 +69,6 @@
   src: url("../fonts/DanaFaNum-Bold.ttf") format("truetype");
 }
 
-.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
-  background-color: #00b3bd !important;
-}
-
-.active-module {
-  background-color: #009ea3;
-}
-.active-module span {
-  color: white;
-}
-.active-module path {
-  fill: white;
-}
 .Noactive-date {
   opacity: 30%;
 }
@@ -89,44 +76,17 @@
 .direction-ltr {
   direction: ltr;
 }
-.swiper-fly .swiper-pagination-bullet-active {
-  background-color: #f3706f;
+.footer-swiper .swiper-pagination-bullet-active{
+  background-color: #F3706F;
 }
-.swiper-fly .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  margin: 0 2px !important;
+
+.footer-swiper .swiper-pagination-bullet{
+  width: 6px;
+  height: 6px;
+  margin: 0 1px !important;
 }
-.swiper-article .swiper-pagination-bullet-active {
-  background-color: #f3706f;
-}
-.swiper-article .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  margin: 0 2px !important;
-}
-.swiper-other-news .swiper-pagination-bullet-active {
-  background-color: #f3706f;
-}
-.swiper-other-news .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  margin: 0 2px !important;
-}
-.swiper-other-news-article .swiper-pagination-bullet-active {
-  background-color: #f3706f;
-}
-.swiper-other-news-article .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  margin: 0 2px !important;
-}
-.text-gradient {
-  background: linear-gradient(
-    360deg,
-    rgba(255, 255, 255, 0.1) -7.06%,
-    #999999 269.11%
-  );
-  -webkit-background-clip: text;
-  color: transparent;
+
+.custom-border-bottom:not(:last-child) {
+  border-bottom: 1px dashed #D4D4D8; 
+  padding-bottom: 16px;
 }

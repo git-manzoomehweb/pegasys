@@ -31,13 +31,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const dropdownIcon = dropdownIcons[index];
 
     toggle.addEventListener("click", function () {
+
       dropdownIcon.classList.toggle("rotate-180");
 
       if (submenu.style.maxHeight) {
         submenu.style.maxHeight = null;
         submenu.style.opacity = "0";
       } else {
-        submenu.style.maxHeight = "400px";
+
+        submenu.style.maxHeight = (submenu.scrollHeight*2) + "px"; 
         submenu.style.opacity = "1";
       }
     });
@@ -80,35 +82,110 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeIcon = document.querySelector(".close-icon");
 
     // تغییرات مربوط به پاپ‌آپ برای موبایل و دسکتاپ
-    emailIcon.forEach(icon => {
+    emailIcon.forEach((icon) => {
       icon.addEventListener("click", function () {
         if (window.innerWidth < 1024) {
-          emailPopup.style.opacity = '1';
-          emailPopup.style.transform = 'translateX(0)';
-          emailPopup.style.pointerEvents = 'auto';
+          emailPopup.style.opacity = "1";
+          emailPopup.style.transform = "translateX(0)";
+          emailPopup.style.pointerEvents = "auto";
         } else {
-          emailPopup.style.position = 'fixed';
-          emailPopup.style.top = '50%';
-          emailPopup.style.left = '50%';
-          emailPopup.style.transform = 'translate(-40%, -50%)'; 
-          emailPopup.style.opacity = '1';
-          emailPopup.style.pointerEvents = 'auto';
+          emailPopup.style.position = "fixed";
+          emailPopup.style.top = "50%";
+          emailPopup.style.left = "50%";
+          emailPopup.style.transform = "translate(-40%, -50%)";
+          emailPopup.style.opacity = "1";
+          emailPopup.style.pointerEvents = "auto";
         }
       });
     });
 
     closeIcon.addEventListener("click", function () {
       if (window.innerWidth < 1024) {
-        emailPopup.style.opacity = '0';
-        emailPopup.style.transform = 'translateX(100%)';
-        emailPopup.style.pointerEvents = 'none';
+        emailPopup.style.opacity = "0";
+        emailPopup.style.transform = "translateX(100%)";
+        emailPopup.style.pointerEvents = "none";
       } else {
-        emailPopup.style.opacity = '0';
-        emailPopup.style.pointerEvents = 'none';
+        emailPopup.style.opacity = "0";
+        emailPopup.style.pointerEvents = "none";
       }
     });
-    
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+ var xhrobj = new XMLHttpRequest();
+ xhrobj.open('GET', 'search-engine.bc');
+ xhrobj.send();
 
+
+ xhrobj.onreadystatechange = function () {
+     if (this.readyState == 4 && this.status == 200) {
+         var container = document.getElementById('search-box');
+         container.innerHTML = xhrobj.responseText;
+
+
+         var scripts = container.getElementsByTagName("script");
+         for (var i = 0; i < scripts.length; i++) {
+             var scriptTag = document.createElement("script");
+             if (scripts[i].src) {
+                 scriptTag.src = scripts[i].src;
+                 scriptTag.async = false;
+             } else {
+                 scriptTag.text = scripts[i].textContent;
+             }
+             document.head.appendChild(scriptTag).parentNode.removeChild(scriptTag);
+         }
+     }
+ };
+} catch (error) {
+ // console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
+}
+})
+
+
+// swiper
+if (document.querySelector(".swiper-article")) {
+  var swiperArticle = new Swiper(".swiper-article", {
+    slidesPerView: 3,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 24,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next-custom",
+      prevEl: ".swiper-button-prev-custom",
+    },
+  });
+}
+if (document.querySelector(".swiper-other-news")) {
+  var swiperArticle = new Swiper(".swiper-other-news", {
+    slidesPerView: 2,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 24,
+    grabCursor: true,
+    autoplay: {
+      delay: 3500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next-custom",
+      prevEl: ".swiper-button-prev-custom",
+    },
+  });
+}

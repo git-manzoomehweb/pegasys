@@ -103,7 +103,7 @@
 .swiper-article .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  margin: 0 2px !important;
+  margin: 0 1px !important;
 }
 .swiper-other-news .swiper-pagination-bullet-active {
   background-color: #f3706f;

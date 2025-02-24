@@ -4,36 +4,55 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="../assets/css/output.css" />
     <title>Document</title>
+    <basis core="call" file="style.inc" />
 </head>
 
-<body>
+<body onload="loadContentHomePage()">
     <div class="bg-defaultBg bg-center bg-cover h-[835px]">
+        <basis core="call" file="header.inc" />
 
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-[375px]">
+            <div class="flex justify-center">
+                <div class="bg-white p-1 rounded-lg grid gap-4 grid-cols-2">
+                    <a href=""
+                        class="flex items-center justify-center gap-1 rounded-lg py-3 px-4 group transition-all duration-300 hover:bg-secondary-700">
+                        <svg width="24" height="26"
+                            class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
+                            <use xlink:href="./images/icons.svg#icon-search-flight"></use>
+                        </svg>
+                        <svg width="24" height="26"
+                            class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                            <use xlink:href="./images/icons.svg#icon-search-flight-white"></use>
+                        </svg>
+                        <span
+                            class="font-medium text-zinc-400 transition-all duration-300 group-hover:text-white">جستجوی
+                            پرواز</span>
+                    </a>
 
-        <section class="flex justify-center mt-[375px]">
-            <div class="bg-white p-1 rounded-lg grid gap-4 grid-cols-2">
-                <a href="" class="flex items-center justify-center gap-1 rounded-lg py-3 px-4 group transition-all duration-300 hover:bg-secondary-700">
-                    <svg width="24" height="26" class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
-                        <use xlink:href="../assets/images/icons.svg#icon-search-flight"></use>
-                    </svg>
-                    <svg width="24" height="26" class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                        <use xlink:href="../assets/images/icons.svg#icon-search-flight-white"></use>
-                    </svg>
-                    <span class="font-medium text-zinc-400 transition-all duration-300 group-hover:text-white">جستجوی پرواز</span>
-                </a>
-
-                <a href="" class="flex items-center justify-center gap-1 rounded-lg py-3 px-4 group transition-all duration-300 hover:bg-secondary-700">
-                    <svg width="24" height="24" class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
-                        <use xlink:href="../assets/images/icons.svg#icon-online-checkin"></use>
-                    </svg>
-                    <svg width="24" height="24" class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                        <use xlink:href="../assets/images/icons.svg#icon-online-checkin-white"></use>
-                    </svg>
-                    <span class="text-zinc-400 transition-all duration-300 group-hover:text-white">checkin آنلاین</span>
-                </a>
+                    <a href=""
+                        class="flex items-center justify-center gap-1 rounded-lg py-3 px-4 group transition-all duration-300 hover:bg-secondary-700">
+                        <svg width="24" height="24"
+                            class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
+                            <use xlink:href="./images/icons.svg#icon-online-checkin"></use>
+                        </svg>
+                        <svg width="24" height="24"
+                            class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                            <use xlink:href="./images/icons.svg#icon-online-checkin-white"></use>
+                        </svg>
+                        <span class="text-zinc-400 transition-all duration-300 group-hover:text-white">checkin
+                            آنلاین</span>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-specialcolor-2 p-2 rounded-3xl mt-10">
+                <div class="bg-white p-2 rounded-3xl">
+                    <div class="search-banner">
+                        <div class="search-box-container">
+                            <div id="search-box" class="dir-rtl"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
@@ -43,9 +62,10 @@
             <h2 class="text-zinc-900 font-bold text-center mb-10 text-2xl">سفرهای پرطرفدار</h2>
 
             <div class="flex lg:flex-wrap gap-4 xl:flex-nowrap justify-between">
-                <div class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800">
-                    <img src="../assets/images/popular-travel.jpg" alt="" class="h-[90px] object-cover rounded-lg"
-                        width="133" height="90" loading="lazy">
+                <div
+                    class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800">
+                    <img src="[##cms.cms.cdn##]/images/popular-travel.jpg" alt=""
+                        class="h-[90px] object-cover rounded-lg" width="133" height="90" loading="lazy">
                     <div>
                         <div class="flex flex-wrap items-center gap-1">
                             <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
@@ -60,11 +80,11 @@
                                 <h3 class="text-zinc-900 font-bold">تبریز</h3>
                                 <div class="relative">
                                     <svg width="248" height="36">
-                                        <use xlink:href="../assets/images/icons.svg#icon-gray-airplane-line-desktop">
+                                        <use xlink:href="./images/icons.svg#icon-gray-airplane-line-desktop">
                                         </use>
                                     </svg>
                                     <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
-                                        <use xlink:href="../assets/images/icons.svg#icon-gray-airplane"></use>
+                                        <use xlink:href="./images/icons.svg#icon-gray-airplane"></use>
                                     </svg>
                                 </div>
                                 <h3 class="text-zinc-900 font-bold">استانبول</h3>
@@ -75,8 +95,8 @@
                     </div>
                 </div>
                 <div class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3">
-                    <img src="../assets/images/popular-travel.jpg" alt="" class="h-[90px] object-cover rounded-lg"
-                        width="133" height="90" loading="lazy">
+                    <img src="[##cms.cms.cdn##]/images/popular-travel.jpg" alt=""
+                        class="h-[90px] object-cover rounded-lg" width="133" height="90" loading="lazy">
                     <div>
                         <div class="flex flex-wrap items-center gap-1">
                             <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
@@ -91,11 +111,11 @@
                                 <h3 class="text-zinc-900 font-bold">تبریز</h3>
                                 <div class="relative">
                                     <svg width="242" height="36">
-                                        <use xlink:href="../assets/images/icons.svg#icon-gray-airplane-line-desktop">
+                                        <use xlink:href="./images/icons.svg#icon-gray-airplane-line-desktop">
                                         </use>
                                     </svg>
                                     <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
-                                        <use xlink:href="../assets/images/icons.svg#icon-gray-airplane"></use>
+                                        <use xlink:href="./images/icons.svg#icon-gray-airplane"></use>
                                     </svg>
                                 </div>
                                 <h3 class="text-zinc-900 font-bold">استانبول</h3>
@@ -108,7 +128,7 @@
             </div>
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
-            <img src="../assets/images/offer.jpg" alt="offer" width="100%" height="257" loading="lazy">
+            <img src="[##cms.cms.cdn##]/images/offer.jpg" alt="offer" width="100%" height="257" loading="lazy">
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 p-6 bg-primary-50 rounded-3xl">
             <div class="flex items-center gap-5 mb-10">
@@ -119,7 +139,7 @@
                 <div class="flex gap-16 items-center">
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="../assets/images/icons.svg#icon-seven-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-seven-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">انتخاب غذا</h3>
@@ -128,7 +148,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="../assets/images/icons.svg#icon-five-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-five-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">انتخاب صندلی</h3>
@@ -137,7 +157,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="54">
-                            <use xlink:href="../assets/images/icons.svg#icon-three-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-three-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">خرید اضافه بار</h3>
@@ -147,7 +167,7 @@
                     <div class="flex items-center gap-2">
 
                         <svg width="52" height="52">
-                            <use xlink:href="../assets/images/icons.svg#icon-first-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-first-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">قوانین و مقررات</h3>
@@ -159,7 +179,7 @@
                 <div class="flex gap-16 items-center">
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="../assets/images/icons.svg#icon-last-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-last-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">پیگیری بار گم شده</h3>
@@ -168,7 +188,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="54">
-                            <use xlink:href="../assets/images/icons.svg#icon-six-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-six-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">آنلاین checking</h3>
@@ -177,7 +197,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="../assets/images/icons.svg#icon-four-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-four-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">قوانین بار</h3>
@@ -186,7 +206,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="54">
-                            <use xlink:href="../assets/images/icons.svg#icon-two-services"></use>
+                            <use xlink:href="./images/icons.svg#icon-two-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">بسته اینترنت</h3>
@@ -200,7 +220,9 @@
             <h2 class="text-zinc-900 font-bold text-center mb-6 text-2xl">پرواز به 130 مقصد</h2>
             <div class="flex justify-center">
                 <ul class="flex place-items-center gap-14 bg-primary-50 p-2 rounded-lg">
-                    <li class="text-zinc-900 transition-all duration-300 hover:bg-primary-600 px-7 py-3 rounded-lg cursor-pointer">ترکیه</li>
+                    <li
+                        class="text-zinc-900 transition-all duration-300 hover:bg-primary-600 px-7 py-3 rounded-lg cursor-pointer">
+                        ترکیه</li>
                     <li class="text-zinc-900 px-7 py-3 rounded-lg">ترکیه</li>
                     <li class="text-zinc-900 px-7 py-3 rounded-lg">ترکیه</li>
                     <li class="text-zinc-900 px-7 py-3 rounded-lg">ترکیه</li>
@@ -347,22 +369,26 @@
                     <span class="flex-1 h-px bg-zinc-300"></span>
                     <div class="flex items-center gap-2">
                         <div class="swiper-button-prev-custom">
-                            <div class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
                                 <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="../assets/images/icons.svg#icon-right-chevron"></use>
+                                    <use xlink:href="./images/icons.svg#icon-right-chevron"></use>
                                 </svg>
-                                <svg width="24" height="24" class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="../assets/images/icons.svg#icon-right-chevron-white"></use>
+                                <svg width="24" height="24"
+                                    class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                                    <use xlink:href="./images/icons.svg#icon-right-chevron-white"></use>
                                 </svg>
                             </div>
                         </div>
                         <div class="swiper-button-next-custom">
-                            <div class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
                                 <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="../assets/images/icons.svg#icon-left-chevron"></use>
+                                    <use xlink:href="./images/icons.svg#icon-left-chevron"></use>
                                 </svg>
-                                <svg width="24" height="24" class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="../assets/images/icons.svg#icon-left-chevron-white"></use>
+                                <svg width="24" height="24"
+                                    class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                                    <use xlink:href="./images/icons.svg#icon-left-chevron-white"></use>
                                 </svg>
                             </div>
                         </div>
@@ -374,19 +400,21 @@
                     <div class="swiper-wrapper">
                         <!-- Slides -->
                         <div class="swiper-slide">
-                            <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
+                            <article
+                                class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
                                 <div class="flex items-center justify-between">
                                     <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
                                     <span class="flex items-center gap-1 text-zinc-500 text-sm">
                                         <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                            <use xlink:href="./images/icons.svg#icon-calender"></use>
                                         </svg>
                                         1402/12/12
                                     </span>
                                 </div>
                                 <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
-                                        class="h-[232px] object-cover rounded-lg transition-all duration-300 group-hover:grayscale" width="100%" height="232" loading="lazy">
+                                    <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt=""
+                                        class="h-[232px] object-cover rounded-lg transition-all duration-300 group-hover:grayscale"
+                                        width="100%" height="232" loading="lazy">
                                     <a href=""
                                         class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
                                         مطلب</a>
@@ -407,13 +435,13 @@
                                     <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
                                     <span class="flex items-center gap-1 text-zinc-500 text-sm">
                                         <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                            <use xlink:href="./images/icons.svg#icon-calender"></use>
                                         </svg>
                                         1402/12/12
                                     </span>
                                 </div>
                                 <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
+                                    <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt=""
                                         class="h-[232px] object-cover rounded-lg" width="100%" height="232">
                                     <a href=""
                                         class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
@@ -434,13 +462,13 @@
                                     <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
                                     <span class="flex items-center gap-1 text-zinc-500 text-sm">
                                         <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                            <use xlink:href="./images/icons.svg#icon-calender"></use>
                                         </svg>
                                         1402/12/12
                                     </span>
                                 </div>
                                 <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
+                                    <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt=""
                                         class="h-[232px] object-cover rounded-lg" width="100%" height="232">
                                     <a href=""
                                         class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
@@ -461,13 +489,13 @@
                                     <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
                                     <span class="flex items-center gap-1 text-zinc-500 text-sm">
                                         <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                            <use xlink:href="./images/icons.svg#icon-calender"></use>
                                         </svg>
                                         1402/12/12
                                     </span>
                                 </div>
                                 <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
+                                    <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt=""
                                         class="h-[232px] object-cover rounded-lg" width="100%" height="232">
                                     <a href=""
                                         class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
@@ -498,22 +526,26 @@
                     <span class="flex-1 h-px bg-zinc-300"></span>
                     <div class="flex items-center gap-2">
                         <div class="swiper-button-prev-custom">
-                            <div class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
                                 <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="../assets/images/icons.svg#icon-right-chevron"></use>
+                                    <use xlink:href="./images/icons.svg#icon-right-chevron"></use>
                                 </svg>
-                                <svg width="24" height="24" class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="../assets/images/icons.svg#icon-right-chevron-white"></use>
+                                <svg width="24" height="24"
+                                    class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                                    <use xlink:href="./images/icons.svg#icon-right-chevron-white"></use>
                                 </svg>
                             </div>
                         </div>
                         <div class="swiper-button-next-custom">
-                            <div class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
+                            <div
+                                class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
                                 <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="../assets/images/icons.svg#icon-left-chevron"></use>
+                                    <use xlink:href="./images/icons.svg#icon-left-chevron"></use>
                                 </svg>
-                                <svg width="24" height="24" class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="../assets/images/icons.svg#icon-left-chevron-white"></use>
+                                <svg width="24" height="24"
+                                    class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
+                                    <use xlink:href="./images/icons.svg#icon-left-chevron-white"></use>
                                 </svg>
                             </div>
                         </div>
@@ -634,13 +666,15 @@
                 الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و
                 دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
                 اصلی، و جوابگوی سوالات
-            </div>  
+            </div>
         </section>
         <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-20 mb-16">
             <h2 class="text-center text-zinc-900 font-bold mb-6 text-2xl">سوالات متداول</h2>
             <div class="flex justify-center">
                 <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
-                    <li class="text-zinc-900 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg">استرداد</li>
+                    <li
+                        class="text-zinc-900 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg">
+                        استرداد</li>
                     <li class="text-zinc-700 px-6 py-3 rounded-lg">نحوه خرید</li>
                     <li class="text-zinc-700 px-6 py-3 rounded-lg">ترنسفر</li>
                 </ul>
@@ -683,67 +717,7 @@
             </div>
         </section>
     </main>
-    <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
-    <script>
-        var swiperFly = new Swiper(".swiper-fly", {
-            slidesPerView: 1,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 30,
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-
-        });
-        var swiperArticle = new Swiper(".swiper-article", {
-            slidesPerView: 3,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 24,
-            grabCursor: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
-            },
-        });
-        var swiperArticle = new Swiper(".swiper-other-news", {
-            slidesPerView: 2,
-            speed: 400,
-            centeredSlides: false,
-            spaceBetween: 24,
-            grabCursor: true,
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            },
-            loop: true,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
-            },
-        });
-    </script>
-    <script src="../assets/js/satrap-core.js"></script>
+    <basis core="call" file="footer.inc" />
 </body>
 
 </html>
