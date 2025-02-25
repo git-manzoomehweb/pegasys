@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         submenu.style.opacity = "0";
       } else {
 
-        submenu.style.maxHeight = (submenu.scrollHeight*2) + "px"; 
+        submenu.style.maxHeight = (submenu.scrollHeight*10) + "px"; 
         submenu.style.opacity = "1";
       }
     });
@@ -67,9 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
         faqAnswer.classList.add("max-h-0", "opacity-0");
         faqAnswer.classList.remove("max-h-screen", "opacity-100");
 
-        // بازگشت به حالت اولیه بلافاصله بعد از بسته شدن
-        button.style.backgroundColor = ""; // یا رنگ اولیه
-        button.style.border = ""; // یا رنگ اولیه
+        button.style.backgroundColor = ""; 
+        button.style.border = ""; 
       }
     });
   });
@@ -108,6 +107,52 @@ document.addEventListener("DOMContentLoaded", function () {
         emailPopup.style.opacity = "0";
         emailPopup.style.pointerEvents = "none";
       }
+    });
+  }
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const fetchContentArticle = document.querySelector(".fetch-content-article");
+  const questionLi = document.querySelectorAll(".question-li");
+  if (fetchContentArticle) {
+    async function firstContent() {
+      const firstResponse = await fetch("/article-load-items.bc?catid=213680");
+      const firstData = await firstResponse.text();
+      fetchContentArticle.innerHTML = firstData;
+    }
+    firstContent();
+
+    questionLi.forEach((item) => {
+      item.addEventListener("click", function () {
+        questionLi.forEach((li) => {
+          li.style.backgroundColor = "";
+          li.style.color = "";
+        });
+
+        item.style.backgroundColor = "#FB8901";
+        item.style.color = "#000";
+
+        let cmsQuery = item.getAttribute("data-id");
+
+        async function secondContent() {
+          try {
+            const firstResponse = await fetch(
+              `/article-load-items.bc?catid=${cmsQuery}`
+            );
+            if (!firstResponse.ok) {
+              throw new Error(`HTTP error! Status: ${firstResponse.status}`);
+            }
+            const firstData = await firstResponse.text();
+            fetchContentArticle.innerHTML = firstData;
+          } catch (error) {
+            console.error("Fetch failed:", error);
+            fetchContentArticle.innerHTML =
+              "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
+          }
+        }
+        secondContent();
+      });
     });
   }
 });
@@ -189,9 +234,62 @@ if (document.querySelector(".swiper-other-news")) {
     },
   });
 }
+if (document.querySelector(".swiper-fly-mobile")) {
+var swiperFlyMobile = new Swiper(".swiper-fly-mobile", {
+  slidesPerView: 1,
+  speed: 400,
+  centeredSlides: false,
+  spaceBetween: 30,
+  grabCursor: true,
+  autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+  },
+  loop: true,
+  pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+  },
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".search-box-container input").forEach(input => {
-      input.value = "";
-  });
 });
+}
+if (document.querySelector(".swiper-article-mobile")) {
+var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
+  slidesPerView: 3,
+  direction: "vertical",
+  speed: 400,
+  centeredSlides: false,
+  spaceBetween: 24,
+  grabCursor: true,
+  autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+  },
+  loop: true,
+  pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+  },
+
+});
+}
+if (document.querySelector(".swiper-other-news-mobile")) {
+var swiperArticleMobile = new Swiper(".swiper-other-news-mobile", {
+  slidesPerView: 2,
+  direction: "vertical",
+  speed: 400,
+  centeredSlides: false,
+  spaceBetween: 24,
+  grabCursor: true,
+  autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+  },
+  loop: true,
+  pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+  },
+
+});
+}

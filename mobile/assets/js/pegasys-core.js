@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         submenu.style.opacity = "0";
       } else {
 
-        submenu.style.maxHeight = (submenu.scrollHeight*2) + "px"; 
+        submenu.style.maxHeight = (submenu.scrollHeight*10) + "px"; 
         submenu.style.opacity = "1";
       }
     });
@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", function () {
         faqAnswer.classList.add("max-h-0", "opacity-0");
         faqAnswer.classList.remove("max-h-screen", "opacity-100");
 
-        // بازگشت به حالت اولیه بلافاصله بعد از بسته شدن
-        button.style.backgroundColor = ""; // یا رنگ اولیه
-        button.style.border = ""; // یا رنگ اولیه
+
+        button.style.backgroundColor = ""; 
+        button.style.border = ""; 
       }
     });
   });

@@ -1,0 +1,27 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+    <member name="question-list" type="list" link="article.bc" propertyid="" perpage="6" size=""
+        order="ord" />
+</basis>
+
+<basis core="list" datamembername="db.question-list">
+    <layout>
+            @child
+    </layout>
+    <face>
+        <div
+        class="faq-box cursor-pointer text-zinc-900 flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
+        <div class="flex items-center justify-between">
+            @text
+            <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
+                viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div
+            class="text-zinc-900 mr-auto pl-4 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+        @largetext
+        </div>
+    </div>
+    </face>
+</basis>

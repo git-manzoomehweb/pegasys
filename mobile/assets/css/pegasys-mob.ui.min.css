@@ -796,3 +796,358 @@ body {
     max-width: 80rem;
   }
 }
+
+.active-module {
+  background-color: #e31f26;
+}
+
+.search-box-container .active-r-btn {
+  padding: 12px !important;
+  border-radius: 8px;
+}
+.search-box-container .active-r-btn span {
+  color: #18181b !important;
+}
+.search-box-container .active-r-btn:hover span {
+  color: #18181b !important;
+}
+.flighttype-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff3e0;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 30px !important;
+}
+
+.search-box-container .reserve-btn.active-module {
+  padding: 5px 12px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.reserve-field.flightclass-field {
+  display: none;
+  width: auto !important;
+  height: 56px !important;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  background-color: #f4f4f5;
+  border-radius: 12px;
+}
+.reserve-field.departure-date,
+.click-content,
+.reserve-field.passengers-field,
+.reserve-field.return-date {
+  background-color: #f4f4f5 !important;
+  height: 57px !important;
+  border-radius: 12px;
+  padding: 14px 12px;
+}
+.click-content::placeholder {
+  color: #71717a !important;
+}
+.reserve-field.departure-route,
+.reserve-field.destination-route {
+  height: 57px !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.reserve-field.departure-route label,
+.reserve-field.departure-route p,
+.reserve-field.destination-route label,
+.reserve-field.destination-route p,
+.reserve-field.departure-date label,
+.reserve-field.departure-date p,
+.reserve-field.return-date label,
+.reserve-field.return-date p {
+  display: none !important;
+}
+
+.reserve-field.departure-date,
+.reserve-field.return-date {
+  width: 100% !important;
+}
+.reserve-field.departure-route {
+  display: flex;
+}
+
+.Basis_Date.start_date,
+.Basis_Date.end_date {
+  padding-top: 0 !important;
+}
+
+.reserve-field.flightclass-field svg:first-of-type {
+  display: none;
+}
+
+.destination,
+.departure {
+  height: 100% !important;
+}
+
+.search-flight {
+  width: 113px !important;
+  background-color: #fb8901 !important;
+  height: 57px !important;
+  color: white !important;
+  border-radius: 8px;
+}
+.search-flight svg {
+  display: none;
+}
+
+.search-nav {
+  display: none !important;
+}
+
+.search-box-container input,
+.search-box-container select,
+.search-box-container button {
+  font-family: "DanaFaNum" !important;
+}
+
+.reserve-field.passengers-field,
+.reserve-field.departure-route,
+.reserve-field.departure-route .click-content {
+  width: auto !important;
+  flex: 1;
+}
+.reserve-field.destination-route {
+  flex: 0.8;
+  width: auto !important;
+}
+.flight-routes {
+  flex: 1.25;
+  width: auto !important;
+}
+.Basis_Date_Box {
+  flex: 1.1;
+  width: auto !important;
+  flex-direction: column;
+  margin-bottom: 0.25rem !important;
+}
+
+.Basis_Date_Box,
+.form-search.formflight,
+.flight-routes,
+.Flightclass-Passenger {
+  gap: 0.25rem !important;
+}
+
+.exchangeRoute {
+  background-color: #fb8901 !important;
+  border-radius: 0.5rem;
+  width: 40px !important;
+  height: 40px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 39px !important;
+  left: 9px !important;
+}
+
+.exchangeRoute svg {
+  width: 26px !important;
+  height: 18px !important;
+}
+
+.reserve-field.passengers-field label,
+.Flightclass-Passenger {
+  width: auto !important;
+}
+
+.reserve-field.passengers-field label span {
+  color: #3f3f46;
+}
+
+.reserve-field.passengers-field label svg {
+  display: none;
+}
+
+.reserve-field.passengers-field label svg:nth-child(2) {
+  margin-top: 0 !important;
+}
+
+.reserve-field.passengers-field div:first-of-type {
+  padding: 0 !important;
+}
+
+.passengers-field div:nth-child(1) div:first-of-type {
+  display: inline;
+  margin-right: 0.5rem;
+}
+
+.multicity-flight-form .route-content:first-of-type div.route-minus-btn,
+.multicity-flight-form .route-content:nth-child(2) div.route-minus-btn {
+  display: none !important;
+}
+.multicity-flight-form .route-content-inner {
+  gap: 0.25rem !important;
+}
+
+.multicity-flight-form .route-content {
+  margin-bottom: 30px !important;
+}
+
+.multicity-flight-form .route-minus-btn {
+  top: 0;
+  left: 0;
+  width: auto !important;
+  position: absolute;
+  display: flex;
+  line-height: normal !important;
+}
+
+.multicity-flight-form .reserve-field.destination-route {
+  flex: 0.9;
+}
+.multicity-flight-form .flight-routes {
+  flex: 2.2;
+}
+
+.multicity-flight-form .reserve-field.passengers-field {
+  width: 444px !important;
+  height: 57px !important;
+}
+
+.multicity-flight-form .remove-routs {
+  display: none;
+}
+
+.multicity-flight-form .reserve-search {
+  margin: 0 auto 0 0 !important;
+  height: auto !important;
+}
+
+.multicity-flight-form .search-flight {
+  margin: 0 auto 0 0 !important;
+}
+
+.multicity-flight-form .search-flight:hover {
+  background-color: #f52c2b;
+}
+
+.multicity-flight-form .reserve-field {
+  height: 57px !important;
+}
+
+.multicity-flight-form .add-routs {
+  width: auto !important;
+  font-size: 16px !important;
+  border: 1px solid #f57902;
+  padding: 12px 24px;
+  border-radius: 8px;
+}
+.multicity-flight-form .add-routs:hover {
+  border: 1px solid #f52c2b;
+}
+
+.remove-multiroute-icon::after {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 25px;
+  background: url('data:image/svg+xml;utf8,<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.711 15.4237L14.65 16.4847L12.249 14.0857L9.849 16.4817L8.789 15.4207L11.188 13.0257L8.789 10.6277L9.85 9.56667L12.25 11.9657L14.651 9.56867L15.711 10.6307L13.311 13.0257L15.711 15.4237ZM12.25 3.28467C6.874 3.28467 2.5 7.65867 2.5 13.0347C2.5 18.4107 6.874 22.7847 12.25 22.7847C17.626 22.7847 22 18.4107 22 13.0347C22 7.65867 17.626 3.28467 12.25 3.28467Z" fill="%23FFCDD2"/></svg>')
+    no-repeat center center;
+  background-size: contain;
+}
+
+.searchList {
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.passengerbox.hidden-box {
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-top: 1rem;
+}
+
+.ul-list ul li:not(:last-child) {
+  border-bottom: 1px solid #ffebee;
+}
+.ul-list ul li {
+  text-align: center;
+}
+.ul-list ul li:first-of-type {
+  background-color: #f52c2b;
+  color: white !important;
+}
+
+.passenger-item.child-passenger-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.passenger-item.child-passenger-item ul {
+  height: auto !important;
+  line-height: normal !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.passenger-item.adult-passenger-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.passenger-item.adult-passenger-item ul {
+  height: auto !important;
+  line-height: normal !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.plus-count {
+  width: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+}
+.plus-count div {
+  width: 48px;
+  height: 57px !important;
+  background: #f52c2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.plus-count span {
+  font-size: 35px;
+  padding-top: 0.75rem;
+  color: white;
+}
+
+.minus-count {
+  width: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+}
+.minus-count div {
+  width: 48px;
+  height: 57px !important;
+  background: #f52c2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.minus-count span {
+  font-size: 35px;
+  padding-top: 0.5rem;
+  color: white;
+}
+
+.close-passenger-box svg {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.createChildDropdown .select-age {
+  border: 1px solid #ffcdd2;
+  border-radius: 8px;
+  outline: none;
+  height: 57px !important;
+}
