@@ -189,3 +189,9 @@ if (document.querySelector(".swiper-other-news")) {
     },
   });
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".search-box-container input").forEach(input => {
+      input.value = "";
+  });
+});
