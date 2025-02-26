@@ -1,8 +1,13 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="130-destination">
     <member name="cat" type="tree" request="cat" parentid="213670" order="ord"></member>
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="article">
-    <member name="cat" type="tree" request="cat" parentid="151555" order="ord"></member>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="151555">
+    <member name="article" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="6" size="379x274"
+        order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213628">
+    <member name="popular-flights" type="list" link="article.bc" propertyid="3087570,3087571,3087574" perpage="6"
+        size="133x90" order="ord" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="questions">
     <member name="cat" type="tree" request="cat" parentid="213680" order="ord"></member>
@@ -10,20 +15,53 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="153597">
     <member name="other-news" type="list" link="article.bc" propertyid="7244" perpage="6" size="" order="ord" />
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="213680">
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2310061">
     <member name="about-pegasys" type="view" size="" propertyid="" />
 </basis>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+    <meta name="description"
+        content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <!-- canonical for Homepage -->
+    <link rel="canonical" href="[##cms.request.:scheme##]://[##cms.request.full-url##]" />
+    <!-- fill items with Agancy Info -->
+    <meta name="og:locale" content="fa_IR">
+    <meta property="og:title" content="پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |">
+    <meta property="og:url" content="[##cms.request.:scheme##]://[##cms.request.full-url##]">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس">
+    <meta property="og:image" content="[##cms.cms.cdn##]/images/logo.png">
+    <meta property="og:image:alt" content="لوگو ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس">
+    <meta property="og:description"
+        content="آپگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content=" ">
+    <meta name="twitter:creator" content="Satrap Seir">
+    <meta name="twitter:image" content="[##cms.cms.cdn##]/images/logo.png">
+    <meta name="twitter:title" content=" ">
+    <meta name="twitter:description" content=" ">
+    <meta property="seo:robots" content="index, follow" />
+    <!-- samandehi-enamad optional -->
+    <meta name="enamad" content="" />
+    <meta name="samandehi" content="" />
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- define -->
+    <link rel="preload" as="image" imageSrcSet="image address" fetchpriority="high" />
+    <!-- common styles for all page -->
     <basis core="call" file="style.inc" />
 </head>
 
-<body onload="loadContentHomePage()">
+<body>
     <div class="bg-defaultBg bg-center bg-cover pb-14">
         <basis core="call" file="header.inc" />
 
@@ -33,7 +71,7 @@
                     <div
                         class="active-module flex items-center justify-center gap-1 rounded-lg py-3 px-4 group transition-all duration-300 hover:bg-secondary-700">
                         <svg width="24" height="26">
-                            <use xlink:href="./images/icons.svg#icon-search-flight-white"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-search-flight-white"></use>
                         </svg>
                         <span
                             class="font-medium text-zinc-400 transition-all duration-300 group-hover:text-white">جستجوی
@@ -44,11 +82,11 @@
                         class="flex items-center justify-center gap-1 rounded-lg py-3 px-4 group transition-all duration-300 hover:bg-secondary-700">
                         <svg width="24" height="24"
                             class="transition-all duration-300 group-hover:hidden group-hover:invisible group-hover:opacity-0">
-                            <use xlink:href="./images/icons.svg#icon-online-checkin"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-online-checkin"></use>
                         </svg>
                         <svg width="24" height="24"
                             class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                            <use xlink:href="./images/icons.svg#icon-online-checkin-white"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-online-checkin-white"></use>
                         </svg>
                         <span class="text-zinc-400 transition-all duration-300 group-hover:text-white">checkin
                             آنلاین</span>
@@ -71,71 +109,97 @@
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-16">
             <h2 class="text-zinc-900 font-bold text-center mb-10 text-2xl">سفرهای پرطرفدار</h2>
 
-            <div class="flex lg:flex-wrap gap-4 xl:flex-nowrap justify-between">
-                <div
-                    class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800">
-                    <img src="[##cms.cms.cdn##]/images/popular-travel.jpg" alt=""
-                        class="h-[90px] object-cover rounded-lg" width="133" height="90" loading="lazy">
-                    <div>
-                        <div class="flex flex-wrap items-center gap-1">
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        </div>
-                        <div class="flex items-center gap-3 mt-4">
-                            <div class="flex items-center gap-2">
-                                <h3 class="text-zinc-900 font-bold">تبریز</h3>
-                                <div class="relative">
-                                    <svg width="248" height="36">
-                                        <use xlink:href="./images/icons.svg#icon-gray-airplane-line-desktop">
-                                        </use>
-                                    </svg>
-                                    <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
-                                        <use xlink:href="./images/icons.svg#icon-gray-airplane"></use>
-                                    </svg>
-                                </div>
-                                <h3 class="text-zinc-900 font-bold">استانبول</h3>
+            <basis core="list" datamembername="db.popular-flights">
+                <layout>
+                    <div
+                        class="flex lg:flex-wrap gap-y-3 gap-x-6 xl:flex-nowrap xl:grid xl:grid-cols-2 justify-between">
+                        @child
+                    </div>
+                </layout>
+                <face filter="link is null">
+                    <div
+                        class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800 group">
+                        <img src="@00133X00090prp" alt="@title" class="h-[90px] object-cover rounded-lg" width="133"
+                            height="90" loading="lazy">
+                        <div class="w-full">
+                            <div class="flex flex-wrap items-center gap-1">
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
                             </div>
-                            <a href=""
-                                class="w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</a>
+                            <div class="flex items-center gap-3 mt-4">
+                                <div class="flex items-center gap-2 flex-1">
+                                    <h3 class="text-zinc-900 font-bold">@prp_3087570</h3>
+                                    <div class="relative">
+                                        <svg width="248" height="36">
+                                            <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line-desktop">
+                                            </use>
+                                        </svg>
+                                        <svg width="24" height="24"
+                                            class="absolute top-[5px] left-0 right-0 mx-auto airplane-animation group-hover:slide">
+                                            <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-zinc-900 font-bold">@prp_3087571</h3>
+                                </div>
+                                <a href="/article.bc?id=@id"
+                                    class="w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3">
-                    <img src="[##cms.cms.cdn##]/images/popular-travel.jpg" alt=""
-                        class="h-[90px] object-cover rounded-lg" width="133" height="90" loading="lazy">
-                    <div>
-                        <div class="flex flex-wrap items-center gap-1">
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                            <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        </div>
-                        <div class="flex items-center gap-3 mt-4">
-                            <div class="flex items-center gap-2">
-                                <h3 class="text-zinc-900 font-bold">تبریز</h3>
-                                <div class="relative">
-                                    <svg width="242" height="36">
-                                        <use xlink:href="./images/icons.svg#icon-gray-airplane-line-desktop">
-                                        </use>
-                                    </svg>
-                                    <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
-                                        <use xlink:href="./images/icons.svg#icon-gray-airplane"></use>
-                                    </svg>
-                                </div>
-                                <h3 class="text-zinc-900 font-bold">استانبول</h3>
+                </face>
+                <face>
+                    <div
+                        class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800 group">
+                        <img src="@00133X00090prp" alt="@title" class="h-[90px] object-cover rounded-lg" width="133"
+                            height="90" loading="lazy">
+                        <div class="w-full">
+                            <div class="flex flex-wrap items-center gap-1">
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span
+                                    class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
                             </div>
-                            <a href=""
-                                class="w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg">مشاهده</a>
+                            <div class="flex items-center gap-3 mt-4">
+                                <div class="flex items-center gap-2 flex-1">
+                                    <h3 class="text-zinc-900 font-bold">@prp_3087570</h3>
+                                    <div class="relative">
+                                        <svg width="248" height="36">
+                                            <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line-desktop">
+                                            </use>
+                                        </svg>
+                                        <svg width="24" height="24"
+                                            class="absolute top-[5px] left-0 right-0 mx-auto airplane-animation group-hover:slide">
+                                            <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-zinc-900 font-bold">@prp_3087571</h3>
+                                </div>
+                                <a href="@link"
+                                    class="w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </face>
+            </basis>
+
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
             <img src="[##cms.cms.cdn##]/images/offer.jpg" alt="offer" width="100%" height="257" loading="lazy">
@@ -149,35 +213,39 @@
                 <div class="flex gap-16 items-center">
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="./images/icons.svg#icon-seven-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-seven-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">انتخاب غذا</h3>
-                            <div class="text-zinc-700 text-sm">از پرواز خود با گزینه های خوشمزه و قیمت های مناسب در کافه پگاسوس لذت ببرید! </div>
+                            <div class="text-zinc-700 text-sm">از پرواز خود با گزینه های خوشمزه و قیمت های مناسب در کافه
+                                پگاسوس لذت ببرید! </div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="./images/icons.svg#icon-five-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-five-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">انتخاب صندلی</h3>
-                            <div class="text-zinc-700 text-sm">به عنوان مهمان پگاسوس، می توانید انتخاب کنید که در طول پرواز در کدام صندلی بنشینید. </div>
+                            <div class="text-zinc-700 text-sm">به عنوان مهمان پگاسوس، می توانید انتخاب کنید که در طول
+                                پرواز در کدام صندلی بنشینید. </div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="54">
-                            <use xlink:href="./images/icons.svg#icon-three-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-three-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">خرید اضافه بار</h3>
-                            <div class="text-zinc-700 text-sm">تراکنش‌های فروش اضافی باربری را می‌توان در وب‌سایت پگاسوس، مرکز تماس پگاسوس، آژانس‌های مسافرتی و دفاتر فروش فرودگاه تا پایان فرآیند چک‌این پرواز مربوطه انجام داد.</div>
+                            <div class="text-zinc-700 text-sm">تراکنش‌های فروش اضافی باربری را می‌توان در وب‌سایت
+                                پگاسوس، مرکز تماس پگاسوس، آژانس‌های مسافرتی و دفاتر فروش فرودگاه تا پایان فرآیند چک‌این
+                                پرواز مربوطه انجام داد.</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
 
                         <svg width="52" height="52">
-                            <use xlink:href="./images/icons.svg#icon-first-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-first-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">قوانین و مقررات</h3>
@@ -189,7 +257,7 @@
                 <div class="flex gap-16 items-center">
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="./images/icons.svg#icon-last-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-last-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">پیگیری بار گم شده</h3>
@@ -198,7 +266,7 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="54">
-                            <use xlink:href="./images/icons.svg#icon-six-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-six-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">آنلاین checking</h3>
@@ -207,20 +275,23 @@
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="52">
-                            <use xlink:href="./images/icons.svg#icon-four-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-four-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">قوانین بار</h3>
-                            <div class="text-zinc-700 text-sm">می توانید میزان بار و هزینه بار کابینی موجود در بسته های پروازی را بررسی کنید</div>
+                            <div class="text-zinc-700 text-sm">می توانید میزان بار و هزینه بار کابینی موجود در بسته های
+                                پروازی را بررسی کنید</div>
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <svg width="52" height="54">
-                            <use xlink:href="./images/icons.svg#icon-two-services"></use>
+                            <use xlink:href="./images/sprite-icons.svg#icon-two-services"></use>
                         </svg>
                         <div class="flex flex-col gap-1">
                             <h3 class="font-bold text-zinc-900">بسته اینترنت</h3>
-                            <div class="text-zinc-700 text-sm">در حالی که در هواپیما هستید، می‌توانید از طریق تلفن همراه، تبلت یا لپ‌تاپ خود به پلتفرم متصل شوید و از طیف گسترده‌ای از فیلم‌ها، سریال‌ها و بازی‌ها لذت ببرید</div>
+                            <div class="text-zinc-700 text-sm">در حالی که در هواپیما هستید، می‌توانید از طریق تلفن
+                                همراه، تبلت یا لپ‌تاپ خود به پلتفرم متصل شوید و از طیف گسترده‌ای از فیلم‌ها، سریال‌ها و
+                                بازی‌ها لذت ببرید</div>
                         </div>
                     </div>
                 </div>
@@ -230,151 +301,23 @@
             <h2 class="text-zinc-900 font-bold text-center mb-6 text-2xl">پرواز به 130 مقصد</h2>
             <div class="flex justify-center">
                 <basis core="tree" datamembername="130-destination.cat" idcol="catid" parentidcol="parentid"
-                nullvalue="213670">
+                    nullvalue="213670">
                     <layout>
                         <ul class="flex place-items-center gap-14 bg-primary-50 p-2 rounded-lg">
                             @child
                         </ul>
                     </layout>
                     <face>
-                        <li
-                        class="text-zinc-900 transition-all duration-300 hover:bg-primary-600 px-7 py-3 rounded-lg cursor-pointer">
-                        @title</li>
+                        <li class="text-zinc-900 flight-li transition-all duration-300 hover:bg-primary-600 px-7 py-3 rounded-lg cursor-pointer"
+                            data-id="@catid">
+                            @title</li>
                     </face>
                 </basis>
 
             </div>
-            <div class="flex flex-col gap-4 mt-10">
-                <div class="flex justify-between gap-8 flex-1 custom-border-bottom relative">
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                </div>
-                <div class="flex justify-between gap-8 flex-1 custom-border-bottom relative">
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                </div>
-                <div class="flex justify-between gap-8 flex-1 custom-border-bottom relative">
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                </div>
-                <div class="flex justify-between gap-8 flex-1 custom-border-bottom relative">
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                </div>
-                <div class="flex justify-between gap-8 flex-1 custom-border-bottom relative">
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                    <a href="" class="group flex items-center gap-3 relative">
-                        <span
-                            class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                        <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                            استانبول</h3>
-                    </a>
-                </div>
+
+            <div class="fetch-content-flight grid grid-cols-4 relative mt-10">
+
             </div>
         </section>
 
@@ -388,11 +331,11 @@
                             <div
                                 class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
                                 <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="./images/icons.svg#icon-right-chevron"></use>
+                                    <use xlink:href="./images/sprite-icons.svg#icon-right-chevron"></use>
                                 </svg>
                                 <svg width="24" height="24"
                                     class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="./images/icons.svg#icon-right-chevron-white"></use>
+                                    <use xlink:href="./images/sprite-icons.svg#icon-right-chevron-white"></use>
                                 </svg>
                             </div>
                         </div>
@@ -400,11 +343,11 @@
                             <div
                                 class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
                                 <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="./images/icons.svg#icon-left-chevron"></use>
+                                    <use xlink:href="./images/sprite-icons.svg#icon-left-chevron"></use>
                                 </svg>
                                 <svg width="24" height="24"
                                     class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="./images/icons.svg#icon-left-chevron-white"></use>
+                                    <use xlink:href="./images/sprite-icons.svg#icon-left-chevron-white"></use>
                                 </svg>
                             </div>
                         </div>
@@ -412,45 +355,74 @@
                 </div>
                 <!-- Slider main container -->
                 <div class="swiper swiper-article pb-12">
-                    <basis core="tree" datamembername="article.cat" idcol="catid" parentidcol="parentid"
-                    nullvalue="151555">
+                    <basis core="list" datamembername="db.article">
                         <layout>
-                                                <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        @child
-                    </div>
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                @child
+                            </div>
                         </layout>
-                        <face filter="link is null and parentid not in(151537)">
-                                                    <!-- Slides -->
-                        <div class="swiper-slide">
-                            <article
-                                class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
-                                    <span class="flex items-center gap-1 text-zinc-500 text-sm">
-                                        <svg width="24" height="24">
-                                            <use xlink:href="./images/icons.svg#icon-calender"></use>
-                                        </svg>
-                                        1402/12/12
-                                    </span>
-                                </div>
-                                <div class="relative mt-2">
-                                    <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt=""
-                                        class="h-[232px] object-cover rounded-lg transition-all duration-300 group-hover:grayscale"
-                                        width="100%" height="232" loading="lazy">
-                                    <a href="/article-list.bc?catid=@catid"
-                                        class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="mt-6">
-                                    <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
-                                    <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز
-                                        قدرت، فرهنگ
-                                        و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است.
+                        <face filter="link is null">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <article
+                                    class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
+                                        <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                            <svg width="24" height="24">
+                                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                            </svg>
+                                            @prp_7249
+                                        </span>
                                     </div>
-                                </div>
-                            </article>
-                        </div>
+                                    <div class="relative mt-2">
+                                        <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt="@title"
+                                            class="h-[232px] object-cover rounded-lg transition-all duration-300 group-hover:grayscale"
+                                            width="100%" height="232" loading="lazy">
+                                        <a href="/article.bc?id=@id"
+                                            class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
+                                            مطلب</a>
+                                    </div>
+                                    <div class="mt-8">
+                                        <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
+                                        <div class="text-zinc-900 text-sm text-justify line-clamp-2 min-h-10">
+                                            @prp_7244
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </face>
+                        <face>
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <article
+                                    class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
+                                        <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                            <svg width="24" height="24">
+                                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                            </svg>
+                                            @prp_7249
+                                        </span>
+                                    </div>
+                                    <div class="relative mt-2">
+                                        <img src="[##cms.cms.cdn##]/images/pool-case.jpg" alt="@title"
+                                            class="h-[232px] object-cover rounded-lg transition-all duration-300 group-hover:grayscale"
+                                            width="100%" height="232" loading="lazy">
+                                        <a href="@link"
+                                            class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
+                                            مطلب</a>
+                                    </div>
+                                    <div class="mt-8">
+                                        <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
+                                        <div class="text-zinc-900 text-sm text-justify line-clamp-2 min-h-10">
+                                            @prp_7244
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
                         </face>
                     </basis>
 
@@ -463,78 +435,40 @@
                 <div class="flex items-center gap-5 mb-5">
                     <h2 class="font-bold text-zinc-900 text-2xl">دیگر اخبار</h2>
                     <span class="flex-1 h-px bg-zinc-300"></span>
-                    <div class="flex items-center gap-2">
-                        <div class="swiper-button-prev-custom">
-                            <div
-                                class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
-                                <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="./images/icons.svg#icon-right-chevron"></use>
-                                </svg>
-                                <svg width="24" height="24"
-                                    class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="./images/icons.svg#icon-right-chevron-white"></use>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="swiper-button-next-custom">
-                            <div
-                                class="flex items-center justify-center w-12 h-12 bg-zinc-300 rounded-full transition-all duration-300 hover:bg-secondary-900 group">
-                                <svg width="24" height="24" class="group-hover:hidden">
-                                    <use xlink:href="./images/icons.svg#icon-left-chevron"></use>
-                                </svg>
-                                <svg width="24" height="24"
-                                    class="hidden transition-all duration-300 invisible opacity-0 group-hover:visible group-hover:opacity-100 group-hover:block">
-                                    <use xlink:href="./images/icons.svg#icon-left-chevron-white"></use>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="/article-list.bc?catid=153597" class="text-blue-500">مشاهده بیشتر</a>
                 </div>
-                <!-- Slider main container -->
-                <div class="swiper swiper-other-news pb-12">
-                    <basis core="list" datamembername="db.other-news" >
-                        <layout>
-                            <div class="swiper-wrapper">
-                                <!-- Slides -->
-                                @child
+                <basis core="list" datamembername="db.other-news">
+                    <layout>
+                        <div class="grid grid-cols-2 gap-x-6">
+                            <!-- Slides -->
+                            @child
+                        </div>
+                    </layout>
+                    <face filter="link is null">
+                        <div class="other-news-border">
+                            <h3 class="text-zinc-900 font-bold mb-2">@title</h3>
+                            <div class="text-sm text-zinc-900 mb-4 line-clamp-2 min-h-10">
+                                @prp_7244
                             </div>
-                        </layout>
-                        <face>
-                            <div class="swiper-slide">
-                                <div class="flex flex-col gap-6">
-                                    <div>
-                                        <h3 class="text-zinc-900 font-bold mb-2">@title</h3>
-                                        <div class="text-sm text-zinc-900 mb-4 line-clamp-2">
-                                            @prp_7244
-                                        </div>
-                                        <a href=""
-                                            class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
-                                            مطلب</a>
-                                    </div>
-                                    <div class="border border-solid border-zinc-300 w-full h-px"></div>
-                                    <div>
-                                        <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                        <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                            طراحان گرافیک
-                                            است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
-                                            شرایط
-                                            فعلی
-                                        </div>
-                                        <a href=""
-                                            class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                            مطلب</a>
-                                    </div>
-                                </div>
+                            <a href="/article.bc?id=@id"
+                                class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
+                                مطلب</a>
+                        </div>
+
+                    </face>
+                    <face>
+                        <div class="other-news-border">
+                            <h3 class="text-zinc-900 font-bold mb-2">@title</h3>
+                            <div class="text-sm text-zinc-900 mb-4 line-clamp-2 min-h-10">
+                                @prp_7244
                             </div>
-                        </face>
-                    </basis>
-                    <!-- Additional required wrapper -->
+                            <a href="@link"
+                                class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه
+                                مطلب</a>
+                        </div>
 
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
-                </div>
+                    </face>
+                </basis>
             </section>
         </div>
         <basis core="print" datamembername="db.about-pegasys">
@@ -546,7 +480,7 @@
             <face filter="TypeID in(150)">
                 <h2 class="text-zinc-900 font-bold mb-3 text-2xl">@text</h2>
             </face>
-            <face>
+            <face filter="TypeID in(250)">
                 <div class="text-sm text-zinc-900 text-justify">
                     @largetext
                 </div>
@@ -556,16 +490,16 @@
             <h2 class="text-center text-zinc-900 font-bold mb-6 text-2xl">سوالات متداول</h2>
             <div class="flex justify-center">
                 <basis core="tree" datamembername="questions.cat" idcol="catid" parentidcol="parentid"
-                nullvalue="213680">
+                    nullvalue="213680">
                     <layout>
                         <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
                             @child
                         </ul>
                     </layout>
                     <face>
-                        <li
-                        class="question-li text-zinc-900 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg" data-id="@catid">
-                        @title</li>
+                        <li class="question-li text-zinc-900 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg"
+                            data-id="@catid">
+                            @title</li>
                     </face>
                 </basis>
 

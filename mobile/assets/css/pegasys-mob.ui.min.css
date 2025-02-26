@@ -543,6 +543,10 @@ body {
   padding-bottom: 1.5rem;
 }
 
+.pb-4 {
+  padding-bottom: 1rem /* 16px */;
+}
+
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -889,9 +893,8 @@ body {
 }
 
 .search-flight {
-  width: 113px !important;
   background-color: #fb8901 !important;
-  height: 57px !important;
+  height: 48px !important;
   color: white !important;
   border-radius: 8px;
 }
@@ -975,6 +978,9 @@ body {
   padding: 0 !important;
 }
 
+.reserve-field.passengers-field{
+  margin-bottom: 4px !important;
+}
 .passengers-field div:nth-child(1) div:first-of-type {
   display: inline;
   margin-right: 0.5rem;
@@ -1009,7 +1015,6 @@ body {
 }
 
 .multicity-flight-form .reserve-field.passengers-field {
-  width: 444px !important;
   height: 57px !important;
 }
 
@@ -1030,16 +1035,15 @@ body {
   background-color: #f52c2b;
 }
 
-.multicity-flight-form .reserve-field {
-  height: 57px !important;
-}
-
 .multicity-flight-form .add-routs {
-  width: auto !important;
+  width: 100% !important;
+  height: 48px !important;
   font-size: 16px !important;
   border: 1px solid #f57902;
   padding: 12px 24px;
   border-radius: 8px;
+  font-weight: 500;
+  margin-top: 22px;
 }
 .multicity-flight-form .add-routs:hover {
   border: 1px solid #f52c2b;

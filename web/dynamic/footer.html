@@ -1,3 +1,7 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="202018">
+    <member name="easy-way" type="list" link="article.bc" propertyid="" perpage="8" size=""
+        order="ord" />
+</basis>
 <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
 <footer class="bg-blue-50 p-6 lg:p-9">
     <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
@@ -90,98 +94,26 @@
             <div class="swiper-pagination"></div>
 
         </div>
-        <div class="hidden lg:flex flex-col gap-4 justify-between divide-zinc-300 ">
-            <div class="flex justify-between gap-8 custom-border-bottom">
-                <a href="" class="group flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                    <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
+        <basis core="list" datamembername="db.easy-way">
+            <layout>
+                <div class="hidden lg:grid grid-cols-4 gap-4 justify-between">
+                    @child
+                </div>
+            </layout>
+            <face>
+                <a href="" class="group flex items-center justify-between relative custom-border-bottom">
+                    <div class="flex gap-3 items-center">
+                        <span
+                        class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
+                    <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
+                        @title</h3>
+                    </div>
+                    <svg width="48" height="48" class="group-hover:hidden">
+                        <use xlink:href="./images/sprite-icons.svg#icon-left-chevron-orange"></use>
+                    </svg>
                 </a>
-                <a href="" class="group flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                    <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
-                </a>
-                <a href="" class="group flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                    <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
-                </a>
-                <a href="" class="group flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                    <h3 class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">استانبول</h3>
-                </a>
-            </div>
-            <div class="flex justify-between gap-8 custom-border-bottom">
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-            </div>
-            <div class="flex justify-between gap-8 custom-border-bottom">
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-            </div>
-            <div class="flex justify-between gap-8 custom-border-bottom">
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-            </div>
-            <div class="flex justify-between gap-8 custom-border-bottom">
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-                <a href="" class="flex items-center gap-3">
-                    <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                    <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                </a>
-            </div>
-        </div>
+            </face>
+        </basis>
     </section>
     <div class="mt-5 mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl border-t border-zinc-300 border-solid lg:mt-12 lg:pt-9 lg:flex lg:gap-14">
         <section class="lg:flex-[3] lg:order-1">
@@ -304,22 +236,22 @@
             <div class="flex items-center justify-between lg:justify-normal lg:gap-5">
                 <a href="https://www.cao.ir/"
                 class="flex items-center justify-center bg-white p-1 w-14 h-14 rounded overflow-hidden transition-all duration-300 hover:scale-90">
-                <img src="[##cms.cms.cdn##]/images/eNamad.jpg" alt="eNamad" width="58" height="53"
+                <img src="[##cms.cms.cdn##]/images/eNamad.jpg" alt="eNamad" width="100%" height="53"
                     loading="lazy" rel="noopener">
             </a>
                 <a href="https://www.iata.org/"
                     class="flex items-center justify-center bg-white p-1 w-14 h-14 rounded overflow-hidden transition-all duration-300 hover:scale-90">
-                    <img src="[##cms.cms.cdn##]/images/lata.jpg" alt="lata" width="58" height="53"
+                    <img src="[##cms.cms.cdn##]/images/lata.jpg" alt="lata" width="100%" height="53"
                         loading="lazy" rel="noopener">
                 </a>
                 <a href="https://www.cao.ir/paxrights"
                     class="flex items-center justify-center bg-white p-1 w-14 h-14 rounded overflow-hidden transition-all duration-300 hover:scale-90">
-                    <img src="[##cms.cms.cdn##]/images/pax.png" alt="pax" width="58" height="53" loading="lazy"
+                    <img src="[##cms.cms.cdn##]/images/pax.png" alt="pax" width="100%" height="53" loading="lazy"
                         rel="noopener">
                 </a>
                 <a href="https://www.cao.ir/"
                     class="flex items-center justify-center bg-white p-1 w-14 h-14 rounded overflow-hidden transition-all duration-300 hover:scale-90">
-                    <img src="[##cms.cms.cdn##]/images/plane-organization.png" alt="plane-organization" width="58" height="53"
+                    <img src="[##cms.cms.cdn##]/images/plane-organization.png" alt="plane-organization" width="100%" height="53"
                         loading="lazy" rel="noopener">
                 </a>
             </div>

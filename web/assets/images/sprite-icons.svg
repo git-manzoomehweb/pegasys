@@ -284,6 +284,10 @@
       d="M15.7499 20.414L7.33594 12L15.7499 3.586L17.1639 5L10.1639 12L17.1639 19L15.7499 20.414Z" fill="#ffffff" />
   </symbol>
 
+  <symbol id="icon-left-chevron-orange" viewBox="0 0 48 48" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.7499 32.4141L19.3359 24.0001L27.7499 15.5861L29.1639 17.0001L22.1639 24.0001L29.1639 31.0001L27.7499 32.4141Z" fill="#FB8901"/>
+  </symbol>
+
   <symbol id="icon-orange-flash" viewBox="0 0 48 48" fill="none">
     <path d="M16.25 24.2744L31.25 24.2744" stroke="#FB8901" stroke-width="1.5" stroke-linecap="round"
       stroke-linejoin="round" />
@@ -307,6 +311,11 @@
   <symbol id="engine-close-icon" stroke-width="1.5" viewBox="0 0 24 24" stroke="currentColor" fill="none">
 
   <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+
+  </symbol>
+
+  <symbol id="engine-removeroute-icon" viewBox="0 0 24 25" fill="none">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.711 15.4237L14.65 16.4847L12.249 14.0857L9.849 16.4817L8.789 15.4207L11.188 13.0257L8.789 10.6277L9.85 9.56667L12.25 11.9657L14.651 9.56867L15.711 10.6307L13.311 13.0257L15.711 15.4237ZM12.25 3.28467C6.874 3.28467 2.5 7.65867 2.5 13.0347C2.5 18.4107 6.874 22.7847 12.25 22.7847C17.626 22.7847 22 18.4107 22 13.0347C22 7.65867 17.626 3.28467 12.25 3.28467Z" fill="#FFCDD2"/>
 
   </symbol>
 </svg>

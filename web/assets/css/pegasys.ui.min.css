@@ -183,8 +183,20 @@ body {
   -webkit-line-clamp: 4;
 }
 
-.grid {
-  display: grid;
+.order-1 {
+  order: 1;
+}
+
+.order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
+}
+
+.min-h-10 {
+  min-height: 2.5rem;
 }
 
 .min-h-\[835px\] {
@@ -362,6 +374,13 @@ body {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-x-6 {
+  column-gap: 1.5rem /* 24px */;
+}
+.gap-y-3 {
+  row-gap: 0.75rem /* 12px */;
 }
 
 .divide-x > :not([hidden]) ~ :not([hidden]) {
@@ -664,6 +683,11 @@ body {
   line-height: 6.75rem;
 }
 
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
@@ -811,9 +835,25 @@ body {
   left: 0;
 }
 
-.custom-border-bottom:not(:last-child) {
+.custom-border-bottom {
   border-bottom: 1px dashed #d4d4d8;
   padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.other-news-border:nth-child(1) {
+  border-bottom: 1px solid #d4d4d8;
+  padding-bottom: 16px;
+}
+.other-news-border:nth-child(2) {
+  border-bottom: 1px solid #d4d4d8;
+  padding-bottom: 16px;
+}
+.other-news-border:nth-child(3) {
+  padding-top: 16px;
+}
+.other-news-border:nth-child(4) {
+  padding-top: 16px;
 }
 
 .hover\:divide-primary-300:hover > :not([hidden]) ~ :not([hidden]) {
@@ -944,6 +984,14 @@ body {
 }
 
 @media (min-width: 1280px) {
+  .xl\:grid {
+    display: grid;
+  }
+
+  .xl\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .xl\:max-w-7xl {
     max-width: 80rem;
   }
@@ -951,6 +999,19 @@ body {
   .xl\:flex-nowrap {
     flex-wrap: nowrap;
   }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(108px);
+  }
+  100% {
+    transform: translateX(-108px);
+  }
+}
+
+.group:hover .airplane-animation {
+  animation: slide 1.5s ease-in-out forwards;
 }
 
 .btnstyle {
@@ -966,8 +1027,65 @@ body {
   height: 48px;
 }
 
-.active-module{
-  background-color: #E31F26;
+.Basis_Calendar .selected_date {
+  background: var(--secondary) !important;
+}
+.confirm-date-content button:hover {
+  background: var(--secondary);
+}
+.confirm-date-content button {
+  background: var(--primary);
+  color: #fff;
+}
+.calendar-apply-date:hover {
+  background: var(--secondary);
+}
+.calendar-apply-date {
+  background: var(--primary);
+  color: #fff;
+}
+.Basis_Calendar .selected_day {
+  background: var(--secondary);
+}
+.day.days_available {
+  background: var(--primary);
+}
+.calendar-switch {
+  color: var(--primary);
+}
+.Basis_Calendar .section_next_month,
+.Basis_Calendar .section_prev_month {
+  color: var(--primary);
+}
+.Basis_Calendar .current_day::after {
+  border-color: var(--secondary) transparent transparent;
+}
+.Basis_Calendar
+  .month_day_list
+  table
+  td:not(.disable_day, .empty_day, .expire_day):hover {
+  border-color: var(--primary);
+}
+.Basis_Calendar .current_day {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+.Basis_Calendar_Box {
+  font-family: "DanaFaNum" !important;
+}
+.calendar-apply-date,
+.calendar-switch,
+.calendar-today,
+.calendar-footer input::placeholder {
+  font-family: "DanaFaNum" !important;
+}
+.calendar-footer input,
+.calendar-footer ::placeholder {
+  font-family: "DanaFaNum";
+}
+
+.active-module {
+  background-color: #e31f26;
 }
 
 .search-box-container .active-r-btn {
@@ -1118,8 +1236,8 @@ body {
   width: auto !important;
 }
 
-.reserve-field.passengers-field label span{
-  color: #3F3F46;
+.reserve-field.passengers-field label span {
+  color: #3f3f46;
 }
 
 .reserve-field.passengers-field label svg {
@@ -1259,7 +1377,7 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.plus-count{
+.plus-count {
   width: auto !important;
   height: auto !important;
   line-height: normal !important;
@@ -1279,7 +1397,7 @@ body {
   color: white;
 }
 
-.minus-count{
+.minus-count {
   width: auto !important;
   height: auto !important;
   line-height: normal !important;
@@ -1299,7 +1417,7 @@ body {
   color: white;
 }
 
-.close-passenger-box svg{
+.close-passenger-box svg {
   width: 24px !important;
   height: 24px !important;
 }

@@ -1,0 +1,178 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
+    <member name="article-list" type="list" link="tour.bc" propertyid="8181,8077,8076,10000504" perpage="3" size="379x264"
+        pageno="[##cms.query.pagenum|(1)##]" order="ord" />
+    <member name="paging" type="list" request="paging" count="3" parentname="tour-list" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="18" name="db" usedforid="[##cms.query.catid##]">
+    <member name="scalar" type="scalar" typeid="150" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2310061">
+    <member name="about-pegasys" type="view" size="" propertyid="" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <basis core="call" file="style.inc" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="relative bg-articleListBg bg-center bg-cover h-[523px]">
+        <div class="bg-specialcolor-1 absolute inset-0 h-full w-full"></div>
+        <basis core="call" file="header.inc" />
+
+        <section class="relative z-10 flex flex-col justify-center items-center mt-36">
+            <basis core="print" datamembername="db.scalar">
+                <face>
+                    <h1 class="text-white font-bold text-3xl mb-4">@column1</h1>
+                </face>
+            </basis>
+            <ul itemscope itemtype="https://schema.org/BreadcrumbList" class="flex items-center text-sm gap-1 mt-2">
+                <li class="inline-block font-normal" itemprop="itemListElement" itemscope
+                    itemtype="https://schema.org/ListItem">
+                    <a class="text-zinc-900 transition-all duration-300 hover:text-white" itemprop="item" href="/" aria-label="home"><span
+                            itemprop="name">صفحه اصلی</span>
+                        <meta itemprop="position" content="1" />
+                    </a>
+                </li>
+                <span class="text-zinc-900"> > </span>
+                <basis core="print" datamembername="db.navigation">
+                    <face filter="RowNumber=max(RowNumber) and parentcatid<>212707">
+                        <li class="inline-block font-normal" itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <span itemprop="name">@title</span>
+                            <meta itemprop="position" content="@rownumber" />
+                        </li>
+                    </face>
+                    <face filter="link is null and parentcatid<>212707">
+                        <li class="flex gap-1 font-normal " itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a class="text-zinc-900 transition-all duration-300 hover:text-white" itemprop="item"
+                                href="/article-list.bc?catid=@parentcatid" aria-label="@title"><span
+                                    itemprop="name">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </a>
+                            <span class="text-zinc-900"> > </span>
+                        </li>
+                    </face>
+                    <face filter="parentcatid<>212707">
+                        <li class="flex gap-1 font-normal " itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem">
+                            <a class="text-zinc-900 transition-all duration-300 hover:text-white" itemprop="item" href="@link"
+                                aria-label="@title"><span class="text-zinc-900 transition-all duration-300 hover:text-white"
+                                    itemprop="name">@title</span>
+                                <meta itemprop="position" content="@rownumber" />
+                            </a>
+                            <span class="text-zinc-900 "> > </span>
+                        </li>
+                    </face>
+                </basis>
+            </ul>
+
+            <div class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto bg-specialcolor-2 p-2 rounded-xl mt-10">
+                <form method="get" action="/search-content.bc" class="bg-white p-2 rounded-xl flex items-center gap-3">
+                    <input
+                        class="w-[632px] h-14 pr-3 bg-zinc-100 rounded-lg text-zinc-500 placeholder-zinc-500 outline-none"
+                        placeholder="جستجوی مقاله" type="text" autocomplete="on" required name="search-content-name" />
+                    <button
+                        class="flex items-center text-sm justify-center w-[117px] h-14 text-white rounded-lg bg-primary-600 transition-all duration-300 hover:bg-secondary-900"
+                        type="submit">
+                        جستجو
+                    </button>
+            </form>
+            </div>
+        </section>
+    </div>
+    <main>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <div class="grid grid-cols-3 gap-6">
+                <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                    <div class="flex items-center justify-between">
+                        <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
+                        <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                            <svg width="24" height="24">
+                                <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                            </svg>
+                            1402/12/12
+                        </span>
+                    </div>
+                    <div class="relative mt-2">
+                        <img src="../assets/images/pool-case.jpg" alt="" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                        <a href="" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
+                        <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز قدرت، فرهنگ و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است. </div>
+                    </div>
+                </article>
+                <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                    <div class="flex items-center justify-between">
+                        <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
+                        <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                            <svg width="24" height="24">
+                                <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                            </svg>
+                            1402/12/12
+                        </span>
+                    </div>
+                    <div class="relative mt-2">
+                        <img src="../assets/images/pool-case.jpg" alt="" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                        <a href="" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
+                        <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز قدرت، فرهنگ و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است. </div>
+                    </div>
+                </article>
+            </div>
+            <ul class="flex items-center justify-center gap-1 mt-20">
+                <li class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.84 16C19.84 16.1211 19.815 16.2422 19.765 16.3633C19.715 16.4844 19.65 16.5752 19.57 16.6357L15.1 21.1768C14.92 21.3584 14.69 21.4492 14.41 21.4492C14.13 21.4492 13.89 21.3584 13.69 21.1768C13.51 20.9749 13.42 20.7327 13.42 20.4502C13.42 20.1676 13.51 19.9355 13.69 19.7539L17.53 15.8789L13.69 12.0039C13.51 11.8021 13.42 11.5599 13.42 11.2773C13.42 10.9948 13.51 10.7627 13.69 10.5811C13.89 10.3792 14.13 10.2783 14.41 10.2783C14.69 10.2783 14.92 10.3792 15.1 10.5811L19.57 15.0918C19.65 15.2936 19.715 15.4652 19.765 15.6064C19.815 15.7477 19.84 15.8789 19.84 16Z" fill="#3F3F46"/>
+                        </svg>    
+
+                </li>
+                <li class="flex items-center justify-center w-12 h-12 p-2 text-zinc-600 rounded-lg bg-zinc-200">
+                    1
+                </li>
+                <li class="flex items-center justify-center w-12 h-12 p-2 text-white rounded-lg bg-secondary-700">
+                    1
+                </li>
+                <li class="flex items-center justify-center w-12 h-12 p-2 text-zinc-600 rounded-lg bg-zinc-200">
+                    1
+                </li>
+                <li class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 mr-1">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.16 16C12.16 15.8789 12.185 15.7578 12.235 15.6367C12.285 15.5156 12.35 15.4248 12.43 15.3643L16.9 10.8232C17.08 10.6416 17.31 10.5508 17.59 10.5508C17.87 10.5508 18.11 10.6416 18.31 10.8232C18.49 11.0251 18.58 11.2673 18.58 11.5498C18.58 11.8324 18.49 12.0645 18.31 12.2461L14.47 16.1211L18.31 19.9961C18.49 20.1979 18.58 20.4401 18.58 20.7227C18.58 21.0052 18.49 21.2373 18.31 21.4189C18.11 21.6208 17.87 21.7217 17.59 21.7217C17.31 21.7217 17.08 21.6208 16.9 21.4189L12.43 16.9082C12.35 16.7064 12.285 16.5348 12.235 16.3936C12.185 16.2523 12.16 16.1211 12.16 16Z" fill="#3F3F46"/>
+                        </svg>                                                                                                           
+
+                </li>
+            </ul>
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
+            <img src="../assets/images/offer.jpg" alt="offer" class="h-[257px] object-cover rounded-xl" width="100%" height="257" loading="lazy">
+        </section>
+        <basis core="print" datamembername="db.about-pegasys">
+            <layout>
+                <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-5 mb-16">
+                    @child
+                </section>
+            </layout>
+            <face filter="TypeID in(150)">
+                <h2 class="text-zinc-900 font-bold mb-3 text-2xl">@text</h2>
+            </face>
+            <face filter="TypeID in(250)">
+                <div class="text-sm text-zinc-900 text-justify">
+                    @largetext
+                </div>
+            </face>
+        </basis>
+    </main>
+
+    <basis core="call" file="footer.inc" />
+</body>
+</html>
