@@ -6,7 +6,7 @@
         order="ord" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213628">
-    <member name="popular-flights" type="list" link="article.bc" propertyid="3087570,3087571,3087574" perpage="6"
+    <member name="popular-flights" type="list" link="article.bc" propertyid="3087570,3087571,3087574,3087538,3087539" perpage="6"
         size="133x90" order="ord" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="questions">
@@ -65,7 +65,7 @@
     <div class="bg-defaultBg bg-center bg-cover pb-14">
         <basis core="call" file="header.inc" />
 
-        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-[375px]">
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-[375px] bg-search">
             <div class="flex justify-center">
                 <div class="bg-white p-1 rounded-lg grid gap-4 grid-cols-2">
                     <div
@@ -106,7 +106,7 @@
     </div>
 
     <main>
-        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-16">
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-16 ">
             <h2 class="text-zinc-900 font-bold text-center mb-10 text-2xl">سفرهای پرطرفدار</h2>
 
             <basis core="list" datamembername="db.popular-flights">
@@ -117,8 +117,8 @@
                     </div>
                 </layout>
                 <face filter="link is null">
-                    <div
-                        class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800 group">
+                    <article
+                        class="ticket-article border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800 group">
                         <img src="@00133X00090prp" alt="@title" class="h-[90px] object-cover rounded-lg" width="133"
                             height="90" loading="lazy">
                         <div class="w-full">
@@ -138,7 +138,9 @@
                             </div>
                             <div class="flex items-center gap-3 mt-4">
                                 <div class="flex items-center gap-2 flex-1">
-                                    <h3 class="text-zinc-900 font-bold">@prp_3087570</h3>
+                                    <h3 class="text-zinc-900 font-bold dep-text">@prp_3087570</h3>
+                                    <span class="hidden dep-id">@prp_3087538</span>
+                                    <span class="hidden flight-type-article"></span>
                                     <div class="relative">
                                         <svg width="248" height="36">
                                             <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line-desktop">
@@ -149,17 +151,18 @@
                                             <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
                                         </svg>
                                     </div>
-                                    <h3 class="text-zinc-900 font-bold">@prp_3087571</h3>
+                                    <h3 class="text-zinc-900 font-bold des-text">@prp_3087571</h3>
+                                    <p class="hidden des-id">@prp_3087539</p>
                                 </div>
-                                <a href="/article.bc?id=@id"
-                                    class="w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</a>
+                                <button
+                                    class="set-ticket w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</button>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </face>
                 <face>
-                    <div
-                        class="border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800 group">
+                    <article
+                        class="ticket-article border border-zinc-200 border-solid rounded-xl p-2 flex items-center gap-3 transition-all duration-300 hover:border-primary-800 group">
                         <img src="@00133X00090prp" alt="@title" class="h-[90px] object-cover rounded-lg" width="133"
                             height="90" loading="lazy">
                         <div class="w-full">
@@ -179,7 +182,9 @@
                             </div>
                             <div class="flex items-center gap-3 mt-4">
                                 <div class="flex items-center gap-2 flex-1">
-                                    <h3 class="text-zinc-900 font-bold">@prp_3087570</h3>
+                                    <h3 class="text-zinc-900 font-bold dep-text">@prp_3087570</h3>
+                                    <span class="hidden dep-id">@prp_3087538</span>
+                                    <span class="hidden flight-type-article"></span>
                                     <div class="relative">
                                         <svg width="248" height="36">
                                             <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line-desktop">
@@ -190,13 +195,14 @@
                                             <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
                                         </svg>
                                     </div>
-                                    <h3 class="text-zinc-900 font-bold">@prp_3087571</h3>
+                                    <h3 class="text-zinc-900 font-bold des-text">@prp_3087571</h3>
+                                    <p class="hidden des-id">@prp_3087539</p>
                                 </div>
-                                <a href="@link"
-                                    class="w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</a>
+                                <button
+                                    class="set-ticket w-[101px] flex items-center justify-center bg-primary-600 text-white font-medium py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">مشاهده</button>
                             </div>
                         </div>
-                    </div>
+                    </article>
                 </face>
             </basis>
 

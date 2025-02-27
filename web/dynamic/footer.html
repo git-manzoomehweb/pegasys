@@ -11,84 +11,19 @@
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide flex flex-col gap-8">
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                </div>
-                <div class="swiper-slide flex flex-col gap-8">
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                </div>
-                <div class="swiper-slide flex flex-col gap-8">
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                    <a href="" class="flex items-center gap-3">
-                        <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
-                        <h3 class="text-zinc-900 text-sm">استانبول</h3>
-                    </a>
-                </div>
+                 <basis core="list" datamembername="db.easy-way">
+                    <layout>
+                        <div class="swiper-slide flex flex-col gap-8">
+                            @child
+                        </div>
+                    </layout>
+                    <face>
+                        <a href="" class="flex items-center gap-3">
+                            <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
+                            <h3 class="text-zinc-900 text-sm">@title</h3>
+                        </a>
+                    </face>
+                 </basis>
             </div>
             <!-- If we need pagination -->
             <div class="swiper-pagination"></div>
@@ -96,7 +31,7 @@
         </div>
         <basis core="list" datamembername="db.easy-way">
             <layout>
-                <div class="hidden lg:grid grid-cols-4 gap-4 justify-between">
+                <div class="hidden lg:grid grid-cols-4 justify-between">
                     @child
                 </div>
             </layout>
@@ -118,14 +53,14 @@
     <div class="mt-5 mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl border-t border-zinc-300 border-solid lg:mt-12 lg:pt-9 lg:flex lg:gap-14">
         <section class="lg:flex-[3] lg:order-1">
             <h2 class="text-zinc-900 font-bold ">درباره ما</h2>
-            <div class="text-zinc-900 text-sm text-justify">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
-                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-                کاربردهای متنوع لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                نیاز، و کاربردهای متنوعلورمبرای شرایط فعلی لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
-                با استفاده از طراحان گرافیک است
-            </div>
+            <basis core="print" datamembername="db.info">
+                <face filter="TypeID in(144)">
+                    <div class="text-zinc-900 text-sm text-justify">
+                        @largetext
+                    </div>
+                </face>
+            </basis>
+
         </section>
         <section class="mt-4 lg:flex-1 lg:order-3 lg:mt-0">
             <h2 class="font-bold text-zinc-900 mb-3">با ما در ارتباط باشید</h2>
@@ -133,19 +68,19 @@
         <section class="mt-4 lg:flex-1 lg:order-2 lg:mt-0">
             <h2 class="font-bold text-zinc-900 mb-3 lg:mb-0">دسته بندی</h2>
             <ul class="flex flex-col gap-2">
-                <li><a href="" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">قوانین و مقررات شکایات
+                <li><a href="/Rules-and-regulations" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">قوانین و مقررات شکایات
                     <span class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                 </a></li>
-                <li><a href="" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">بخشنامه
+                <li><a href="/Circulars" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">بخشنامه
                     <span class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                 </a></li>
-                <li><a href="" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">قوانین ایرلاین
+                <li><a href="/Airline-rules" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">قوانین ایرلاین
                     <span class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                 </a></li>
-                <li><a href="" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">اخبار
+                <li><a href="/Tourism-News" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">اخبار
                     <span class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                 </a></li>
-                <li><a href="" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">مقاله
+                <li><a href="Useful-information" class="relative z-10 group text-zinc-900 text-sm hover:text-primary-600 transition-all duration-300">مقاله
                     <span class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                 </a></li>
             </ul>
@@ -153,16 +88,27 @@
     </div>
     <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl lg:flex items-center justify-between lg:mt-8">
         <div class="relative lg:w-1/2">
-            <div class="flex items-start gap-2 divide-zinc-300 divide-x divide-x-reverse">
-                <svg width="30" height="30" class="flex-shrink-0">
-                    <use xlink:href="./images/icons.svg#icon-location"></use>
-                </svg>
-                <span class="pr-2 text-justify">
-                    تبریز بلوار 29 فروردین روی به روی جام جم مجتمع اداری برج شهر طبقه 9 واحد 49
-                </span>
-            </div>
-            <div class="inline-flex flex-col">
-                <a href="tel:"
+            <basis core="print" datamembername="db.info">
+                <face filter="TypeID in(244)">
+                    <div class="flex items-start gap-2 divide-zinc-300 divide-x divide-x-reverse">
+                        <svg width="30" height="30" class="flex-shrink-0">
+                            <use xlink:href="./images/icons.svg#icon-location"></use>
+                        </svg>
+                        <span class="pr-2 text-justify">
+                           @largetext
+                        </span>
+                    </div>
+                </face>
+            </basis>
+
+            <basis core="print" datamembername="db.info">
+                <layout>
+                    <div class="inline-flex flex-col">
+                        @child
+                    </div>
+                </layout>
+                <face filter="valueID in(4121736)">
+                    <a href="tel:@text"
                     class="group inline-flex items-center gap-2 divide-zinc-300 divide-x divide-x-reverse mt-2 transition-all duration-300 hover:text-primary-600">
 
                     <svg width="30" height="30">
@@ -172,24 +118,28 @@
                         <span class="relative z-10">
                             <span
                             class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
-                            041-3148
+                            @text
                         </span>
                     </div>
                 </a>
-                <a href="tel:"
+                </face>
+                <face filter="valueID in(15040032)">
+                    <a href="tel:@text"
                     class="group inline-flex items-center gap-2 divide-zinc-300 divide-x divide-x-reverse mt-2 transition-all duration-300 hover:text-primary-600">
                     <svg width="30" height="30">
                         <use xlink:href="./images/icons.svg#icon-telephone"></use>
                     </svg>
                     <div class="pr-2">
                         <span class="relative z-10">
-                            09906107411 پشتیبانی
+                            <span>@text</span> پشتیبانی
                             <span
                                 class="absolute -bottom-1 right-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                         </span>
                     </div>
                 </a>
-            </div>
+                </face>
+            </basis>
+
         </div>
         <div class="relative direction-ltr mt-6 lg:mt-0 lg:w-[49%]">
             <div class="flex items-start gap-2 divide-zinc-300 divide-x lg:items-center">
@@ -200,35 +150,44 @@
                     consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi.
                 </span>
             </div>
-            <div class="inline-flex flex-col">
-                <a href="tel:"
+            <basis core="print" datamembername="db.info">
+                <layout>
+                    <div class="inline-flex flex-col">
+                        @child
+                    </div>
+                </layout>
+                <face filter="valueID in(4121736)">
+                    <a href="tel:@text"
                     class="group inline-flex items-center gap-2 divide-zinc-300 divide-x mt-2 transition-all duration-300 hover:text-primary-600">
 
                     <svg width="30" height="30">
                         <use xlink:href="./images/icons.svg#icon-phone"></use>
                     </svg>
                     <div class="pl-2">
-                        <span class="relative z-10">
+                        <span class="relative z-10 font-sans">
                             <span
                             class="absolute -bottom-1 left-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
-                            041-3148
+                            @text
                         </span>
                     </div>
                 </a>
-                <a href="tel:"
+                </face>
+                <face filter="valueID in(15040032)">
+                    <a href="tel:@text"
                     class="group inline-flex items-center gap-2 divide-zinc-300 divide-x mt-2 transition-all duration-300 hover:text-primary-600">
                     <svg width="30" height="30">
                         <use xlink:href="./images/icons.svg#icon-telephone"></use>
                     </svg>
                     <div class="pl-2">
                         <span class="relative z-10">
-                            Support :09906107411
+                            Support : <span class="font-sans">@text</span>
                             <span
                                 class="absolute -bottom-1 left-0 w-0 transition-all duration-300 h-px bg-primary-600 group-hover:w-full"></span>
                         </span>
                     </div>
                 </a>
-            </div>
+                </face>
+            </basis>
         </div>
     </section>
     <div class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-12 lg:flex lg:items-center lg:justify-between lg:flex-row-reverse">
@@ -257,8 +216,14 @@
             </div>
         </section>
         <section class="mt-6 lg:mt-0">
-            <div class="flex items-center justify-between mt-3 lg:mt-0 lg:gap-2">
-                <a href="" rel="noopener" aria-label="instagram"
+            <basis core="print" datamembername="db.info">
+                <layout>
+                    <div class="flex items-center justify-between mt-3 lg:mt-0 lg:gap-2">
+                        @child
+                    </div>
+                </layout>
+                <face filter="TypeID in('245') and text in('اینستاگرام')">
+                    <a href="@largetext" rel="noopener" aria-label="instagram"
                     class="group relative z-10 w-12 h-12 bg-primary-600 flex items-center justify-center rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-300">
 
                     <svg width="30" height="30">
@@ -267,8 +232,9 @@
 
                     <span class="absolute -bottom-1 -z-10 left-0 w-full h-full bg-secondary-900 transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:bottom-0"></span>
                 </a>
-
-                <a href="" rel="noopener" aria-label="twitter"
+                </face>
+                <face filter="TypeID in('245') and text in('توییتر')">
+                    <a href="@largetext" rel="noopener" aria-label="twitter"
                     class="group relative z-10 w-12 h-12 bg-primary-600 flex items-center justify-center rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-300">
 
                     <svg width="30" height="30">
@@ -277,16 +243,18 @@
                     
                     <span class="absolute -bottom-1 -z-10 left-0 w-full h-full bg-secondary-900 transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:bottom-0"></span>
                 </a>
-
-                <a href="" rel="noopener" aria-label="linkdin"
+                </face>
+                <face filter="TypeID in('245') and text in('لینکدین')">
+                    <a href="@largetext" rel="noopener" aria-label="linkdin"
                     class="group relative z-10 w-12 h-12 bg-primary-600 flex items-center justify-center rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-300">
                     <svg width="30" height="30">
                         <use xlink:href="./images/icons.svg#icon-linkdin"></use>
                     </svg>
                     <span class="absolute -bottom-1 -z-10 left-0 w-full h-full bg-secondary-900 transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:bottom-0"></span>
                 </a>
-
-                <a href="" rel="noopener" aria-label="telegram"
+                </face>
+                <face filter="TypeID in('245') and text in('تلگرام')">
+                    <a href="@largetext" rel="noopener" aria-label="telegram"
                     class="group relative z-10 w-12 h-12 bg-primary-600 flex items-center justify-center rounded-full overflow-hidden transition-all duration-300 hover:bg-primary-300">
 
                     <svg width="30" height="30" class="fill-current text-gray-500 group-hover:text-pink-500">
@@ -294,7 +262,9 @@
                     </svg>
                     <span class="absolute -bottom-1 -z-10 left-0 w-full h-full bg-secondary-900 transform translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 group-hover:bottom-0"></span>
                 </a>
-            </div>
+                </face>
+            </basis>
+
         </section>
     </div>
     <section class="mt-2 mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl lg:order-3 lg:flex lg:gap-5 lg:mt-8">

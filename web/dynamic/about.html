@@ -1,17 +1,37 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
 </basis>
+
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2310061">
     <member name="about-pegasys" type="view" size="" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="questions">
+    <member name="cat" type="tree" request="cat" parentid="213680" order="ord"></member>
 </basis>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/output.css">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+    <meta name="description" content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
     <basis core="call" file="style.inc" />
 </head>
 
@@ -173,48 +193,25 @@
         <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-8 mb-16">
             <h2 class="text-center text-zinc-900 font-bold mb-6 text-2xl">سوالات متداول</h2>
             <div class="flex justify-center">
-                <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
-                    <li class="text-zinc-900 bg-primary-600 px-6 py-3 rounded-lg">استرداد</li>
-                    <li class="text-zinc-700 px-6 py-3 rounded-lg">نحوه خرید</li>
-                    <li class="text-zinc-700 px-6 py-3 rounded-lg">ترنسفر</li>
-                </ul>
+                <basis core="tree" datamembername="questions.cat" idcol="catid" parentidcol="parentid"
+                    nullvalue="213680">
+                    <layout>
+                        <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
+                            @child
+                        </ul>
+                    </layout>
+                    <face>
+                        <li class="question-li text-zinc-900 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg"
+                            data-id="@catid">
+                            @title</li>
+                    </face>
+                </basis>
+
             </div>
-            <div class="flex flex-col gap-3">
-                <div
-                    class="faq-box cursor-pointer text-zinc-900 flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
-                    <div class="flex items-center justify-between">
-                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
-                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
-                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div
-                        class="text-zinc-900 mr-auto pl-4 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
-                    </div>
-                </div>
-                <div
-                    class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
-                    <div class="flex items-center justify-between">
-                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
-                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
-                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div
-                        class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
-                    </div>
-                </div>
+            <div class="fetch-content-article flex flex-col gap-3">
+
             </div>
+
         </section>
     </main>
     <basis core="call" file="footer.inc" />

@@ -49,14 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
         async function secondContent() {
           try {
             const firstResponse = await fetch(
-              `/article-load-items.bc?catid=${cmsQuery}`
+              `/article-load-items.bc?id=${cmsQuery}`
             );
             if (!firstResponse.ok) {
               throw new Error(`HTTP error! Status: ${firstResponse.status}`);
             }
             const firstData = await firstResponse.text();
             fetchContentArticle.innerHTML = firstData;
-
           } catch (error) {
             fetchContentArticle.innerHTML =
               "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
@@ -97,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (fetchContentFlight) {
     async function firstContent() {
-      fetchContentFlight.innerHTML = '<div class="loading-text">Loading...</div>';
+      fetchContentFlight.innerHTML =
+        '<div class="loading-text">Loading...</div>';
       try {
         const firstResponse = await fetch("/flight-load-items.bc?catid=213670");
         if (!firstResponse.ok) {
@@ -149,6 +149,59 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+let i = document.querySelectorAll(".ticket-article");
+  i.forEach((e) => {
+    let t = e.querySelector(".flight-type-article").innerText.trim(),
+      r = e.querySelector(".dep-text").innerText.trim(),
+      i = e.querySelector(".dep-id").innerText.trim(),
+      a = e.querySelector(".des-text").innerText.trim(),
+      l = e.querySelector(".des-id").innerText.trim();
+    e.querySelector(".set-ticket").addEventListener("click", () => {
+      if (window.location.href.endsWith("/")) {
+        (document.querySelector("#r-flight #flightSearch #departure1").value =
+          r),
+          (document.querySelector(
+            "#r-flight #flightSearch .departure-route .locationId"
+          ).value = i),
+          (document.querySelector(
+            "#r-flight #flightSearch .destination-route #destination1"
+          ).value = a),
+          (document.querySelector(
+            "#r-flight #flightSearch .destination-route .locationId"
+          ).value = l),
+          t.includes("اکونومی") &&
+            ((document.querySelector("#r-flight .FlightClass-text").innerText =
+              "اکونومی"),
+            (document.querySelector("#r-flight #FlightClass1").value =
+              "Economy")),
+          t.includes("بیزینس") &&
+            ((document.querySelector("#r-flight .FlightClass-text").innerText =
+              "بیزینس"),
+            (document.querySelector("#r-flight #FlightClass1").value =
+              "BusinessClass")),
+          t.includes("فرست") &&
+            ((document.querySelector("#r-flight .FlightClass-text").innerText =
+              "فرست"),
+            (document.querySelector("#r-flight #FlightClass1").value =
+              "FirstClass")),
+          document.querySelector("#r-flight").classList.remove("hidden");
+        let e = document.querySelector(".bg-search");
+        e && window.scrollTo({ top: e.offsetTop, behavior: "smooth" });
+      } else
+        localStorage.setItem(
+          "flightData",
+          JSON.stringify({
+            depId3: i,
+            desId3: l,
+            departureCity2: r,
+            destinationCity2: a,
+            flightType2: t,
+          })
+        ),
+          (window.location.href = "/");
+    });
+  });
+
 document.addEventListener("DOMContentLoaded", function () {
   try {
     var xhrobj = new XMLHttpRequest();
@@ -173,6 +226,52 @@ document.addEventListener("DOMContentLoaded", function () {
             .appendChild(scriptTag)
             .parentNode.removeChild(scriptTag);
         }
+      }
+      let s = JSON.parse(localStorage.getItem("flightData"));
+      if (s && "/" === window.location.pathname) {
+        localStorage.removeItem("searchHistory_flight");
+        let {
+          depId3: c,
+          desId3: d,
+          departureCity2: u,
+          destinationCity2: p,
+          flightType2: f,
+        } = s;
+        (document.querySelector(
+          "#r-flight #flightSearch #departure1"
+        ).value = u),
+          (document.querySelector(
+            "#r-flight #flightSearch .departure-route .locationId"
+          ).value = c),
+          (document.querySelector(
+            "#r-flight #flightSearch .destination-route #destination1"
+          ).value = p),
+          (document.querySelector(
+            "#r-flight #flightSearch .destination-route .locationId"
+          ).value = d),
+          f.includes("اکونومی") &&
+            ((document.querySelector(
+              "#r-flight .FlightClass-text"
+            ).innerText = "اکونومی"),
+            (document.querySelector("#r-flight #FlightClass1").value =
+              "Economy")),
+          f.includes("بیزینس") &&
+            ((document.querySelector(
+              "#r-flight .FlightClass-text"
+            ).innerText = "بیزینس"),
+            (document.querySelector("#r-flight #FlightClass1").value =
+              "BusinessClass")),
+          f.includes("فرست") &&
+            ((document.querySelector(
+              "#r-flight .FlightClass-text"
+            ).innerText = "فرست"),
+            (document.querySelector("#r-flight #FlightClass1").value =
+              "FirstClass")),
+          document
+            .querySelector("#r-flight")
+            .classList.remove("hidden");
+        let h = document.querySelector(".bg-blur-t");
+        h && window.scrollTo({ top: h.offsetTop, behavior: "smooth" });
       }
     };
   } catch (error) {
@@ -296,6 +395,24 @@ if (document.querySelector(".swiper-other-news-article")) {
     navigation: {
       nextEl: ".swiper-button-next-custom",
       prevEl: ".swiper-button-prev-custom",
+    },
+  });
+}
+if (document.querySelector(".footer-swiper")) {
+  var footerSwiper = new Swiper(".footer-swiper", {
+    slidesPerView: 1,
+    speed: 400,
+    centeredSlides: false,
+    spaceBetween: 30,
+    grabCursor: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 }

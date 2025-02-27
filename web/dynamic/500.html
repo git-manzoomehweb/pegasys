@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover"
+    />
+    <title>[##cms.seo.title|(خطای ارتباط با سرور)##]</title>
+    <meta name="description" content="[##cms.seo.description|(خطای ارتباط با سرور)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <link rel="canonical" href="[##cms.request.:scheme##]://[##cms.request.full-url##]" />
+    <basis core="call" file="pwa.inc"/>
+    <basis core="call" file="style.inc"/>
+</head>
+
+<body>
+    <basis core="call" file="header.inc"/>
+
+    <main>
+        <section class="flex flex-col items-center my-[351px]">
+            <img src="[##cms.cms.cdn##]/images/500.png" alt="500" width="402" height="299" loading="lazy">
+            <h1 class="my-6 text-sm text-zinc-900">خطای ارتباط با سرور</h1>
+            <a href="/" class="flex items-center justify-center w-48 h-12 text-white rounded-lg bg-secondary-700 transition-all duration-300 hover:bg-primary-600">بازگشت به
+                صفحه اصلی</a>
+        </section>
+    </main>
+
+    <basis core="call" file="footer.inc"/>
+</body>
+
+</html>

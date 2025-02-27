@@ -1,5 +1,192 @@
+
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" q="[##cms.query.search-content-name##]">
-    <member name="article-list" type="list" link="article.bc" propertyid="7244" perpage="6" size="379x232"
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="6" size="379x274"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
 </basis>
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+        <!-- Title & Description -->
+        <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+        <meta name="description" content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+        <!-- Title & Description -->
+        <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+            <member type="list" name="list" request="taglist" preview=""></member>
+        </basis>
+        <basis core="print" datamembername="tag.list">
+            <face filter="key = 'canonical'">
+                <link rel="canonical" href="@value" />
+            </face>
+            <face>
+                <meta property="@key" content="@value" />
+            </face>
+        </basis>
+        <!-- pwa metatags -->
+        <basis core="call" file="pwa.inc" />
+        <!-- common styles for all page -->
+        <basis core="call" file="style.inc" />
+    </head>
+<body>
+    <div class="relative bg-articleListBg bg-center bg-cover h-[523px]">
+        <div class="bg-specialcolor-1 absolute inset-0 h-full w-full"></div>
+        <basis core="call" file="header.inc" />
+
+        <section class="relative z-10 flex flex-col justify-center items-center mt-36 mb-16">
+            <h1 class="text-3xl font-bold text-white">مقاله ها</h1>
+        </section>
+    </div>
+    <main>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9 mb-16">
+            <basis core="list" datamembername="db.article-list">
+                <layout>
+                    <div class="grid grid-cols-3 gap-6">
+                        @child
+                    </div>
+                </layout>
+                <face filter="link is null">
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
+                            <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                        </div>
+                        <div class="relative mt-2">
+                            <img src="@00379X00274prp" alt="@title" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                            <a href="/article.bc?id=@id" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
+                            <div class="text-zinc-900 text-sm text-justify line-clamp-3 min-h-10">@prp_7244</div>
+                        </div>
+                    </article>
+                </face>
+                <face>
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                        <div class="flex items-center justify-between">
+                            <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
+                            <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                <svg width="24" height="24">
+                                    <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
+                                </svg>
+                                @prp_7249
+                            </span>
+                        </div>
+                        <div class="relative mt-2">
+                            <img src="@00379X00274prp" alt="@title" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                            <a href="@link" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                        </div>
+                        <div class="mt-6">
+                            <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
+                            <div class="text-zinc-900 text-sm text-justify line-clamp-3 min-h-10">@prp_7244</div>
+                        </div>
+                    </article>
+                </face>
+            </basis>
+
+            <div id="paging" class="flex justify-center mt-20">
+                <ul class="flex items-center gap-1 cd-pagination no-space direction-ltr" id="wibpaging">
+                    <basis core="print" datamembername="db.paging">
+                        <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1 group transition-all duration-300 hover:bg-secondary-700 group page-no prev-page">
+                                <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-left" href="/[##cms.cms.link_page##]&pagenum=@page">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path class="transition-all duration-300 group-hover:fill-white"
+                                            d="M12.1602 16C12.1602 15.8789 12.1852 15.7578 12.2352 15.6367C12.2852 15.5156 12.3502 15.4248 12.4302 15.3643L16.9002 10.8232C17.0802 10.6416 17.3102 10.5508 17.5902 10.5508C17.8702 10.5508 18.1102 10.6416 18.3102 10.8232C18.4902 11.0251 18.5802 11.2673 18.5802 11.5498C18.5802 11.8324 18.4902 12.0645 18.3102 12.2461L14.4702 16.1211L18.3102 19.9961C18.4902 20.1979 18.5802 20.4401 18.5802 20.7227C18.5802 21.0052 18.4902 21.2373 18.3102 21.4189C18.1102 21.6208 17.8702 21.7217 17.5902 21.7217C17.3102 21.7217 17.0802 21.6208 16.9002 21.4189L12.4302 16.9082C12.3502 16.7064 12.2852 16.5348 12.2352 16.3936C12.1852 16.2523 12.1602 16.1211 12.1602 16Z"
+                                            fill="#516E8C" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </face>
+                        <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'<>'')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1 group transition-all duration-300 hover:bg-secondary-700 group page-no prev-page">
+                                <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-left" href="/[##cms.cms.pageurl##]?pagenum=@page"> <svg width="32"
+                                        height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path class="transition-all duration-300 group-hover:fill-white"
+                                            d="M12.1602 16C12.1602 15.8789 12.1852 15.7578 12.2352 15.6367C12.2852 15.5156 12.3502 15.4248 12.4302 15.3643L16.9002 10.8232C17.0802 10.6416 17.3102 10.5508 17.5902 10.5508C17.8702 10.5508 18.1102 10.6416 18.3102 10.8232C18.4902 11.0251 18.5802 11.2673 18.5802 11.5498C18.5802 11.8324 18.4902 12.0645 18.3102 12.2461L14.4702 16.1211L18.3102 19.9961C18.4902 20.1979 18.5802 20.4401 18.5802 20.7227C18.5802 21.0052 18.4902 21.2373 18.3102 21.4189C18.1102 21.6208 17.8702 21.7217 17.5902 21.7217C17.3102 21.7217 17.0802 21.6208 16.9002 21.4189L12.4302 16.9082C12.3502 16.7064 12.2852 16.5348 12.2352 16.3936C12.1852 16.2523 12.1602 16.1211 12.1602 16Z"
+                                            fill="#516E8C" />
+                                    </svg></a>
+                            </li>
+                        </face>
+                    </basis>
+                    <basis core="print" datamembername="db.paging">
+                        <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'='')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg transition-all duration-300 bg-secondary-700 page-no">
+                                <a class="flex items-center justify-center w-full h-full text-white cursor-pointer page-number bg-secondary-700"
+                                    href="/[##cms.cms.link_page##]&pagenum=@page">@page</a>
+                            </li>
+                        </face>
+                        <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'<>'')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg transition-all duration-300 bg-secondary-700 page-no">
+                                <a class="flex items-center justify-center w-full h-full text-white cursor-pointer page-number bg-secondary-700"
+                                    href="/[##cms.cms.pageurl##]?pagenum=@page">@page</a>
+                            </li>
+                        </face>
+                        <face
+                            filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'='') ">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 text-zinc-600 rounded-lg bg-zinc-200 transition-all duration-300 hover:text-white hover:bg-secondary-700 page-no">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer page-number"
+                                    href="/[##cms.cms.link_page##]&pagenum=@page">@page</a>
+                            </li>
+                        </face>
+                        <face
+                            filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'<>'') ">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 text-zinc-600 rounded-lg bg-zinc-200 transition-all duration-300 hover:text-white hover:bg-secondary-700 page-no">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer page-number"
+                                    href="/[##cms.cms.pageurl##]?pagenum=@page">@page</a>
+                            </li>
+                        </face>
+                    </basis>
+                    <basis core="print" datamembername="db.paging">
+                        <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'='')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1 group transition-all duration-300 hover:bg-secondary-700 page-no next-page">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-right" href="/[##cms.cms.link_page##]&pagenum=@page">
+                                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path class="transition-all duration-300 group-hover:fill-secondary-700"
+                                            d="M19.8398 16C19.8398 16.1211 19.8148 16.2422 19.7648 16.3633C19.7148 16.4844 19.6498 16.5752 19.5698 16.6357L15.0998 21.1768C14.9198 21.3584 14.6898 21.4492 14.4098 21.4492C14.1298 21.4492 13.8898 21.3584 13.6898 21.1768C13.5098 20.9749 13.4198 20.7328 13.4198 20.4502C13.4198 20.1676 13.5098 19.9356 13.6898 19.7539L17.5298 15.8789L13.6898 12.0039C13.5098 11.8021 13.4198 11.5599 13.4198 11.2773C13.4198 10.9948 13.5098 10.7627 13.6898 10.5811C13.8898 10.3792 14.1298 10.2783 14.4098 10.2783C14.6898 10.2783 14.9198 10.3792 15.0998 10.5811L19.5698 15.0918C19.6498 15.2936 19.7148 15.4652 19.7648 15.6064C19.8148 15.7477 19.8398 15.8789 19.8398 16Z"
+                                            fill="#516E8C" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </face>
+                        <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'<>'')">
+                            <li
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1 group transition-all duration-300 hover:bg-secondary-700 page-no next-page">
+                                <a class="flex items-center justify-center w-full h-full cursor-pointer text-zinc-900"
+                                    aria-label="angle-right" href="/[##cms.cms.pageurl##]?pagenum=@page"> <svg
+                                        width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path class="transition-all duration-300 group-hover:fill-secondary-700"
+                                            d="M19.8398 16C19.8398 16.1211 19.8148 16.2422 19.7648 16.3633C19.7148 16.4844 19.6498 16.5752 19.5698 16.6357L15.0998 21.1768C14.9198 21.3584 14.6898 21.4492 14.4098 21.4492C14.1298 21.4492 13.8898 21.3584 13.6898 21.1768C13.5098 20.9749 13.4198 20.7328 13.4198 20.4502C13.4198 20.1676 13.5098 19.9356 13.6898 19.7539L17.5298 15.8789L13.6898 12.0039C13.5098 11.8021 13.4198 11.5599 13.4198 11.2773C13.4198 10.9948 13.5098 10.7627 13.6898 10.5811C13.8898 10.3792 14.1298 10.2783 14.4098 10.2783C14.6898 10.2783 14.9198 10.3792 15.0998 10.5811L19.5698 15.0918C19.6498 15.2936 19.7148 15.4652 19.7648 15.6064C19.8148 15.7477 19.8398 15.8789 19.8398 16Z"
+                                            fill="#516E8C" />
+                                    </svg></a>
+                            </li>
+                        </face>
+                    </basis>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <basis core="call" file="footer.inc" />
+</body>
+</html>

@@ -23,9 +23,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+    <meta name="description" content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
     <basis core="call" file="style.inc" />
-    <title>Document</title>
 </head>
 
 <body>
@@ -152,7 +169,7 @@
                         </face>
                         <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'<>'')">
                             <li
-                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1 group transition-all duration-300 hover:bg-secondary-700 page-no prev-page">
+                                class="flex items-center justify-center w-12 h-12 p-2 rounded-lg bg-zinc-100 ml-1 group transition-all duration-300 hover:bg-secondary-700 group page-no prev-page">
                                 <a class="flex items-center justify-center w-full cursor-pointer text-zinc-900"
                                     aria-label="angle-left" href="/[##cms.cms.pageurl##]?pagenum=@page"> <svg width="32"
                                         height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
