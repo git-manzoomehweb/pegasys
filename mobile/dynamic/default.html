@@ -1,29 +1,82 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="130-destination">
+    <member name="cat" type="tree" request="cat" parentid="213670" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="151555">
+    <member name="article" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="4" size="256x232"
+        order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213628">
+    <member name="popular-flights" type="list" link="article.bc" propertyid="3087570,3087571,3087574,3087538,3087539" perpage="4"
+        size="272x102" order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="questions">
+    <member name="cat" type="tree" request="cat" parentid="213680" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="153597">
+    <member name="other-news" type="list" link="article.bc" propertyid="7244" perpage="6" size="" order="ord" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2310061">
+    <member name="about-pegasys" type="view" size="" propertyid="" />
+</basis>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+    <meta name="description"
+        content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <!-- canonical for Homepage -->
+    <link rel="canonical" href="[##cms.request.:scheme##]://[##cms.request.full-url##]" />
+    <!-- fill items with Agancy Info -->
+    <meta name="og:locale" content="fa_IR">
+    <meta property="og:title" content="پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |">
+    <meta property="og:url" content="[##cms.request.:scheme##]://[##cms.request.full-url##]">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس">
+    <meta property="og:image" content="[##cms.cms.cdn##]/images/logo.png">
+    <meta property="og:image:alt" content="لوگو ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس">
+    <meta property="og:description"
+        content="آپگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:type" content="image/png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content=" ">
+    <meta name="twitter:creator" content="Satrap Seir">
+    <meta name="twitter:image" content="[##cms.cms.cdn##]/images/logo.png">
+    <meta name="twitter:title" content=" ">
+    <meta name="twitter:description" content=" ">
+    <meta property="seo:robots" content="index, follow" />
+    <!-- samandehi-enamad optional -->
+    <meta name="enamad" content="" />
+    <meta name="samandehi" content="" />
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <!-- define -->
+    <link rel="preload" as="image" imageSrcSet="image address" fetchpriority="high" />
+    <!-- common styles for all page -->
     <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"/>
-    <title>Document</title>
 </head>
 
 <body>
-    <div class="bg-defaultBg bg-center bg-cover pb-4">
+    <div class="bg-defaultBg bg-center bg-cover pb-5">
         <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"/>
 
-        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20">
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 bg-search">
             <div class="bg-white p-1 rounded-lg grid grid-cols-2">
                 <a href="" class="flex items-center justify-center gap-1 bg-secondary-700 rounded-lg py-3 px-4">
                     <svg width="24" height="26">
-                        <use xlink:href="../assets/images/icons.svg#icon-search-flight"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-search-flight"></use>
                     </svg>
                     <span class="text-sm text-white">جستجوی پرواز</span>
                 </a>
 
                 <a href="" class="flex items-center justify-center gap-1 rounded-lg py-3 px-4">
                     <svg width="24" height="24">
-                        <use xlink:href="../assets/images/icons.svg#icon-online-checkin"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-online-checkin"></use>
                     </svg>
                     <span class="text-sm text-zinc-400">checkin آنلاین</span>
                 </a>
@@ -44,34 +97,47 @@
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9"> 
             <h2 class="text-zinc-900 font-bold text-center mb-4">سفرهای پرطرفدار</h2>
 
-            <div class="flex flex-col gap-3">
-                <div class="border border-zinc-200 border-solid rounded-xl p-2">
-                    <img src="../assets/images/popular-travel.jpg" alt="" class="h-[102px] object-cover rounded-lg"
-                        width="100%" height="102" loading="lazy">
-                    <div class="flex flex-wrap items-center gap-1 mt-3">
-                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                        <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">سه شنبه</span>
-                    </div>
-                    <div class="flex items-center justify-between mt-4">
-                        <h3 class="text-zinc-900 font-bold">تبریز</h3>
-                        <div class="relative">
-                            <svg width="166" height="36">
-                                <use xlink:href="../assets/images/icons.svg#icon-gray-airplane-line"></use>
-                            </svg>
-                            <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
-                                <use xlink:href="../assets/images/icons.svg#icon-gray-airplane"></use>
-                            </svg>
-                        </div>
-                        <h3 class="text-zinc-900 font-bold">استانبول</h3>
-                    </div>
-                    <a href=""
-                        class="w-full flex items-center justify-center bg-primary-600 text-white font-medium py-3 mt-3 rounded-lg">مشاهده</a>
+            <basis core="list" datamembername="db.popular-flights">
+                <layout>
+                    <div class="flex flex-col gap-3">
+                    @child
                 </div>
-            </div>
+                </layout>
+                <face>
+                    
+                        <article class="ticket-article border border-zinc-200 border-solid rounded-xl p-2">
+                            <img src="@00272X00102prp" alt="@title" class="h-[102px] object-cover rounded-lg"
+                                width="100%" height="102" loading="lazy">
+                            <div class="flex flex-wrap items-center gap-1 mt-3">
+                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <h3 class="text-zinc-900 font-bold dep-text">@prp_3087570</h3>
+                                <span class="hidden dep-id">@prp_3087538</span>
+                                <span class="hidden flight-type-article"></span>
+                                <div class="relative">
+                                    <svg width="166" height="36">
+                                        <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line"></use>
+                                    </svg>
+                                    <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
+                                        <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
+                                    </svg>
+                                </div>
+                                <h3 class="text-zinc-900 font-bold des-text">@prp_3087571</h3>
+                                <p class="hidden des-id">@prp_3087539</p>
+                            </div>
+                            <button type="button"
+                                class="set-ticket w-full flex items-center justify-center bg-primary-600 text-white font-medium py-3 mt-3 rounded-lg">مشاهده</button>
+                        </article>
+                    
+                </face>
+            </basis>
+
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-12 px-3 py-6 bg-primary-50 rounded-3xl">
             <div class="flex items-center gap-5 mb-6">
@@ -81,7 +147,7 @@
             <div class="flex flex-col gap-4">
                 <div class="flex items-center gap-2">
                     <svg width="42" height="42">
-                        <use xlink:href="../assets/images/icons.svg#icon-first-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-first-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">قوانین و مقررات</h3>
@@ -90,7 +156,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="44">
-                        <use xlink:href="../assets/images/icons.svg#icon-two-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-two-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">بسته اینترنت</h3>
@@ -99,7 +165,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="44">
-                        <use xlink:href="../assets/images/icons.svg#icon-three-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-three-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">خرید اضافه بار</h3>
@@ -108,7 +174,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="42">
-                        <use xlink:href="../assets/images/icons.svg#icon-four-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-four-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">قوانین بار</h3>
@@ -117,7 +183,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="42">
-                        <use xlink:href="../assets/images/icons.svg#icon-five-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-five-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">انتخاب صندلی</h3>
@@ -126,7 +192,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="44">
-                        <use xlink:href="../assets/images/icons.svg#icon-six-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-six-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">آنلاین checking</h3>
@@ -135,7 +201,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="42">
-                        <use xlink:href="../assets/images/icons.svg#icon-seven-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-seven-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">انتخاب غذا</h3>
@@ -144,7 +210,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                     <svg width="42" height="42">
-                        <use xlink:href="../assets/images/icons.svg#icon-last-services"></use>
+                        <use xlink:href="./images/sprite-icons.svg#icon-last-services"></use>
                     </svg>
                     <div class="flex flex-col gap-1">
                         <h3 class="font-bold text-zinc-900">پیگیری بار گم شده</h3>
@@ -155,12 +221,19 @@
         </section>
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-12">
             <h2 class="text-zinc-900 font-bold text-center mb-4">پرواز به 130 مقصد</h2>
-            <ul class="flex place-items-center justify-between bg-primary-50 p-2 rounded-lg">
-                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
-                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
-                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
-                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">ترکیه</li>
-            </ul>
+            <basis core="tree" datamembername="130-destination.cat" idcol="catid" parentidcol="parentid"
+            nullvalue="213670">
+            <layout>
+                <ul class="flex items-center justify-between bg-primary-50 p-2 rounded-lg">
+                    @child
+                </ul>
+            </layout>
+            <face>
+                <li class="flight-li text-zinc-900 bg-primary-600 p-3 rounded-lg"
+                    data-id="@catid">
+                    @title</li>
+            </face>
+        </basis>
             <!-- Slider main container -->
             <div class="swiper swiper-fly-mobile pb-16 mt-7">
                 <!-- Additional required wrapper -->
@@ -285,119 +358,72 @@
                 </div>
                 <!-- Slider main container -->
                 <div class="swiper swiper-article-mobile h-[1340px] pb-10">
-                    <!-- Additional required wrapper -->
+                    <basis core="list" datamembername="db.article">
+                        <layout>
+                                                <!-- Additional required wrapper -->
                     <div class="swiper-wrapper">
                         <!-- Slides -->
-                        <div class="swiper-slide">
-                            <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
-                                    <span class="flex items-center gap-1 text-zinc-500 text-sm">
-                                        <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
-                                        </svg>
-                                        1402/12/12
-                                    </span>
-                                </div>
-                                <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
-                                        class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                                    <a href=""
-                                        class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="mt-6">
-                                    <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
-                                    <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز
-                                        قدرت، فرهنگ
-                                        و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است.
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
-                                    <span class="flex items-center gap-1 text-zinc-500 text-sm">
-                                        <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
-                                        </svg>
-                                        1402/12/12
-                                    </span>
-                                </div>
-                                <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
-                                        class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                                    <a href=""
-                                        class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="mt-6">
-                                    <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
-                                    <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز
-                                        قدرت، فرهنگ
-                                        و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است.
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="swiper-slide">
-                            <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
-                                    <span class="flex items-center gap-1 text-zinc-500 text-sm">
-                                        <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
-                                        </svg>
-                                        1402/12/12
-                                    </span>
-                                </div>
-                                <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
-                                        class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                                    <a href=""
-                                        class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="mt-6">
-                                    <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
-                                    <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز
-                                        قدرت، فرهنگ
-                                        و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است.
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        <div class="swiper-slide">
-                            <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-zinc-500 text-sm">نویسنده: <span>محسن حیدری</span></span>
-                                    <span class="flex items-center gap-1 text-zinc-500 text-sm">
-                                        <svg width="24" height="24">
-                                            <use xlink:href="../assets/images/icons.svg#icon-calender"></use>
-                                        </svg>
-                                        1402/12/12
-                                    </span>
-                                </div>
-                                <div class="relative mt-2">
-                                    <img src="../assets/images/pool-case.jpg" alt=""
-                                        class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                                    <a href=""
-                                        class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="mt-6">
-                                    <h3 class="text-zinc-900 font-bold mb-3">سفر به روم برای تفریح</h3>
-                                    <div class="text-zinc-900 text-sm text-justify line-clamp-3">رم هزاران سال مرکز
-                                        قدرت، فرهنگ
-                                        و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر بسیار عمیقی بر جهان گذاشته است.
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                        @child
                     </div>
+                        </layout>
+                        <face filter="link is null">
+                            <div class="swiper-slide">
+                                <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
+                                        <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                            <svg width="24" height="24">
+                                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                            </svg>
+                                            @prp_7249
+                                        </span>
+                                    </div>
+                                    <div class="relative mt-2">
+                                        <img src="@00256X00232prp" alt="@title"
+                                            class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                                        <a href="/article.bc?id=@id"
+                                            class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
+                                            مطلب</a>
+                                    </div>
+                                    <div class="mt-8">
+                                        <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
+                                        <div class="text-zinc-900 text-sm text-justify line-clamp-3 min-h-[60px]">
+                                            @prp_7244
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </face>
+                        <face>
+                            <div class="swiper-slide">
+                                <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
+                                        <span class="flex items-center gap-1 text-zinc-500 text-sm">
+                                            <svg width="24" height="24">
+                                                <use xlink:href="./images/sprite-icons.svg#icon-calender"></use>
+                                            </svg>
+                                            @prp_7249
+                                        </span>
+                                    </div>
+                                    <div class="relative mt-2">
+                                        <img src="@00256X00232prp" alt="@title"
+                                            class="h-[232px] object-cover rounded-lg" width="100%" height="232">
+                                        <a href="@link"
+                                            class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
+                                            مطلب</a>
+                                    </div>
+                                    <div class="mt-8">
+                                        <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
+                                        <div class="text-zinc-900 text-sm text-justify line-clamp-3 min-h-[60px]">
+                                            @prp_7244
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </face>
+                    </basis>
+
                     <!-- If we need pagination -->
                     <div class="swiper-pagination flex !top-[99%] justify-center !left-0 !right-0"></div>
 
@@ -409,113 +435,59 @@
                 <div class="flex items-center gap-5 mb-5">
                     <h2 class="font-bold text-zinc-900">دیگر اخبار</h2>
                     <span class="flex-1 h-px bg-zinc-300"></span>
+                    <a href="/article-list.bc?catid=153597" class="text-blue-500">مشاهده بیشتر</a>
                 </div>
-                <!-- Slider main container -->
-                <div class="swiper swiper-other-news-mobile h-[888px] pb-5">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <div class="flex flex-col gap-6">
-                                <div>
-                                    <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                    <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                        است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                        فعلی
-                                    </div>
-                                    <a href=""
-                                        class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="border border-solid border-zinc-300 w-full h-px"></div>
-                                <div>
-                                    <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                    <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                        است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                        فعلی
-                                    </div>
-                                    <a href=""
-                                        class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                            </div>
+                <basis core="list" datamembername="db.other-news">
+                    <layout>
+                        <div class="flex flex-col gap-6">
+                            @child
                         </div>
-                        <div class="swiper-slide">
-                            <div class="flex flex-col gap-6">
-                                <div>
-                                    <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                    <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                        است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                        فعلی
-                                    </div>
-                                    <a href=""
-                                        class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="border border-solid border-zinc-300 w-full h-px"></div>
-                                <div>
-                                    <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                    <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                        است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                        فعلی
-                                    </div>
-                                    <a href=""
-                                        class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
+                    </layout>
+                    <face filter="link is null">
+                        <div class="other-news-border">
+                            <h3 class="text-zinc-900 font-bold mb-2">@title</h3>
+                            <div class="text-sm text-zinc-900 mb-4 line-clamp-4 min-h-20">
+                                @prp_7244
                             </div>
+                            <a href="/article.bc?id=@id"
+                                class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
+                                مطلب</a>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="flex flex-col gap-6">
-                                <div>
-                                    <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                    <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                        است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                        فعلی
-                                    </div>
-                                    <a href=""
-                                        class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
-                                <div class="border border-solid border-zinc-300 w-full h-px"></div>
-                                <div>
-                                    <h3 class="text-zinc-900 font-bold mb-2">سفر‌های مناسبتی چه تخفیفاتی دارد</h3>
-                                    <div class="text-sm text-zinc-900 mb-4 line-clamp-4">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک
-                                        است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط
-                                        فعلی
-                                    </div>
-                                    <a href=""
-                                        class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
-                                        مطلب</a>
-                                </div>
+                    </face>
+                    <face>
+                        <div class="other-news-border">
+                            <h3 class="text-zinc-900 font-bold mb-2">@title</h3>
+                            <div class="text-sm text-zinc-900 mb-4 line-clamp-4 min-h-20">
+                                @prp_7244
                             </div>
+                            <a href="@link"
+                                class="inline-flex bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه
+                                مطلب</a>
                         </div>
-                    </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination swiper-pagination flex !top-[99%] justify-center !left-0 !right-0"></div>
+                    </face>
+                </basis>
 
-                </div>
+
+
+
             </section>
         </div>
-        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
-            <h2 class="text-zinc-900 font-bold mb-3">درباره پگاسوس</h2>
-            <div class="text-sm text-zinc-900 text-justify">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
-                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،
-                شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-                الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و
-                دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
-                اصلی، و جوابگوی سوالات
-            </div>
-            <a href="" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
-        </section>
+        <basis core="print" datamembername="db.about-pegasys">
+            <layout>
+                <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+                    @child
+                    <a href="" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
+                </section>
+            </layout>
+            <face filter="TypeID in(150)">
+                <h2 class="text-zinc-900 font-bold mb-3">@text</h2>
+            </face>
+            <face filter="TypeID in(250)">
+                <div class="text-sm text-zinc-900 text-justify line-clamp-6">
+                    @largetext
+                </div>
+            </face>
+        </basis>
         <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto my-9">
             <h2 class="text-center text-lg text-zinc-900 font-bold mb-9">سوالات متداول</h2>
             <ul class="flex place-items-center justify-between bg-primary-50 p-2 rounded-lg mb-3">

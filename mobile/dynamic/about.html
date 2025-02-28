@@ -1,0 +1,223 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="2310061">
+    <member name="about-pegasys" type="view" size="" propertyid="" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="questions">
+    <member name="cat" type="tree" request="cat" parentid="213680" order="ord"></member>
+</basis>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+    <meta name="description" content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"/>
+</head>
+
+<body>
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <main>
+        <section class="mt-5">
+            <img src="[##cms.cms.cdn##]/images/OBJECTS.png" alt="contact-back" class="h-[218px] object-cover" width="100%"
+                height="218">
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl -mt-48">
+            <h1 class="text-zinc-900 font-bold mb-3">درباره ما</h1>
+            <div class="text-sm"><a href="/">صفحه اصلی</a> / درباره ما</div>
+            <basis core="print" datamembername="db.info">
+                <face filter="TypeID in(144)">
+                    <div class="text-sm text-zinc-900 mt-3 text-justify">
+                        @largetext
+                    </div>
+                </face>
+            </basis>
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <basis core="print" datamembername="db.info">
+                <layout>
+                    <div class="flex flex-col gap-2">
+                        @child
+                    </div>
+                </layout>
+                <face filter="prpID in(7999)">
+                    <div class="flex items-start gap-3 divide-white divide-x divide-x-reverse bg-secondary-700 p-3 rounded-lg">
+                        <svg width="30" height="30" class="flex-shrink-0">
+                            <use xlink:href="./images/sprite-icons.svg#icon-location-white"></use>
+                        </svg>
+                        <span class="pr-3 text-justify text-white">
+                           @largetext
+                        </span>
+                    </div>
+                </face>
+                <face filter="valueID in(4121736)">
+                    <div>
+                        <a href="tel:@text"
+                        class="group flex items-center gap-3 divide-secondary-300 divide-x divide-x-reverse bg-secondary-700 p-3 rounded-lg">
+    
+                        <svg width="30" height="30">
+                            <use xlink:href="./images/sprite-icons.svg#icon-phone-white"></use>
+                        </svg>
+                        <div class="pr-3">
+                            <span class= "text-white">
+                                @text
+                            </span>
+                        </div>
+                    </a>
+                    </div>
+                </face>
+                <face filter="valueID in(15040032)">
+                    <div>
+                        <a href="tel:@text"
+                        class="group flex items-center gap-3 divide-secondary-300 divide-x divide-x-reverse bg-secondary-700 p-3 rounded-lg">
+                        <svg width="30" height="30">
+                            <use xlink:href="./images/sprite-icons.svg#icon-telephone-white"></use>
+                        </svg>
+                        <div class="pr-3">
+                            <span class="text-white">
+                                <span>@text</span> پشتیبانی
+                            </span>
+                        </div>
+                    </a>
+                    </div>
+                </face>
+            </basis>
+
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <div class="flex items-center gap-5 mb-6">
+                <h2 class="font-bold text-zinc-900">دفتر پگاسوس</h2>
+                <span class="flex-1 h-px bg-zinc-300"></span>
+            </div>
+            <div class="mt-7">
+                <img src="../assets/images/map.png" class="h-[119px] object-cover rounded-lg" alt="map" width="100%" height="119" loading="lazy">
+            </div>
+            <div class="relative direction-ltr mt-7">
+                <div class="flex items-start gap-2 divide-zinc-300 divide-x lg:items-center">
+                    <svg width="30" height="30" class="flex-shrink-0">
+                        <use xlink:href="./images/sprite-icons.svg#icon-location"></use>
+                    </svg>
+                    <span class="pl-2 text-justify">
+                        consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi.
+                    </span>
+                </div>
+                <basis core="print" datamembername="db.info">
+                    <layout>
+                        <div class="inline-flex flex-col">
+                            @child
+                        </div>
+                    </layout>
+                    <face filter="valueID in(4121736)">
+                        <a href="tel:@text"
+                        class="group inline-flex items-center gap-2 divide-zinc-300 divide-x mt-2">
+
+                        <svg width="30" height="30">
+                            <use xlink:href="./images/sprite-icons.svg#icon-phone"></use>
+                        </svg>
+                        <div class="pl-2">
+                            <span class="relative z-10 font-sans">
+                                @text
+                            </span>
+                        </div>
+                    </a>
+                    </face>
+                    <face filter="valueID in(15040032)">
+                        <a href="tel:@text"
+                        class="group inline-flex items-center gap-2 divide-zinc-300 divide-x mt-2">
+                        <svg width="30" height="30">
+                            <use xlink:href="./images/sprite-icons.svg#icon-telephone"></use>
+                        </svg>
+                        <div class="pl-2">
+                            <span class="relative z-10">
+                                Support : <span class="font-sans">@text</span>
+                            </span>
+                        </div>
+                    </a>
+                    </face>
+                </basis>
+
+            </div>
+        </section>
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
+            <h2 class="text-zinc-900 font-bold mb-3">درباره پگاسوس</h2>
+            <div class="text-sm text-zinc-900 text-justify">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و
+                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
+                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،
+                شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
+                الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و
+                دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای
+                اصلی، و جوابگوی سوالات
+            </div>
+            <a href="" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
+        </section>
+
+        <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-9 mb-14">
+            <h2 class="text-center text-lg text-zinc-900 font-bold mb-9">سوالات متداول</h2>
+            <ul class="flex place-items-center justify-between bg-primary-50 p-2 rounded-lg mb-3">
+                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">استرداد</li>
+                <li class="text-zinc-700 p-3 rounded-lg">نحوه خرید</li>
+                <li class="text-zinc-700 p-3 rounded-lg">ترنسفر</li>
+            </ul>
+            <div class="flex flex-col gap-1">
+                <div
+                    class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
+                    <div class="flex items-center">
+                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
+                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
+                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div
+                        class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
+                    </div>
+                </div>
+                <div
+                    class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
+                    <div class="flex items-center">
+                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
+                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
+                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div
+                        class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"/>
+</body>
+
+</html>

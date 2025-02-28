@@ -23,14 +23,40 @@ if (window.innerWidth >= 1024) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  const toggleDropdowns = document.querySelectorAll(".toggle-dropdown");
+  const dropdownIcons = document.querySelectorAll(".dropdown-icon");
+
+  toggleDropdowns.forEach((toggle, index) => {
+    const submenu = toggle.nextElementSibling;
+    const dropdownIcon = dropdownIcons[index];
+
+    toggle.addEventListener("click", function () {
+      dropdownIcon.classList.toggle("rotate-180");
+
+      if (submenu.style.maxHeight) {
+        submenu.style.maxHeight = null;
+        submenu.style.opacity = "0";
+      } else {
+        submenu.style.maxHeight = (submenu.scrollHeight*10) + "px"; 
+        submenu.style.opacity = "1";
+      }
+    });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const fetchContentArticle = document.querySelector(".fetch-content-article");
   const questionLi = document.querySelectorAll(".question-li");
 
   if (fetchContentArticle) {
     async function firstContent() {
-      const firstResponse = await fetch("/article-load-items.bc?catid=213680");
+      const firstResponse = await fetch("/article-load-items.bc?catid=213681");
       const firstData = await firstResponse.text();
       fetchContentArticle.innerHTML = firstData;
+      if (questionLi.length > 0) {
+        questionLi[0].style.backgroundColor = "#FB8901";
+        questionLi[0].style.color = "#000";
+      }
     }
     firstContent();
 
@@ -70,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!button) return;
 
       const faqBtn = button.querySelector(".faq-btn");
-      const faqAnswer = button.querySelector(".faq-answer"); // فرض: `.faq-answer` بعد از `.faq-box` قرار داره
+      const faqAnswer = button.querySelector(".faq-answer"); 
 
       faqBtn.classList.toggle("rotate-180");
       button.style.backgroundColor = "#FFF3E0";
@@ -97,9 +123,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (fetchContentFlight) {
     async function firstContent() {
       fetchContentFlight.innerHTML =
-        '<div class="loading-text">Loading...</div>';
+        '<div class="flex justify-center mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:w-[1280px]"><span class="flight-loader"></span></div>';
       try {
-        const firstResponse = await fetch("/flight-load-items.bc?catid=213670");
+        const firstResponse = await fetch("/flight-load-items.bc?catid=213671");
         if (!firstResponse.ok) {
           throw new Error(`HTTP error! Status: ${firstResponse.status}`);
         }
@@ -109,6 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Fetch failed:", error);
         fetchContentFlight.innerHTML =
           "<p>Error loading data: " + error.message + "</p>";
+      }
+      if (flightLi.length > 0) {
+        flightLi[0].style.backgroundColor = "#FB8901";
+        flightLi[0].style.color = "#000";
       }
     }
     firstContent();
@@ -127,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         async function secondContent() {
           fetchContentFlight.innerHTML =
-            '<div class="loading-text">Loading...</div>';
+            '<div class="flex justify-center mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:w-[1280px]"><span class="flight-loader"></span></div>';
           try {
             const firstResponse = await fetch(
               `/flight-load-items.bc?catid=${cmsQuery}`
@@ -138,7 +168,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const firstData = await firstResponse.text();
             fetchContentFlight.innerHTML = firstData;
           } catch (error) {
-            console.error("Fetch failed:", error);
             fetchContentFlight.innerHTML =
               "<p>Error loading data: " + error.message + "</p>";
           }
@@ -278,6 +307,56 @@ document.addEventListener("DOMContentLoaded", function () {
     // console.error('مشکلی رخ داده است لطفا صبور باشید.', error);
   }
 });
+
+function uploadDocumentFooter(args) {
+  document.querySelector("#footer-form-resize .Loading_Form").style.display =
+    "block";
+  const captcha = document
+    .querySelector("#footer-form-resize")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .querySelector("#footer-form-resize")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadFooter", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
+
+function refreshCaptchaFooter(e) {
+  $bc.setSource("captcha.refreshFooter", true);
+}
+
+async function OnProcessedEditObjectFooter(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document.querySelector("#footer-form-resize .Loading_Form").style.display =
+      "none";
+    document.querySelector("#footer-form-resize .message-api").innerHTML =
+      "درخواست شما با موفقیت ثبت شد.";
+  } else {
+    refreshCaptchaFooter();
+    setTimeout(() => {
+      document.querySelector(
+        "#footer-form-resize .Loading_Form"
+      ).style.display = "none";
+      document.querySelector("#footer-form-resize .message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید.";
+    }, 2000);
+  }
+}
+
+async function RenderFormFooter() {
+  var inputElementVisa7 = document.querySelector(
+    " .email-footer-form input[data-bc-text-input]"
+  );
+  inputElementVisa7.setAttribute("placeholder", "ایمیل");
+}
 
 // swiper
 if (document.querySelector(".swiper-article")) {

@@ -1,6 +1,15 @@
 <basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
     <member name="info" type="view" />
 </basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="useful-information">
+    <member name="cat" type="tree" request="cat" parentid="151555" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="circular">
+    <member name="cat" type="tree" request="cat" parentid="151596" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="tours">
+    <member name="cat" type="tree" request="cat" parentid="153599" order="ord"></member>
+</basis>
 <header class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl pt-4 lg:pt-7">
     <section class="relative z-30 px-4 bg-white rounded-2xl lg:rounded-3xl">
         <div class="flex items-center justify-between">
@@ -31,101 +40,174 @@
                     <nav class="hidden h-full lg:flex">
                         <ul class="flex items-center gap-6">
                             <li class="flex">
-                                <a href="/Articles"
+                                <a href="/"
                                     class="transition-all duration-300 pl-3 text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">صفحه
                                     اصلی</a>
                             </li>
+                                    <li class="flex">
+                                        <a href="/"
+                                            class="transition-all duration-300 pl-3 text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">بخشنامه</a>
+                                    </li>
+                            <basis core="tree" datamembername="useful-information.cat" idcol="catid" parentidcol="parentid"
+                            nullvalue="151555">
+                            <layout>
+                                <li class="relative flex items-center h-full group">
+                                    <a href="/Tourism-News"
+                                        class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">
+                                        اطلاعات مفید
+                                        <svg width="48" height="48"
+                                            class="transition-all duration-300 group-hover:rotate-180"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5"
+                                                class="transition-all duration-300 group-hover:stroke-primary-600" stroke="#000"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </a>
+                                    <!-- submenu -->
+                                    <ul
+                                        class="absolute z-30 flex flex-col invisible w-64 gap-2 p-2 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
+                                        @child
+                                    </ul>
+                                    <!-- submenu end -->
+                                </li>
+                            </layout>
+                            <face level="end" filter="link is null">
+                                <li
+                                    class="py-1 px-2 transition-all duration-300 rounded-md hover:bg-primary-800 group/levelthree">
+                                    <a href="/article-list.bc?catid=@catid"
+                                        class="block w-full transition-all duration-300 text-zinc-900 group-hover/levelthree:text-white">@title</a>
+                                </li>
+                            </face>
+                            <face level="end">
+                                <li
+                                    class="py-1 px-2 transition-all duration-300 rounded-md hover:bg-primary-800 group/levelthree">
+                                    <a href="@link"
+                                        class="block w-full transition-all duration-300 text-zinc-900 group-hover/levelthree:text-white">@title</a>
+                                </li>
+                            </face>
+                            <face level="1" filter="link is null">
+                                <li
+                                    class="relative py-1 transition-all duration-300 rounded-md group/leveltwo hover:bg-primary-800">
+                                    <div
+                                        class="flex justify-between cursor-pointer text-zinc-900 group-hover/leveltwo:text-white">
+                                        <a href="/article-list.bc?catid=@catid"
+                                            class="transition-all duration-300 text-zinc-900 group-hover/leveltwo:text-white">@title</a>
+                                        <svg width="48" height="48"
+                                            class="transition-all duration-300 group-hover/leveltwo:rotate-90"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5"
+                                                class="transition-all duration-300 group-hover/leveltwo:stroke-white" stroke="#000"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <ul
+                                        class="absolute top-0 z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 right-60 rounded-xl group-hover/leveltwo:visible group-hover/leveltwo:opacity-100">
+                                        @child
+                                    </ul>
+                                </li>
+                            </face>
+                            <face level="1">
+                                <li
+                                    class="relative py-1 transition-all duration-300 rounded-md group/leveltwo hover:bg-primary-800">
+                                    <div class="flex justify-between cursor-pointer">
+                                        <a href="@link"
+                                            class="transition-all duration-300 text-zinc-900 group-hover/leveltwo:text-white">@title</a>
+                                        <svg width="48" height="48"
+                                            class="transition-all duration-300 group-hover/leveltwo:rotate-90"
+                                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M31 20.5L24 27.5L17 20.5"
+                                                class="transition-all duration-300 group-hover/leveltwo:stroke-white" stroke="#000"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                    <ul
+                                        class="absolute top-0 z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 right-60 rounded-xl group-hover/leveltwo:visible group-hover/leveltwo:opacity-100">
+                                        @child
+                                    </ul>
+                                </li>
+                            </face>
+
+                        </basis>
+                        <basis core="tree" datamembername="tours.cat" idcol="catid" parentidcol="parentid"
+                        nullvalue="153599">
+                        <layout>
                             <li class="relative flex items-center h-full group">
-                                <a href="Hotels"
+                                <a href="/The-best-tours"
                                     class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">
-                                    تور ها
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="transition-all duration-300 group-hover:rotate-180" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none">
-                                        <path fill-rule="evenodd" class="group-hover:fill-primary-600"
-                                            clip-rule="evenodd"
-                                            d="M12.2499 16.914L3.83594 8.5L5.24994 7.086L12.2499 14.086L19.2499 7.086L20.6639 8.5L12.2499 16.914Z"
-                                            fill="#18181B" />
+                                     تورها
+                                    <svg width="48" height="48"
+                                        class="transition-all duration-300 group-hover:rotate-180"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31 20.5L24 27.5L17 20.5"
+                                            class="transition-all duration-300 group-hover:stroke-primary-600" stroke="#000"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </a>
                                 <!-- submenu -->
                                 <ul
-                                    class="absolute z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
-                                    <li
-                                        class="py-1 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
-                                        <a href=""
-                                            class="transition-all duration-300 block text-secondary-800 group-hover/leveltwo:text-white">ویزای
-                                            شینگن</a>
-                                    </li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                    class="absolute z-30 flex flex-col invisible w-64 gap-2 p-2 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
+                                    @child
                                 </ul>
                                 <!-- submenu end -->
                             </li>
-                            <li class="relative flex items-center h-full group">
-                                <a href=""
-                                    class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">اخبار
-                                    و مقاله
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="transition-all duration-300 group-hover:rotate-180" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none">
-                                        <path fill-rule="evenodd" class="group-hover:fill-primary-600"
-                                            clip-rule="evenodd"
-                                            d="M12.2499 16.914L3.83594 8.5L5.24994 7.086L12.2499 14.086L19.2499 7.086L20.6639 8.5L12.2499 16.914Z"
-                                            fill="#18181B" />
+                        </layout>
+                        <face level="end" filter="link is null">
+                            <li
+                                class="py-1 px-2 transition-all duration-300 rounded-md hover:bg-primary-800 group/levelthree">
+                                <a href="/article-list.bc?catid=@catid"
+                                    class="block w-full transition-all duration-300 text-zinc-900 group-hover/levelthree:text-white">@title</a>
+                            </li>
+                        </face>
+                        <face level="end">
+                            <li
+                                class="py-1 px-2 transition-all duration-300 rounded-md hover:bg-primary-800 group/levelthree">
+                                <a href="@link"
+                                    class="block w-full transition-all duration-300 text-zinc-900 group-hover/levelthree:text-white">@title</a>
+                            </li>
+                        </face>
+                        <face level="1" filter="link is null">
+                            <li
+                                class="relative py-1 transition-all duration-300 rounded-md group/leveltwo hover:bg-primary-800">
+                                <div
+                                    class="flex justify-between cursor-pointer text-zinc-900 group-hover/leveltwo:text-white">
+                                    <a href="/article-list.bc?catid=@catid"
+                                        class="transition-all duration-300 text-zinc-900 group-hover/leveltwo:text-white">@title</a>
+                                    <svg width="48" height="48"
+                                        class="transition-all duration-300 group-hover/leveltwo:rotate-90"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31 20.5L24 27.5L17 20.5"
+                                            class="transition-all duration-300 group-hover/leveltwo:stroke-white" stroke="#000"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-
-                                </a>
-                                <!-- submenu -->
+                                </div>
                                 <ul
-                                    class="absolute z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
-                                    <li
-                                        class="py-1 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
-                                        <a href=""
-                                            class="transition-all duration-300 block text-zinc-900 group-hover/leveltwo:text-white">ویزای
-                                            شینگن</a>
-                                    </li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                    class="absolute top-0 z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 right-60 rounded-xl group-hover/leveltwo:visible group-hover/leveltwo:opacity-100">
+                                    @child
                                 </ul>
-                                <!-- submenu end -->
                             </li>
-                            <li class="relative flex items-center h-full group">
-                                <a href="Hotels"
-                                    class="flex items-center gap-2 transition-all duration-300 h-full group text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">سوالات
-                                    متداول
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                        class="transition-all duration-300 group-hover:rotate-180" width="24"
-                                        height="24" viewBox="0 0 24 24" fill="none">
-                                        <path fill-rule="evenodd" class="group-hover:fill-primary-600"
-                                            clip-rule="evenodd"
-                                            d="M12.2499 16.914L3.83594 8.5L5.24994 7.086L12.2499 14.086L19.2499 7.086L20.6639 8.5L12.2499 16.914Z"
-                                            fill="#18181B" />
+                        </face>
+                        <face level="1">
+                            <li
+                                class="relative py-1 transition-all duration-300 rounded-md group/leveltwo hover:bg-primary-800">
+                                <div class="flex justify-between cursor-pointer">
+                                    <a href="@link"
+                                        class="transition-all duration-300 text-zinc-900 group-hover/leveltwo:text-white">@title</a>
+                                    <svg width="48" height="48"
+                                        class="transition-all duration-300 group-hover/leveltwo:rotate-90"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31 20.5L24 27.5L17 20.5"
+                                            class="transition-all duration-300 group-hover/leveltwo:stroke-white" stroke="#000"
+                                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
-
-                                </a>
-                                <!-- submenu -->
+                                </div>
                                 <ul
-                                    class="absolute z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 rounded-xl top-full group-hover:visible group-hover:opacity-100">
-                                    <li
-                                        class="py-1 transition-all duration-300 rounded-md hover:bg-primary-800 group/leveltwo">
-                                        <a href=""
-                                            class="transition-all duration-300 block text-zinc-900 group-hover/leveltwo:text-white">ویزای
-                                            شینگن</a>
-                                    </li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
-                                    <li class="py-1"><a href="">ویزای شینگن</a></li>
+                                    class="absolute top-0 z-30 flex flex-col invisible w-64 gap-2 p-4 font-medium transition-all duration-100 bg-white shadow-md opacity-0 right-60 rounded-xl group-hover/leveltwo:visible group-hover/leveltwo:opacity-100">
+                                    @child
                                 </ul>
-                                <!-- submenu end -->
                             </li>
-                            <li class="flex items-center h-full">
-                                <a href=""
-                                    class="flex items-center transition-all duration-300 text-zinc-900 hover:text-primary-600 xl:flex-shrink-0">درباره
-                                    ما</a>
-                            </li>
+                        </face>
 
-
-
+                    </basis>
                         </ul>
                     </nav>
                 </div>
@@ -153,104 +235,81 @@
                 <nav class="pt-2">
                     <ul class="text-sm divide-y divide-primary-50">
                         <li class="py-3"><a href="/" class="text-zinc-900">صفحه اصلی</a></li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="ttext-zinc-900">تورهای گردشگران</a>
-                                <svg width="48" class="transition-all duration-300 dropdown-icon" height="48"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
-                        </li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">تور های نوروز1404</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
+                        <li class="py-3"><a href="/" class="text-zinc-900">بخشنامه</a></li>
+                        <basis core="tree" datamembername="useful-information.cat" idcol="catid" parentidcol="parentid"
+                        nullvalue="151555">
+                        <layout>
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="/Tourism-News" class="text-zinc-900">اطلاعات مفید</a>
+                                    <svg width="48" class="transition-all duration-300 dropdown-icon" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31 20.5L24 27.5L17 20.5" stroke="#000" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <!-- submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
+                                    @child
+                                </ul>
+                                <!-- submenu end -->
+                            </li>
+                        </layout>
 
-                        </li>
+                        <face level="end" filter="link is null">
+                            <li class="py-4 px-4">
+                                <a href="/tour-list.bc?catid=@catid" class="text-zinc-900">@title</a>
+                            </li>
+                        </face>
 
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">تور های نمایشگاهی</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
+                        <face level="end">
+                            <li class="py-4 px-4">
+                                <a href="@link" class="text-zinc-900">@title</a>
+                            </li>
+                        </face>
 
-                        </li>
-                        <li class="flex items-center py-3 ">
-                            <a href="" class="w-full text-zinc-900">خدمات ویزا</a>
-                        </li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">سبک سفر</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
+                        <face level="1" filter="link is null">
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="/tour-list.bc?catid=@catid" class="text-zinc-900">@title</a>
+                                    <svg width="48" class="transition-all duration-300 dropdown-icon" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <!-- nested submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 header-nested-menu submenu divide-primary-50 max-h-0">
+                                    @child
+                                </ul>
+                                <!-- nested submenu end -->
+                            </li>
+                        </face>
 
-                        </li>
-                        <li class="">
-                            <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
-                                <a href="" class="text-zinc-900">مجله گردشگری</a>
-                                <svg width="48" height="48" class="transition-all duration-300 dropdown-icon"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <!-- submenu -->
-                            <ul
-                                class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 submenu divide-primary-50 max-h-0">
-                                <li class="px-10 py-2 "><a href="" class="text-zinc-900">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                                <li class="px-10 py-2"><a href="">ویزای شینگن</a></li>
-                            </ul>
-                            <!-- submenu end -->
+                        <face level="1">
+                            <li class="">
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown">
+                                    <a href="@link" class="text-zinc-900">@title</a>
+                                    <svg width="48" class="transition-all duration-300 dropdown-icon" height="48"
+                                        viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M31 20.5L24 27.5L17 20.5" stroke="#181C47" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                                <!-- nested submenu -->
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 header-nested-menu submenu divide-primary-50 max-h-0">
+                                    @child
+                                </ul>
+                                <!-- nested submenu end -->
+                            </li>
+                        </face>
 
-                        </li>
+
+                    </basis>
+                    
 
                     </ul>
                 </nav>
