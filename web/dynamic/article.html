@@ -1,11 +1,15 @@
 <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
     <member request="json-ld" type="scalar" name="json" />
-  </basis>
-  <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
     <member name="view" type="view" propertyid="7249" />
-  </basis>
-  <basis core="dbsource" source="basiscore" lid="1" mid="18" name="db" usedforid="[##cms.query.catid##]">
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="18" name="db" usedforid="[##cms.query.catid##]">
     <member name="scalar" type="scalar" typeid="150" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.qid##]">
+    <member name="faq" type="list" link="article.bc" perpage="3"
+        order="ord" />
 </basis>
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -15,7 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
     <!-- Title & Description -->
     <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
-    <meta name="description" content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <meta name="description"
+        content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
     <!-- Title & Description -->
     <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
         <member type="list" name="list" request="taglist" preview=""></member>
@@ -37,6 +42,17 @@
 <body>
     <div class="bg-articleBg bg-center bg-cover h-[576px]">
         <basis core="call" file="header.inc" />
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-40">
+            <div class="bg-specialcolor-2 p-2 rounded-3xl mt-6">
+                <div class="bg-white py-6 px-4 rounded-3xl">
+                    <div class="search-banner">
+                        <div class="search-box-container">
+                            <div id="search-box" class="dir-rtl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
     <main>
         <div class="flex gap-6 mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-16">
@@ -58,89 +74,57 @@
                         <face filter="prpID in(7249)">
                             <div class="text-zinc-800 text-sm mt-10 text-justify">@text</div>
                         </face>
-                      </basis>
+                    </basis>
 
 
 
-                            <basis core="print" datamembername="db.view">
-                                <layout> 
-                                    <div class="mt-10">
-                                        @child
-                                    </div>
-                                </layout>
-                                <face filter="TypeID in(129)">
-                                    <div class="text-sm text-zinc-800 text-justify mt-3">@largetext</div>
-                                </face>
-                                <face filter="TypeID in(250)">
-                                  <h2 id="@valueID" class="text-zinc-900 font-bold">@text</h2>
-                                  <div class="text-sm text-zinc-800 text-justify mt-3">@largetext</div>
-                                </face>
-                              </basis>
-                        <div class="mt-10">
-                            <div class="text-sm text-zinc-800 text-justify">
-                                در این بخش به معرفی و جستجوی بلیط هواپیما برای سفرهای تهران به آلانیا می‌پردازیم.اگر برنامه‌ریزی
-                                برای سفر به آلانیا دارید، ما می‌توانیم به شما در خرید بلیط هواپیما با قیمت مناسب کمک کنیم تا
-                                تجربه‌ی سفری خوش‌حال و بی‌دردسر را تجربه کنید.
+                    <basis core="print" datamembername="db.view">
+                        <layout>
+                            <div class="mt-10">
+                                @child
                             </div>
-                        </div>
+                        </layout>
+                        <face filter="TypeID in(129)">
+                            <div class="text-sm text-zinc-800 text-justify mt-3">@largetext</div>
+                        </face>
+                        <face filter="TypeID in(250)">
+                            <h2 id="@valueID" class="text-zinc-900 font-bold mt-10">@text</h2>
+                            <div class="text-sm text-zinc-800 text-justify mt-3">@largetext</div>
+                        </face>
+                    </basis>
                 </section>
                 <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-10 mb-16">
                     <h2 class="text-zinc-900 font-bold mb-6 text-2xl">سوالات متداول</h2>
                     <div class="flex">
-                        <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
-                            <li class="text-zinc-900 bg-primary-600 px-6 py-3 rounded-lg">استرداد</li>
-                            <li class="text-zinc-700 px-6 py-3 rounded-lg">نحوه خرید</li>
-                            <li class="text-zinc-700 px-6 py-3 rounded-lg">ترنسفر</li>
-                        </ul>
+                        <basis core="list" datamembername="db.faq">
+                            <layout>
+                                <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
+                                    @child
+                                </ul>
+                            </layout>
+                            <face>
+                                <li class="question-li text-zinc-700 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg"
+                                    data-id="@id">
+                                    @title</li>
+                            </face>
+                        </basis>
                     </div>
-                    <div class="flex flex-col gap-3">
-                        <div
-                            class="faq-box cursor-pointer text-zinc-900 flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
-                            <div class="flex items-center justify-between">
-                                نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
-                                <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div
-                                class="text-zinc-900 mr-auto pl-4 text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                                مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
-                            </div>
-                        </div>
-                        <div
-                            class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
-                            <div class="flex items-center justify-between">
-                                نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
-                                <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
-                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div
-                                class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                                مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
-                            </div>
-                        </div>
+                    <div class="fetch-content-article flex flex-col gap-3">
+
                     </div>
                 </section>
             </div>
             <aside class="w-[379px]">
-            <basis core="print" datamembername="db.view">
-                <layout>
+                <basis core="print" datamembername="db.view">
+                    <layout>
                         <div class="border border-zinc-200 rounded-xl p-4 flex flex-col gap-6">
                             @child
                         </div>
                     </layout>
                     <face filter="TypeID in(150 , 250)">
-                        <a href="#@valueID" class="font-medium text-zinc-900 flex items-center gap-2 transition-all duration-300 hover:text-primary-600">
-                            <svg width="24" height="24">
+                        <a href="#@valueID"
+                            class="font-medium text-zinc-900 flex items-center gap-2 transition-all duration-300 hover:text-primary-600">
+                            <svg width="24" height="24" class="flex-shrink-0">
                                 <use xlink:href="./images/sprite-icons.svg#icon-star"></use>
                             </svg>
                             @text

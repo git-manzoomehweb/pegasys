@@ -1,0 +1,175 @@
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.id##]">
+    <member name="view" type="view" propertyid="7249" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.qid##]">
+    <member name="faq" type="list" link="article.bc" perpage="3"
+        order="ord" />
+</basis>
+<basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+    <member method="cms" name="dep_landing"
+        query='{ "name": "db", "mid": "20", "member":[ { "type":"list", "name": "q", "request": "citySearch",  "functype": "0", "title": "[##cms.query.aid##]", "status": "city", "lid": "1"}]}'
+        preview="" />
+</basis>
+<basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
+    <member method="cms" name="des_landing"
+        query='{ "name": "db", "mid": "20", "member":[ { "type":"list", "name": "q", "request": "citySearch", "functype": "0", "title": "[##cms.query.bid##]",   "status": "city", "lid": "1"}]}'
+        preview="" />
+</basis>
+<basis core="group" name="Delay_3">
+    <basis core="inlinesource" name="db">
+        <member name="dep_landing_tree" format="json" preview=""> {"root":[##db.dep_landing.result##]} </member>
+        <member name="des_landing_tree" format="json" preview=""> {"root":[##db.des_landing.result##]}</member>
+    </basis>
+
+
+    <basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+        <member request="json-ld" type="scalar" name="json" />
+    </basis>
+    <basis core="dbsource" source="basiscore" lid="1" mid="18" name="db" usedforid="[##cms.query.catid##]">
+        <member name="scalar" type="scalar" typeid="150" />
+    </basis>
+    <!DOCTYPE html>
+    <html lang="fa" dir="rtl">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+        <!-- Title & Description -->
+        <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+        <meta name="description"
+            content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+        <!-- Title & Description -->
+        <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+            <member type="list" name="list" request="taglist" preview=""></member>
+        </basis>
+        <basis core="print" datamembername="tag.list">
+            <face filter="key = 'canonical'">
+                <link rel="canonical" href="@value" />
+            </face>
+            <face>
+                <meta property="@key" content="@value" />
+            </face>
+        </basis>
+        <!-- pwa metatags -->
+        <basis core="call" file="pwa.inc" />
+        <!-- common styles for all page -->
+        <basis core="call" file="style.inc" />
+    </head>
+
+    <body class="landing-body">
+        <div class="bg-articleBg bg-center bg-cover h-[576px]">
+            <basis core="call" file="header.inc" />
+            <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-40">
+                <div class="bg-specialcolor-2 p-2 rounded-3xl mt-6">
+                    <div class="bg-white py-6 px-4 rounded-3xl">
+                        <div class="search-banner">
+                            <div class="search-box-container">
+                                <div id="search-box" class="dir-rtl"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <basis core="print" datamembername="db.dep_landing_tree">
+                        <face filter="Field = 'title'">
+                            <input type="hidden" class="dep-title-searched" value="@value" />
+                        </face>
+                    </basis>
+                    <input value="[##cms.query.aid##]" class="co-id FCDid1" type="hidden" name="from" />
+
+                    <basis core="print" datamembername="db.des_landing_tree">
+                        <face filter="Field = 'title'">
+                            <input type="hidden" class="des-title-searched" value="@value" />
+                        </face>
+                    </basis>
+                    <input value="[##cms.query.bid##]" class="co-id FCDid2" type="hidden" name="to" />
+                </div>
+            </section>
+        </div>
+        <main>
+            <div class="flex gap-6 mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-16">
+                <div class="flex-1">
+                    <section>
+
+                        <basis core="print" datamembername="db.view">
+                            <layout>
+                                <div class="flex items-center gap-5 mb-6">
+                                    @child
+                                    <span class="flex-1 h-px bg-zinc-300"></span>
+                                </div>
+                            </layout>
+                            <face filter="TypeID in(150)">
+                                <h1 id="@valueID" class="font-bold text-zinc-900 text-2xl">@text</h1>
+                            </face>
+                        </basis>
+                        <basis core="print" datamembername="db.view">
+                            <face filter="prpID in(7249)">
+                                <div class="text-zinc-800 text-sm mt-10 text-justify">@text</div>
+                            </face>
+                        </basis>
+
+
+
+                        <basis core="print" datamembername="db.view">
+                            <layout>
+                                <div class="mt-10">
+                                    @child
+                                </div>
+                            </layout>
+                            <face filter="TypeID in(129)">
+                                <div class="text-sm text-zinc-800 text-justify mt-3">@largetext</div>
+                            </face>
+                            <face filter="TypeID in(250)">
+                                <h2 id="@valueID" class="text-zinc-900 font-bold mt-10">@text</h2>
+                                <div class="text-sm text-zinc-800 text-justify mt-3">@largetext</div>
+                            </face>
+                        </basis>
+                    </section>
+                    <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto mt-10 mb-16">
+                        <h2 class="text-zinc-900 font-bold mb-6 text-2xl">سوالات متداول</h2>
+                        <div class="flex">
+                            <basis core="list" datamembername="db.faq">
+                                <layout>
+                                    <ul class="flex place-items-center gap-4 bg-primary-50 p-2 rounded-lg mb-8">
+                                        @child
+                                    </ul>
+                                </layout>
+                                <face>
+                                    <li class="question-li text-zinc-700 transition-all duration-300 hover:bg-primary-600 cursor-pointer px-6 py-3 rounded-lg"
+                                        data-id="@id">
+                                        @title</li>
+                                </face>
+                            </basis>
+                        </div>
+                        <div class="fetch-content-article flex flex-col gap-3">
+
+                        </div>
+                    </section>
+                </div>
+                <aside class="w-[379px]">
+                    <basis core="print" datamembername="db.view">
+                        <layout>
+                            <div class="border border-zinc-200 rounded-xl p-4 flex flex-col gap-6">
+                                @child
+                            </div>
+                        </layout>
+                        <face filter="TypeID in(150 , 250)">
+                            <a href="#@valueID"
+                                class="font-medium text-zinc-900 flex items-center gap-2 transition-all duration-300 hover:text-primary-600">
+                                <svg width="24" height="24" class="flex-shrink-0">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-star"></use>
+                                </svg>
+                                @text
+                            </a>
+                        </face>
+                    </basis>
+                </aside>
+
+            </div>
+        </main>
+
+        <basis core="call" file="footer.inc" />
+    </body>
+
+    </html>
+</basis>

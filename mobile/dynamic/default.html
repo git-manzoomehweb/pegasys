@@ -2,15 +2,16 @@
     <member name="cat" type="tree" request="cat" parentid="213670" order="ord"></member>
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="151555">
-    <member name="article" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="4" size="256x232"
+    <member name="article" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="6" size="379x232"
         order="ord" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213628">
-    <member name="popular-flights" type="list" link="article.bc" propertyid="3087570,3087571,3087574,3087538,3087539" perpage="4"
-        size="272x102" order="ord" />
+    <member name="popular-flights" type="list" link="article.bc" propertyid="3087570,3087571,3087574,3087538,3087539" perpage="6"
+        size="133x90" order="ord" />
 </basis>
-<basis core="dbsource" source="basiscore" lid="1" mid="1" name="questions">
-    <member name="cat" type="tree" request="cat" parentid="213680" order="ord"></member>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="213680">
+    <member name="faq" type="list" link="article.bc" perpage="3"
+        order="ord" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="153597">
     <member name="other-news" type="list" link="article.bc" propertyid="7244" perpage="6" size="" order="ord" />
@@ -54,16 +55,16 @@
     <meta name="enamad" content="" />
     <meta name="samandehi" content="" />
     <!-- pwa metatags -->
-    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
     <!-- define -->
     <link rel="preload" as="image" imageSrcSet="image address" fetchpriority="high" />
     <!-- common styles for all page -->
-    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
 </head>
 
 <body>
     <div class="bg-defaultBg bg-center bg-cover pb-5">
-        <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"/>
+        <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
 
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-20 bg-search">
             <div class="bg-white p-1 rounded-lg grid grid-cols-2">
@@ -94,47 +95,53 @@
     </div>
 
     <main>
-        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9"> 
+        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
             <h2 class="text-zinc-900 font-bold text-center mb-4">سفرهای پرطرفدار</h2>
 
             <basis core="list" datamembername="db.popular-flights">
                 <layout>
                     <div class="flex flex-col gap-3">
-                    @child
-                </div>
+                        @child
+                    </div>
                 </layout>
                 <face>
-                    
-                        <article class="ticket-article border border-zinc-200 border-solid rounded-xl p-2">
-                            <img src="@00272X00102prp" alt="@title" class="h-[102px] object-cover rounded-lg"
-                                width="100%" height="102" loading="lazy">
-                            <div class="flex flex-wrap items-center gap-1 mt-3">
-                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
-                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
-                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
-                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
-                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
-                                <span class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+
+                    <article class="ticket-article border border-zinc-200 border-solid rounded-xl p-2">
+                        <img src="@00272X00102prp" alt="@title" class="h-[102px] object-cover rounded-lg" width="100%"
+                            height="102" loading="lazy">
+                        <div class="flex flex-wrap items-center gap-1 mt-3">
+                            <span
+                                class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                            <span
+                                class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                            <span
+                                class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                            <span
+                                class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                            <span
+                                class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                            <span
+                                class="text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]">@prp_3087574</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-4">
+                            <h3 class="text-zinc-900 font-bold dep-text">@prp_3087570</h3>
+                            <span class="hidden dep-id">@prp_3087538</span>
+                            <span class="hidden flight-type-article"></span>
+                            <div class="relative">
+                                <svg width="166" height="36">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line"></use>
+                                </svg>
+                                <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
+                                    <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
+                                </svg>
                             </div>
-                            <div class="flex items-center justify-between mt-4">
-                                <h3 class="text-zinc-900 font-bold dep-text">@prp_3087570</h3>
-                                <span class="hidden dep-id">@prp_3087538</span>
-                                <span class="hidden flight-type-article"></span>
-                                <div class="relative">
-                                    <svg width="166" height="36">
-                                        <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane-line"></use>
-                                    </svg>
-                                    <svg width="24" height="24" class="absolute top-[5px] left-0 right-0 mx-auto">
-                                        <use xlink:href="./images/sprite-icons.svg#icon-gray-airplane"></use>
-                                    </svg>
-                                </div>
-                                <h3 class="text-zinc-900 font-bold des-text">@prp_3087571</h3>
-                                <p class="hidden des-id">@prp_3087539</p>
-                            </div>
-                            <button type="button"
-                                class="set-ticket w-full flex items-center justify-center bg-primary-600 text-white font-medium py-3 mt-3 rounded-lg">مشاهده</button>
-                        </article>
-                    
+                            <h3 class="text-zinc-900 font-bold des-text">@prp_3087571</h3>
+                            <p class="hidden des-id">@prp_3087539</p>
+                        </div>
+                        <button type="button"
+                            class="set-ticket w-full flex items-center justify-center bg-primary-600 text-white font-medium py-3 mt-3 rounded-lg">مشاهده</button>
+                    </article>
+
                 </face>
             </basis>
 
@@ -222,132 +229,21 @@
         <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-12">
             <h2 class="text-zinc-900 font-bold text-center mb-4">پرواز به 130 مقصد</h2>
             <basis core="tree" datamembername="130-destination.cat" idcol="catid" parentidcol="parentid"
-            nullvalue="213670">
-            <layout>
-                <ul class="flex items-center justify-between bg-primary-50 p-2 rounded-lg">
-                    @child
-                </ul>
-            </layout>
-            <face>
-                <li class="flight-li text-zinc-900 bg-primary-600 p-3 rounded-lg"
-                    data-id="@catid">
-                    @title</li>
-            </face>
-        </basis>
-            <!-- Slider main container -->
-            <div class="swiper swiper-fly-mobile pb-16 mt-7">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide flex flex-col gap-8">
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                    </div>
-                    <div class="swiper-slide flex flex-col gap-8">
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                    </div>
-                    <div class="swiper-slide flex flex-col gap-8">
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                        <a href="" class="group flex items-center gap-3">
-                            <span
-                                class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
-                            <h3
-                                class="text-zinc-900 text-sm transition-all duration-300 group-hover:text-secondary-900">
-                                استانبول</h3>
-                        </a>
-                    </div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
+                nullvalue="213670">
+                <layout>
+                    <ul class="flex items-center justify-between bg-primary-50 p-2 rounded-lg">
+                        @child
+                    </ul>
+                </layout>
+                <face>
+                    <li class="flight-li text-zinc-900 p-3 rounded-lg" data-id="@catid">
+                        @title</li>
+                </face>
+            </basis>
+            <div class="fetch-content-flight flex flex-col gap-8 mt-7">
 
             </div>
+
         </section>
 
         <div class=" mt-9 bg-zinc-100 py-6">
@@ -357,14 +253,14 @@
                     <span class="flex-1 h-px bg-zinc-300"></span>
                 </div>
                 <!-- Slider main container -->
-                <div class="swiper swiper-article-mobile h-[1340px] pb-10">
+                <div class="swiper swiper-article-mobile h-[1387px] pt-4">
                     <basis core="list" datamembername="db.article">
                         <layout>
-                                                <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        @child
-                    </div>
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                @child
+                            </div>
                         </layout>
                         <face filter="link is null">
                             <div class="swiper-slide">
@@ -428,7 +324,7 @@
                     <div class="swiper-pagination flex !top-[99%] justify-center !left-0 !right-0"></div>
 
 
-                        
+
                 </div>
             </section>
             <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-5">
@@ -476,7 +372,7 @@
             <layout>
                 <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-9">
                     @child
-                    <a href="" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
+                    <a href="/about-us" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
                 </section>
             </layout>
             <face filter="TypeID in(150)">
@@ -490,51 +386,26 @@
         </basis>
         <section class="max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mx-auto my-9">
             <h2 class="text-center text-lg text-zinc-900 font-bold mb-9">سوالات متداول</h2>
-            <ul class="flex place-items-center justify-between bg-primary-50 p-2 rounded-lg mb-3">
-                <li class="text-zinc-900 bg-primary-600 p-3 rounded-lg">استرداد</li>
-                <li class="text-zinc-700 p-3 rounded-lg">نحوه خرید</li>
-                <li class="text-zinc-700 p-3 rounded-lg">ترنسفر</li>
-            </ul>
-            <div class="flex flex-col gap-1">
-                <div
-                    class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
-                    <div class="flex items-center">
-                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
-                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
-                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div
-                        class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
-                    </div>
-                </div>
-                <div
-                    class="faq-box text-zinc-900 text-sm flex flex-col border border-solid border-zinc-200 py-3 px-2 rounded-lg">
-                    <div class="flex items-center">
-                        نحوه خرید بلیط هواپیما در بابا نوروز چگونه است؟
-                        <svg width="48" height="48" class="flex-shrink-0 faq-btn transition-all duration-300"
-                            viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M31 20.5L24 27.5L17 20.5" stroke="#71717A" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <div
-                        class="text-zinc-900 mr-auto text-sm text-justify faq-answer overflow-hidden transition-all duration-300 max-h-0 opacity-0">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی...
-                    </div>
-                </div>
+            <basis core="list" datamembername="db.faq">
+                <layout>
+                    <ul class="flex items-center justify-between bg-primary-50 p-2 rounded-lg mb-3">
+                        @child
+                    </ul>
+                </layout>
+                <face>
+                    <li class="question-li text-zinc-700 p-3 rounded-lg"
+                        data-id="@id">
+                        @title</li>
+                </face>
+            </basis>
+            <div class="fetch-content-article flex flex-col gap-1">
+
             </div>
+
         </section>
     </main>
 
-    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"/>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
 </body>
 
 </html>

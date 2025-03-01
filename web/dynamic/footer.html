@@ -6,29 +6,20 @@
 <footer class="bg-blue-50 py-6 lg:p-9">
     <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl">
         <h2 class="font-bold text-zinc-900 text-center mb-10 lg:text-2xl">دسترسی آسان</h2>
-        <!-- Slider main container -->
-        <div class="swiper footer-swiper pb-16 lg:hidden">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-                <!-- Slides -->
                  <basis core="list" datamembername="db.easy-way">
                     <layout>
-                        <div class="swiper-slide flex flex-col gap-8">
+                        <div class="flex flex-col gap-8 lg:hidden">
                             @child
                         </div>
                     </layout>
                     <face>
-                        <a href="" class="flex items-center gap-3">
+                        <a href="@link" class="flex items-center gap-3">
                             <span class="w-[10px] h-[10px] bg-primary-100 rounded-full"></span>
                             <h3 class="text-zinc-900 text-sm">@title</h3>
                         </a>
                     </face>
                  </basis>
-            </div>
-            <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
 
-        </div>
         <basis core="list" datamembername="db.easy-way">
             <layout>
                 <div class="hidden lg:grid grid-cols-4 justify-between">
@@ -36,7 +27,7 @@
                 </div>
             </layout>
             <face>
-                <a href="" class="group flex items-center justify-between relative custom-border-bottom">
+                <a href="@link" class="group flex items-center justify-between relative custom-border-bottom">
                     <div class="flex gap-3 items-center">
                         <span
                         class="w-[10px] h-[10px] bg-primary-100 rounded-full transition-all duration-300 group-hover:bg-secondary-900"></span>
@@ -197,14 +188,18 @@
 
         </div>
         <div class="relative direction-ltr mt-6 lg:mt-0 lg:w-[49%]">
-            <div class="flex items-start gap-2 divide-zinc-300 divide-x lg:items-center">
-                <svg width="30" height="30" class="flex-shrink-0">
-                    <use xlink:href="./images/icons.svg#icon-location"></use>
-                </svg>
-                <span class="pl-2 text-justify">
-                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi.
-                </span>
-            </div>
+            <basis core="print" datamembername="db.info-en">
+                <face filter="TypeID in(244)">
+                    <div class="flex items-start gap-2 divide-zinc-300 divide-x lg:items-center">
+                        <svg width="30" height="30" class="flex-shrink-0">
+                            <use xlink:href="./images/icons.svg#icon-location"></use>
+                        </svg>
+                        <div class="pl-2 text-justify font-sans">
+                           @largetext
+                        </div>
+                    </div>
+                </face>
+            </basis>
             <basis core="print" datamembername="db.info">
                 <layout>
                     <div class="inline-flex flex-col">

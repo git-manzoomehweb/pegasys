@@ -223,8 +223,8 @@ body {
   height: 119px;
 }
 
-.h-\[1340px\] {
-  height: 1340px;
+.h-\[1387px\] {
+  height: 1387px;
 }
 
 .h-\[217px\] {
@@ -611,6 +611,10 @@ body {
   padding-top: 0.5rem;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -853,6 +857,15 @@ body {
   border-radius: 8px;
   padding: 8px;
   margin-bottom: 30px !important;
+}
+
+#multi{
+  display: none;
+}
+
+.flighttype-field{
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .flighttype-items div.clr{
@@ -1188,4 +1201,7 @@ body {
   border-radius: 8px;
   outline: none;
   height: 57px !important;
+}
+.swiper-article-mobile .swiper-slide{
+  height: fit-content !important;
 }

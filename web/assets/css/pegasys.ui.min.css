@@ -119,10 +119,6 @@ body {
   margin-top: 4rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
 .mt-20 {
   margin-top: 5rem;
 }
@@ -133,6 +129,10 @@ body {
 
 .mt-36 {
   margin-top: 9rem;
+}
+
+.mt-40 {
+  margin-top: 10rem /* 160px */;
 }
 
 .mt-8 {
@@ -1117,6 +1117,10 @@ body {
   border-radius: 8px;
   padding: 8px;
   margin-bottom: 30px !important;
+}
+
+#multi{
+  display: none;
 }
 
 .search-box-container .reserve-btn.active-module {
