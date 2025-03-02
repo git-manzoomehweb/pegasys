@@ -609,6 +609,10 @@ body {
   padding-bottom: 1.5rem;
 }
 
+.pb-24 {
+  padding-bottom: 6rem /* 96px */;
+}
+
 .pl-2 {
   padding-left: 0.5rem;
 }
@@ -1040,6 +1044,63 @@ body {
   }
 }
 
+.search-engine-loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #f52c2b #f52c2b transparent;
+  box-sizing: border-box;
+  animation: rotationfront 1s linear infinite;
+}
+.search-engine-loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+  border-color: transparent #f57902 #f57902;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes rotationfront {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+    
+.clear-both.float-right {
+  padding: 8px;
+  border-radius: 24px;
+  background-color: #ffffff33;
+}
+.r-flight.module-form{
+  padding: 24px 16px;
+  border-radius: 24px;
+  background-color: white;
+}
 .Basis_Calendar .selected_date {
   background: var(--secondary) !important;
 }
@@ -1100,9 +1161,10 @@ body {
 .active-module {
   background-color: #e31f26;
 }
-
-.search-box-container .active-r-btn {
+#oneway, #backtoback{
   padding: 8px 24px !important;
+}
+.search-box-container .active-r-btn {
   border-radius: 8px;
 }
 .search-box-container .active-r-btn span {
@@ -1253,9 +1315,14 @@ body {
   height: 18px !important;
 }
 
+.reserve-field.passengers-field{
+  cursor: pointer;
+}
+
 .reserve-field.passengers-field label,
 .Flightclass-Passenger {
   width: auto !important;
+  cursor: pointer;
 }
 
 .reserve-field.passengers-field label span {

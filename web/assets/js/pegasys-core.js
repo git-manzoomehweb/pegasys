@@ -45,20 +45,22 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  let seeMoreBtn = document.querySelector(".see-more-btn");
-  let aboutPegasys = document.querySelectorAll(".about-pegasys");
+  if (document.querySelector(".see-more-btn")) {
+    let seeMoreBtn = document.querySelector(".see-more-btn");
+    let aboutPegasys = document.querySelectorAll(".about-pegasys");
 
-  seeMoreBtn.addEventListener("click", function () {
-    let isClamped = false;
+    seeMoreBtn.addEventListener("click", function () {
+      let isClamped = false;
 
-    aboutPegasys.forEach((item) => {
-      item.classList.toggle("line-clamp-6");
-      if (item.classList.contains("line-clamp-6")) {
-        isClamped = true;
-      }
+      aboutPegasys.forEach((item) => {
+        item.classList.toggle("line-clamp-6");
+        if (item.classList.contains("line-clamp-6")) {
+          isClamped = true;
+        }
+      });
+      seeMoreBtn.innerHTML = isClamped ? "مشاهده بیشتر" : "مشاهده کمتر";
     });
-    seeMoreBtn.innerHTML = isClamped ? "مشاهده بیشتر" : "مشاهده کمتر";
-  });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -257,37 +259,39 @@ document.addEventListener("DOMContentLoaded", function () {
     xhrobj.send();
 
     xhrobj.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        var container = document.getElementById("search-box");
-        container.innerHTML = xhrobj.responseText;
-
-        var scripts = container.getElementsByTagName("script");
-        for (var i = 0; i < scripts.length; i++) {
-          var scriptTag = document.createElement("script");
-          if (scripts[i].src) {
-            scriptTag.src = scripts[i].src;
-            scriptTag.async = false;
-          } else {
-            scriptTag.text = scripts[i].textContent;
+      if(document.querySelector(".search-box-container")){
+        if (this.readyState == 4 && this.status == 200) {
+          var container = document.getElementById("search-box");
+          container.innerHTML = xhrobj.responseText;
+  
+          var scripts = container.getElementsByTagName("script");
+          for (var i = 0; i < scripts.length; i++) {
+            var scriptTag = document.createElement("script");
+            if (scripts[i].src) {
+              scriptTag.src = scripts[i].src;
+              scriptTag.async = false;
+            } else {
+              scriptTag.text = scripts[i].textContent;
+            }
+            document.head
+              .appendChild(scriptTag)
+              .parentNode.removeChild(scriptTag);
           }
-          document.head
-            .appendChild(scriptTag)
-            .parentNode.removeChild(scriptTag);
-        }
-        if (document.querySelector(".landing-body")) {
-          let departure1 = document.querySelector(".departure");
-          let destination1 = document.getElementById("destination1");
-          let depLocationId = document.querySelector(".locationId.from");
-          let desLocationId = document.querySelector(".locationId.to");
-          let depTitleSearched = document.querySelector(".dep-title-searched");
-          let desTitleSearched = document.querySelector(".des-title-searched");
-          let FCDid1 = document.querySelector(".co-id.FCDid1");
-          let FCDid2 = document.querySelector(".co-id.FCDid1");
-
-          departure1.value = depTitleSearched.value;
-          destination1.value = desTitleSearched.value;
-          depLocationId.value = FCDid1.value;
-          desLocationId.value = FCDid2.value;
+          if (document.querySelector(".landing-body")) {
+            let departure1 = document.querySelector(".departure");
+            let destination1 = document.getElementById("destination1");
+            let depLocationId = document.querySelector(".locationId.from");
+            let desLocationId = document.querySelector(".locationId.to");
+            let depTitleSearched = document.querySelector(".dep-title-searched");
+            let desTitleSearched = document.querySelector(".des-title-searched");
+            let FCDid1 = document.querySelector(".co-id.FCDid1");
+            let FCDid2 = document.querySelector(".co-id.FCDid1");
+  
+            departure1.value = depTitleSearched.value;
+            destination1.value = desTitleSearched.value;
+            depLocationId.value = FCDid1.value;
+            desLocationId.value = FCDid2.value;
+          }
         }
       }
 

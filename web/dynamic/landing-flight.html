@@ -2,8 +2,7 @@
     <member name="view" type="view" propertyid="7249" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.qid##]">
-    <member name="faq" type="list" link="article.bc" perpage="3"
-        order="ord" />
+    <member name="faq" type="list" link="article.bc" perpage="3" order="ord" />
 </basis>
 <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
     <member method="cms" name="dep_landing"
@@ -57,15 +56,13 @@
     </head>
 
     <body class="landing-body">
-        <div class="bg-articleBg bg-center bg-cover h-[576px]">
+        <div class="bg-articleBg bg-center bg-cover pb-24">
             <basis core="call" file="header.inc" />
             <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl mt-40">
-                <div class="bg-specialcolor-2 p-2 rounded-3xl mt-6">
-                    <div class="bg-white py-6 px-4 rounded-3xl">
-                        <div class="search-banner">
-                            <div class="search-box-container">
-                                <div id="search-box" class="dir-rtl"></div>
-                            </div>
+                <div class="search-banner landing-search-engine">
+                    <div class="search-box-container">
+                        <div id="search-box" class="dir-rtl">
+                            <div class="flex justify-center"><span class="search-engine-loader"></span></div>
                         </div>
                     </div>
                 </div>
