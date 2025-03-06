@@ -1,7 +1,7 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
-    <member name="article-list" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="2" size="256x232"
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="12" size="256x232"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
-    <member name="paging" type="list" request="paging" count="2" parentname="article-list" />
+    <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
 </basis>
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid##]" />
@@ -250,13 +250,22 @@
                 </ul>
             </div>
         </section>
-        <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl my-9">
-            <h2 class="text-zinc-900 font-bold mb-3">درباره پگاسوس</h2>
-            <div class="text-sm text-zinc-900 text-justify">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات 
-            </div>
-            <a href="" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
-        </section>
+        <basis core="print" datamembername="db.about-pegasys">
+            <layout>
+                <section class="mx-auto max-lg:w-[90%] max-xl:w-[97%] xl:max-w-7xl my-9">
+                    @child
+                    <a href="/about-us" class="flex justify-center text-blue-500 text-sm mt-3">مشاهده بیشتر</a>
+                </section>
+            </layout>
+            <face filter="TypeID in(150)">
+                <h2 class="text-zinc-900 font-bold mb-3">@text</h2>
+            </face>
+            <face filter="TypeID in(250)">
+                <div class="text-sm text-zinc-900 text-justify line-clamp-6">
+                    @largetext
+                </div>
+            </face>
+        </basis>
     </main>
 
     <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]"/>

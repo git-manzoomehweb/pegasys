@@ -1219,11 +1219,16 @@ body {
   color: white !important;
 }
 
-.passenger-item.child-passenger-item {
+
+.passenger-item.adult-passenger-item,
+.passenger-item.child-passenger-item,
+.passenger-item.infant-passenger-item {
   display: flex;
   flex-direction: column;
 }
 
+.passenger-item.adult-passenger-item ul,
+.passenger-item.infant-passenger-item ul,
 .passenger-item.child-passenger-item ul {
   height: auto !important;
   line-height: normal !important;
@@ -1231,46 +1236,23 @@ body {
   align-items: center;
   justify-content: space-between;
 }
-.passenger-item.adult-passenger-item {
-  display: flex;
-  flex-direction: column;
-}
 
-.passenger-item.adult-passenger-item ul {
-  height: auto !important;
-  line-height: normal !important;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.plus-count {
-  width: auto !important;
-  height: auto !important;
-  line-height: normal !important;
-}
-.plus-count div {
-  width: 48px;
-  height: 48px !important;
-  background: #f52c2b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
-}
 .plus-count span {
   font-size: 35px;
   padding-top: 0.75rem;
   color: white;
 }
 
-.minus-count {
+.minus-count,
+.plus-count {
   width: auto !important;
   height: auto !important;
   line-height: normal !important;
 }
-.minus-count div {
-  width: 48px;
-  height: 48px !important;
+.minus-count div,
+.plus-count div {
+  width: 40px;
+  height: 40px !important;
   background: #f52c2b;
   display: flex;
   align-items: center;

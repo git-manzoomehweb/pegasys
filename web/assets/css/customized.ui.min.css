@@ -1,5 +1,4 @@
 @charset "utf-8";
-@import url(https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css);
 *,
 ::before,
 ::after {
@@ -1219,6 +1218,17 @@ body {
   height: 48px;
 }
 
+@media (max-width: 1024px) {
+  .hasNot-login-icon,
+  .user-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .btnstyle,
 .user-profile-btn {
   display: flex;
@@ -1331,7 +1341,9 @@ body {
 
 .group\/leveltwo:hover .group-hover\/leveltwo\:rotate-90 {
   --tw-rotate: 90deg;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .group\/leveltwo:hover .group-hover\/leveltwo\:stroke-white {
@@ -1454,7 +1466,7 @@ body {
 
   .lg\:flex-\[0\.4\] {
     flex: 0.4;
-}
+  }
 
   .lg\:flex-1 {
     flex: 1 1 0%;
@@ -1560,6 +1572,9 @@ body {
     flex-shrink: 0;
   }
 }
+.user-profile-arrow {
+  margin-left: 0.5rem;
+}
 
 .footer-form [data-bc-schema-direction="rtl"] [data-bc-title-container] {
   display: none !important;
@@ -1609,4 +1624,20 @@ body {
 }
 .footer-form [data-bc-question] {
   margin-bottom: 0 !important;
+}
+
+.scrollTopBtn {
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f57902;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  font-size: 16px;
+  z-index: 20;
+  display: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }

@@ -45,6 +45,34 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (document.querySelector(".scrollTopBtn")) {
+    const scrollTopBtn = document.querySelector(".scrollTopBtn");
+
+    function checkScreenSize() {
+        if (window.innerWidth > 1024) {
+            scrollTopBtn.style.display = "none";
+        } else {
+            updateButtonVisibility();
+        }
+    }
+
+    function updateButtonVisibility() {
+        if (window.innerWidth <= 1024 && (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100)) {
+            scrollTopBtn.style.display = "flex";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+    }
+
+    window.addEventListener("scroll", updateButtonVisibility);
+    window.addEventListener("resize", checkScreenSize);
+    scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    checkScreenSize();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector(".see-more-btn")) {
     let seeMoreBtn = document.querySelector(".see-more-btn");
     let aboutPegasys = document.querySelectorAll(".about-pegasys");
@@ -70,9 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (fetchContentArticle) {
     async function firstContent() {
       const firstDataId = questionLi[0].getAttribute("data-id");
-      const firstResponse = await fetch(
-        `/article-load-items.bc?id=${firstDataId}`
-      );
+      const firstResponse = await fetch(`/article-load-items.bc?id=${firstDataId}`);
       const firstData = await firstResponse.text();
       fetchContentArticle.innerHTML = firstData;
       if (questionLi.length > 0) {
@@ -96,17 +122,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
         async function secondContent() {
           try {
-            const firstResponse = await fetch(
-              `/article-load-items.bc?id=${cmsQuery}`
-            );
+            const firstResponse = await fetch(`/article-load-items.bc?id=${cmsQuery}`);
             if (!firstResponse.ok) {
               throw new Error(`HTTP error! Status: ${firstResponse.status}`);
             }
             const firstData = await firstResponse.text();
             fetchContentArticle.innerHTML = firstData;
           } catch (error) {
-            fetchContentArticle.innerHTML =
-              "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
+            fetchContentArticle.innerHTML = "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
           }
         }
         secondContent();
@@ -119,6 +142,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const faqBtn = button.querySelector(".faq-btn");
       const faqAnswer = button.querySelector(".faq-answer");
+
+      document.querySelectorAll(".faq-box").forEach((box) => {
+        if (box !== button) {
+          const otherFaqAnswer = box.querySelector(".faq-answer");
+          const otherFaqBtn = box.querySelector(".faq-btn");
+
+          if (otherFaqAnswer.classList.contains("max-h-screen")) {
+            otherFaqAnswer.classList.add("max-h-0", "opacity-0");
+            otherFaqAnswer.classList.remove("max-h-screen", "opacity-100");
+            box.style.backgroundColor = "";
+            box.style.border = "";
+            otherFaqBtn.classList.remove("rotate-180");
+          }
+        }
+      });
 
       faqBtn.classList.toggle("rotate-180");
       button.style.backgroundColor = "#FFF3E0";
@@ -137,6 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const fetchContentFlight = document.querySelector(".fetch-content-flight");
@@ -259,11 +298,11 @@ document.addEventListener("DOMContentLoaded", function () {
     xhrobj.send();
 
     xhrobj.onreadystatechange = function () {
-      if(document.querySelector(".search-box-container")){
+      if (document.querySelector(".search-box-container")) {
         if (this.readyState == 4 && this.status == 200) {
           var container = document.getElementById("search-box");
           container.innerHTML = xhrobj.responseText;
-  
+
           var scripts = container.getElementsByTagName("script");
           for (var i = 0; i < scripts.length; i++) {
             var scriptTag = document.createElement("script");
@@ -282,11 +321,15 @@ document.addEventListener("DOMContentLoaded", function () {
             let destination1 = document.getElementById("destination1");
             let depLocationId = document.querySelector(".locationId.from");
             let desLocationId = document.querySelector(".locationId.to");
-            let depTitleSearched = document.querySelector(".dep-title-searched");
-            let desTitleSearched = document.querySelector(".des-title-searched");
+            let depTitleSearched = document.querySelector(
+              ".dep-title-searched"
+            );
+            let desTitleSearched = document.querySelector(
+              ".des-title-searched"
+            );
             let FCDid1 = document.querySelector(".co-id.FCDid1");
             let FCDid2 = document.querySelector(".co-id.FCDid1");
-  
+
             departure1.value = depTitleSearched.value;
             destination1.value = desTitleSearched.value;
             depLocationId.value = FCDid1.value;
@@ -450,8 +493,7 @@ if (document.querySelector(".swiper-fly-mobile")) {
 }
 if (document.querySelector(".swiper-article-mobile")) {
   var swiperArticleMobile = new Swiper(".swiper-article-mobile", {
-    slidesPerView: 3,
-    direction: "vertical",
+    slidesPerView: 1,
     speed: 400,
     centeredSlides: true,
     spaceBetween: 24,
