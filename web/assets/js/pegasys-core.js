@@ -178,6 +178,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 document.addEventListener("DOMContentLoaded", function () {
+  const textElements = document.querySelectorAll(".all-days");
+
+  textElements.forEach(textElement => {
+      const text = textElement.textContent.trim();
+      
+      if (!text) { 
+          textElement.remove();
+          return;
+      }
+
+      const days = text.split("،"); 
+
+      const dayContainer = document.createElement("div");
+      dayContainer.className = "flex flex-wrap items-center gap-1"; 
+
+      days.forEach(day => {
+          const span = document.createElement("span");
+          span.className = "text-sm text-zinc-500 bg-primary-50 px-2 py-1 rounded-[30px]";
+          span.textContent = day;
+          dayContainer.appendChild(span);
+      });
+
+      textElement.replaceWith(dayContainer);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
   const fetchContentFlight = document.querySelector(".fetch-content-flight");
   const flightLi = document.querySelectorAll(".flight-li");
 
@@ -371,6 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector("#r-flight").classList.remove("hidden");
         let h = document.querySelector(".bg-blur-t");
         h && window.scrollTo({ top: h.offsetTop, behavior: "smooth" });
+        console.log(document.querySelector("#flightSearch #departure1").value)
       }
     };
   } catch (error) {

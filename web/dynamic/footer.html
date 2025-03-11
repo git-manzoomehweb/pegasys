@@ -62,11 +62,11 @@
             <div class="flex flex-col mx-auto footer-form" id="footer-form-resize">
 
                 <basis core="schema" run="atclient"
-                    schemaurl="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/06161905-CD8D-41EE-9623-83B2FFF1C62C/fa/گوش-به-زنگ-باشید"
+                    schemaurl="/schema/domainform/389FABE5-6436-4282-B9A7-133CCB8F7776/19B33263-CCE7-41A4-BE10-A8C962B7ED26/fa/با-ما-در-ارتباط-باشید"
                     displaymode="new" button="[data-btn-uploadfooter]" resultsourceid="upload.datafooter"
                     OnRendered="RenderFormFooter"></basis>
                 <basis core="api" if="{##cms.uploadFooter.run|(false)##}" run="atclient"
-                    url="/schema/domainform/70FB5B41-1038-4EED-81AE-27A67261D2E8/fa/editobject" method="post"
+                    url="/schema/domainform/389FABE5-6436-4282-B9A7-133CCB8F7776/fa/editobject" method="post"
                     body="object_edit={##cms.uploadFooter.value##}&captcha={##cms.uploadFooter.captcha##}&captchaid={##cms.uploadFooter.captchaid##}"
                     content-type="application/x-www-form-urlencoded" triggers='cms.uploadFooter'
                     OnProcessed="OnProcessedEditObjectFooter"></basis>
@@ -97,7 +97,7 @@
                         </basis>
                     </div>
                     <button class="w-full px-4 mt-3 text-white transition-all duration-300 lg:w-52 lg:ml-5 y-2 data-body-btn h-12 bg-primary-700 rounded-xl hover:bg-secondary-700"
-                        type="button" data-btn-uploadfooter><span class="">Send</span></button>
+                        type="button" data-btn-uploadfooter><span class="">ارسال</span></button>
                     <div
                         class="Loading_Form hidden data-body-btn w-[126px] h-12 px-4 py-2 bg-secondary-800 rounded-2xl justify-center items-center gap-2.5">
                         <div id="ballsWaveG" class="text-base font-normal leading-normal ext-zinc-50">
