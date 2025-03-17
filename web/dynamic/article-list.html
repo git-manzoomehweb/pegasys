@@ -113,7 +113,7 @@
                     </div>
                 </layout>
                 <face filter="link is null">
-                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
                         <div class="flex items-center justify-between">
                             <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
                             <span class="flex items-center gap-1 text-zinc-500 text-sm">
@@ -124,8 +124,12 @@
                             </span>
                         </div>
                         <div class="relative mt-2">
-                            <img src="@00379X00232prp" alt="@title" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                            <a href="/article.bc?id=@id" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه مطلب</a>
+                            <div class="relative overflow-hidden image-container">
+                                <img src="@00379X00232prp" alt="@title"
+                                class="h-[232px] object-cover rounded-lg transition-all duration-300"
+                                width="100%" height="232" loading="lazy">
+                            </div>
+                            <a href="/article.bc?id=@id" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 group-hover:bg-secondary-900">ادامه مطلب</a>
                         </div>
                         <div class="mt-6">
                             <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
@@ -134,7 +138,7 @@
                     </article>
                 </face>
                 <face>
-                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
                         <div class="flex items-center justify-between">
                             <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
                             <span class="flex items-center gap-1 text-zinc-500 text-sm">
@@ -145,8 +149,12 @@
                             </span>
                         </div>
                         <div class="relative mt-2">
-                            <img src="@00379X00232prp" alt="@title" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                            <a href="@link" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 hover:bg-secondary-900">ادامه مطلب</a>
+                            <div class="relative overflow-hidden image-container">
+                                <img src="@00379X00232prp" alt="@title"
+                                class="h-[232px] object-cover rounded-lg transition-all duration-300"
+                                width="100%" height="232" loading="lazy">
+                            </div>
+                            <a href="@link" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 group-hover:bg-secondary-900">ادامه مطلب</a>
                         </div>
                         <div class="mt-6">
                             <h3 class="text-zinc-900 font-bold mb-3">@title</h3>

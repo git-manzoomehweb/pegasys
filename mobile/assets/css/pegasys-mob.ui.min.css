@@ -623,6 +623,11 @@ body {
   text-align: justify;
 }
 
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -1237,11 +1242,6 @@ body {
   justify-content: space-between;
 }
 
-.plus-count span {
-  font-size: 35px;
-  padding-top: 0.75rem;
-  color: white;
-}
 
 .minus-count,
 .plus-count {
@@ -1251,16 +1251,17 @@ body {
 }
 .minus-count div,
 .plus-count div {
-  width: 40px;
-  height: 40px !important;
+  width: 32px;
+  height: 32px !important;
   background: #f52c2b;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
 }
-.minus-count span {
-  font-size: 35px;
+.minus-count span,
+.plus-count span {
+  font-size: 26px;
   padding-top: 0.5rem;
   color: white;
 }

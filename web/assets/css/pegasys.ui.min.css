@@ -641,6 +641,11 @@ body {
   text-align: justify;
 }
 
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
 .font-sans {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -930,6 +935,10 @@ body {
 
 .group:hover .group-hover\:fill-white {
   fill: #fff;
+}
+
+.group:hover .group-hover\:text-primary-600 {
+  color: var(--primary-600);
 }
 
 .group:hover .group-hover\:text-secondary-900 {
@@ -1459,12 +1468,6 @@ body {
   justify-content: space-between;
 }
 
-.plus-count span {
-  font-size: 35px;
-  padding-top: 0.75rem;
-  color: white;
-}
-
 .minus-count,
 .plus-count {
   width: auto !important;
@@ -1473,16 +1476,17 @@ body {
 }
 .minus-count div,
 .plus-count div {
-  width: 40px;
-  height: 40px !important;
+  width: 32px;
+  height: 32px !important;
   background: #f52c2b;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 12px;
 }
-.minus-count span {
-  font-size: 35px;
+.minus-count span,
+.plus-count span {
+  font-size: 26px;
   padding-top: 0.5rem;
   color: white;
 }
@@ -1497,4 +1501,22 @@ body {
   border-radius: 8px;
   outline: none;
   height: 48px !important;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  width: 33rem;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  top: -220px;
+  right: -356px;
+  transform: rotate(45deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.group:hover .image-container::before {
+  top: 100%;
+  right: 100%;
 }

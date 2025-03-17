@@ -1,35 +1,37 @@
-
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" q="[##cms.query.search-content-name##]">
-    <member name="article-list" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="6" size="379x274"
+    <member name="article-list" type="list" link="article.bc" propertyid="7244,7248,7249" perpage="6" size="379x232"
         pageno="[##cms.query.pagenum|(1)##]" order="ord" />
     <member name="paging" type="list" request="paging" count="3" parentname="article-list" />
 </basis>
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
-        <!-- Title & Description -->
-        <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
-        <meta name="description" content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
-        <!-- Title & Description -->
-        <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
-            <member type="list" name="list" request="taglist" preview=""></member>
-        </basis>
-        <basis core="print" datamembername="tag.list">
-            <face filter="key = 'canonical'">
-                <link rel="canonical" href="@value" />
-            </face>
-            <face>
-                <meta property="@key" content="@value" />
-            </face>
-        </basis>
-        <!-- pwa metatags -->
-        <basis core="call" file="pwa.inc" />
-        <!-- common styles for all page -->
-        <basis core="call" file="style.inc" />
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>پگاسوس | خرید بلیط پگاسوس | نمایندگی ایران پگاسوس |</title>
+    <meta name="description"
+        content="پگاسوس |Pegasus|ساتراپ سیر نمایندگی ایران ایرلاین پگاسوس، بلیط پگاسوس استانبول، بلیط پگاسوس آنتالیا، خرید بلیط پگاسوس، رزرو بلیط پگاسوس">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!-- common styles for all page -->
+    <basis core="call" file="style.inc" />
+</head>
+
 <body>
     <div class="relative bg-articleListBg bg-center bg-cover h-[523px]">
         <div class="bg-specialcolor-1 absolute inset-0 h-full w-full"></div>
@@ -48,7 +50,7 @@
                     </div>
                 </layout>
                 <face filter="link is null">
-                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
                         <div class="flex items-center justify-between">
                             <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
                             <span class="flex items-center gap-1 text-zinc-500 text-sm">
@@ -59,8 +61,14 @@
                             </span>
                         </div>
                         <div class="relative mt-2">
-                            <img src="@00379X00274prp" alt="@title" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                            <a href="/article.bc?id=@id" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                            <div class="relative overflow-hidden image-container">
+                                <img src="@00379X00232prp" alt="@title"
+                                    class="h-[232px] object-cover rounded-lg transition-all duration-300" width="100%"
+                                    height="232" loading="lazy">
+                            </div>
+                            <a href="/article.bc?id=@id"
+                                class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 group-hover:bg-secondary-900">ادامه
+                                مطلب</a>
                         </div>
                         <div class="mt-6">
                             <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
@@ -69,7 +77,7 @@
                     </article>
                 </face>
                 <face>
-                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white">
+                    <article class="border border-solid border-zinc-300 pt-2 pb-6 px-4 rounded-xl bg-white group">
                         <div class="flex items-center justify-between">
                             <span class="text-zinc-500 text-sm">نویسنده: <span>@prp_7248</span></span>
                             <span class="flex items-center gap-1 text-zinc-500 text-sm">
@@ -80,8 +88,14 @@
                             </span>
                         </div>
                         <div class="relative mt-2">
-                            <img src="@00379X00274prp" alt="@title" class="h-[232px] object-cover rounded-lg" width="100%" height="232">
-                            <a href="@link" class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg">ادامه مطلب</a>
+                            <div class="relative overflow-hidden image-container">
+                                <img src="@00379X00232prp" alt="@title"
+                                    class="h-[232px] object-cover rounded-lg transition-all duration-300" width="100%"
+                                    height="232" loading="lazy">
+                            </div>
+                            <a href="@link"
+                                class="absolute left-3 -bottom-6 bg-primary-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 group-hover:bg-secondary-900">ادامه
+                                مطلب</a>
                         </div>
                         <div class="mt-6">
                             <h3 class="text-zinc-900 font-bold mb-3">@title</h3>
@@ -189,4 +203,5 @@
 
     <basis core="call" file="footer.inc" />
 </body>
+
 </html>

@@ -98,9 +98,17 @@ document.addEventListener("DOMContentLoaded", function () {
   if (fetchContentArticle) {
     async function firstContent() {
       const firstDataId = questionLi[0].getAttribute("data-id");
-      const firstResponse = await fetch(`/article-load-items.bc?id=${firstDataId}`);
-      const firstData = await firstResponse.text();
-      fetchContentArticle.innerHTML = firstData;
+
+      fetchContentArticle.innerHTML = '<div class="flex justify-center"><span class="flight-loader"></span></div>';
+
+      try {
+        const firstResponse = await fetch(`/article-load-items.bc?id=${firstDataId}`);
+        const firstData = await firstResponse.text();
+        fetchContentArticle.innerHTML = firstData;
+      } catch (error) {
+        fetchContentArticle.innerHTML = "<p>مشکلی در دریافت اطلاعات رخ داد: " + error.message + "</p>";
+      }
+
       if (questionLi.length > 0) {
         questionLi[0].style.backgroundColor = "#FB8901";
         questionLi[0].style.color = "#000";
@@ -121,6 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let cmsQuery = item.getAttribute("data-id");
 
         async function secondContent() {
+          fetchContentArticle.innerHTML = '<div class="flex justify-center"><span class="flight-loader"></span></div>';
           try {
             const firstResponse = await fetch(`/article-load-items.bc?id=${cmsQuery}`);
             if (!firstResponse.ok) {
@@ -175,6 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -378,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function () {
         (document.querySelector("#flightSearch #departure1").value = u),
           (document.querySelector(
             "#flightSearch .departure-route .locationId"
-          ).value = c),
+          ).setAttribute("value", c)),
           (document.querySelector(
             "#flightSearch .destination-route #destination1"
           ).value = p),
@@ -398,7 +408,7 @@ document.addEventListener("DOMContentLoaded", function () {
           document.querySelector("#r-flight").classList.remove("hidden");
         let h = document.querySelector(".bg-blur-t");
         h && window.scrollTo({ top: h.offsetTop, behavior: "smooth" });
-        console.log(document.querySelector("#flightSearch #departure1").value)
+        
       }
     };
   } catch (error) {
