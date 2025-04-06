@@ -4,6 +4,9 @@
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.qid##]">
     <member name="faq" type="list" link="article.bc" perpage="3" order="ord" />
 </basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" usedforid="[##cms.query.id##]">
+    <member name="faq1" type="view" size="" propertyid="" />
+</basis>   
 <basis core="external.fly.ws" source="cmsDbService2" procedurename="dbsource" name="db">
     <member method="cms" name="dep_landing"
         query='{ "name": "db", "mid": "20", "member":[ { "type":"list", "name": "q", "request": "citySearch",  "functype": "0", "title": "[##cms.query.aid##]", "status": "city", "lid": "1"}]}'

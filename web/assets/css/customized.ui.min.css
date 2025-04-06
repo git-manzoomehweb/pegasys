@@ -1235,6 +1235,13 @@ body {
   align-items: center;
 }
 
+.col2-second-part-header.float_right{
+  padding-top: 1rem;
+}
+.col3-second-part-header{
+  width: auto !important;
+  padding: 6px 20px 0 20px;
+}
 .itemInput,
 .login-btn {
   font-family: "DanaFaNum" !important;
@@ -1640,4 +1647,41 @@ body {
   z-index: 20;
   display: none;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-login-container {
+  background-image: url("../images/pegasus-login-bg.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 800px !important;
+  min-height: 500px;
+}
+.login-right-part {
+  width: 40% !important;
+  padding-top: 5.6rem !important;
+}
+.login-left-part{
+  display: none;
+}
+@media (max-width: 1024px) {
+  .main-login-container.rtl-lang .login-left-part {
+    margin-bottom: 1em;
+  }
+  .login-left-part{
+    display: flex;
+  }
+  .main-login-container {
+    background-image: unset !important;
+    width: 100% !important;
+    min-height: unset;
+  }
+  .login-right-part {
+    width: 100% !important;
+    padding-top: 1.6rem !important;
+  }
+  .login-mob-img {
+    display: flex !important;
+    justify-content: center;
+    margin-bottom: 1em;
+  }
 }

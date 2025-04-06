@@ -1474,6 +1474,17 @@ body {
   height: auto !important;
   line-height: normal !important;
 }
+.minus-count::selection,
+.plus-count::selection{
+  background: transparent;
+  color: inherit;
+}
+.minus-count span::-moz-selection,
+.plus-count span::-moz-selection {
+  background: transparent !important;
+  color: inherit !important;
+}
+
 .minus-count div,
 .plus-count div {
   width: 32px;
@@ -1520,3 +1531,4 @@ body {
   top: 100%;
   right: 100%;
 }
+

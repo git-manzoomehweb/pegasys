@@ -1249,6 +1249,11 @@ body {
   height: auto !important;
   line-height: normal !important;
 }
+.minus-count::selection,
+.plus-count::selection{
+  background: transparent;
+  color: inherit;
+}
 .minus-count div,
 .plus-count div {
   width: 32px;
