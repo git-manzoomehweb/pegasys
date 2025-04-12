@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       if (questionLi.length > 0) {
-        questionLi[0].style.backgroundColor = "#FB8901";
+        questionLi[0].style.backgroundColor = "#ffc847";
         questionLi[0].style.color = "#000";
       }
     }
@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
           li.style.color = "";
         });
 
-        item.style.backgroundColor = "#FB8901";
+        item.style.backgroundColor = "#ffc847";
         item.style.color = "#000";
 
         let cmsQuery = item.getAttribute("data-id");
@@ -321,7 +321,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "<p>Error loading data: " + error.message + "</p>";
       }
       if (flightLi.length > 0) {
-        flightLi[0].style.backgroundColor = "#FB8901";
+        flightLi[0].style.backgroundColor = "#ffc847";
         flightLi[0].style.color = "#000";
       }
     }
@@ -334,7 +334,7 @@ document.addEventListener("DOMContentLoaded", function () {
           li.style.color = "";
         });
 
-        item.style.backgroundColor = "#FB8901";
+        item.style.backgroundColor = "#ffc847";
         item.style.color = "#000";
 
         let cmsQuery = item.getAttribute("data-id");
@@ -362,8 +362,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-let i = document.querySelectorAll(".ticket-article");
-i.forEach((e) => {
+let ticketArticle = document.querySelectorAll(".ticket-article");
+ticketArticle.forEach((e) => {
   let t = e.querySelector(".flight-type-article").innerText.trim(),
     r = e.querySelector(".dep-text").innerText.trim(),
     i = e.querySelector(".dep-id").innerText.trim(),

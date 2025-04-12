@@ -1253,7 +1253,7 @@ body {
 
 .search-flight {
   width: 113px !important;
-  background-color: #fb8901 !important;
+  background-color: #ffc847 !important;
   height: 48px !important;
   color: white !important;
   border-radius: 8px;
@@ -1309,7 +1309,7 @@ body {
 
 .exchangeRoute {
   position: static !important;
-  background-color: #fb8901 !important;
+  background-color: #ffc847 !important;
   border-radius: 0.5rem;
   width: 3rem !important;
   height: 3rem !important;
