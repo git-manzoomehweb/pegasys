@@ -494,6 +494,10 @@ body {
   background-image: var(--default-bg);
 }
 
+.bg-defaultMobileBg {
+  background-image: var(--defaultmobile-bg);
+}
+
 .bg-tourListBg {
   background-image: var(--tourlist-bg);
 }
