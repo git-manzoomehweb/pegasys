@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
               ".des-title-searched"
             );
             let FCDid1 = document.querySelector(".co-id.FCDid1");
-            let FCDid2 = document.querySelector(".co-id.FCDid1");
+            let FCDid2 = document.querySelector(".co-id.FCDid2");
 
             departure1.value = depTitleSearched.value;
             destination1.value = desTitleSearched.value;
