@@ -190,18 +190,17 @@ body {
   -webkit-line-clamp: 6;
 }
 
-
 .grid {
   display: grid;
 }
 
 .min-h-\[60px\] {
   min-height: 60px;
-} 
+}
 
 .min-h-20 {
   min-height: 5rem;
-} 
+}
 
 .h-12 {
   height: 3rem;
@@ -877,7 +876,7 @@ body {
   animation: rotationfront 1s linear infinite;
 }
 .search-engine-loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -901,8 +900,8 @@ body {
   100% {
     transform: rotate(360deg);
   }
-} 
-    
+}
+
 @keyframes rotationBack {
   0% {
     transform: rotate(0deg);
@@ -931,13 +930,14 @@ body {
   border-radius: 24px;
   background-color: #ffffff33;
 }
-.r-flight.module-form{
+.r-flight.module-form {
   padding: 24px 16px;
   border-radius: 24px;
   background-color: white;
 }
 
-#oneway, #backtoback{
+#oneway,
+#backtoback {
   padding: 12px !important;
 }
 .search-box-container .active-r-btn {
@@ -960,16 +960,16 @@ body {
   margin-bottom: 30px !important;
 }
 
-#multi{
+#multi {
   display: none;
 }
 
-.flighttype-field{
-    width: fit-content;
-    margin: 0 auto;
+.flighttype-field {
+  width: fit-content;
+  margin: 0 auto;
 }
 
-.flighttype-items div.clr{
+.flighttype-items div.clr {
   position: absolute;
 }
 
@@ -1126,7 +1126,7 @@ body {
   padding: 0 !important;
 }
 
-.reserve-field.passengers-field{
+.reserve-field.passengers-field {
   margin-bottom: 4px !important;
 }
 .passengers-field div:nth-child(1) div:first-of-type {
@@ -1210,6 +1210,8 @@ body {
 .searchList {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  max-height: 314px;
+  overflow-y: auto;
 }
 .passengerbox.hidden-box {
   border-radius: 8px;
@@ -1228,7 +1230,6 @@ body {
   color: white !important;
 }
 
-
 .passenger-item.adult-passenger-item,
 .passenger-item.child-passenger-item,
 .passenger-item.infant-passenger-item {
@@ -1246,7 +1247,6 @@ body {
   justify-content: space-between;
 }
 
-
 .minus-count,
 .plus-count {
   width: auto !important;
@@ -1254,7 +1254,7 @@ body {
   line-height: normal !important;
 }
 .minus-count::selection,
-.plus-count::selection{
+.plus-count::selection {
   background: transparent;
   color: inherit;
 }
@@ -1286,7 +1286,7 @@ body {
   outline: none;
   height: 57px !important;
 }
-.swiper-article-mobile .swiper-slide{
+.swiper-article-mobile .swiper-slide {
   height: fit-content !important;
 }
 .Basis_Calendar_Box {

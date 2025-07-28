@@ -1065,7 +1065,7 @@ body {
   animation: rotationfront 1s linear infinite;
 }
 .search-engine-loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -1089,8 +1089,8 @@ body {
   100% {
     transform: rotate(360deg);
   }
-} 
-    
+}
+
 @keyframes rotationBack {
   0% {
     transform: rotate(0deg);
@@ -1105,7 +1105,7 @@ body {
   border-radius: 24px;
   background-color: #ffffff33;
 }
-.r-flight.module-form{
+.r-flight.module-form {
   padding: 24px 16px;
   border-radius: 24px;
   background-color: white;
@@ -1170,7 +1170,8 @@ body {
 .active-module {
   background-color: #e31f26;
 }
-#oneway, #backtoback{
+#oneway,
+#backtoback {
   padding: 8px 24px !important;
 }
 .search-box-container .active-r-btn {
@@ -1190,7 +1191,7 @@ body {
   margin-bottom: 30px !important;
 }
 
-#multi{
+#multi {
   display: none;
 }
 
@@ -1259,7 +1260,7 @@ body {
   border-radius: 8px;
   transition: all 300ms ease;
 }
-.search-flight:hover{
+.search-flight:hover {
   background-color: #e31f26 !important;
 }
 
@@ -1324,7 +1325,7 @@ body {
   height: 18px !important;
 }
 
-.reserve-field.passengers-field{
+.reserve-field.passengers-field {
   cursor: pointer;
 }
 
@@ -1433,6 +1434,8 @@ body {
 .searchList {
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  max-height: 314px;
+  overflow-y: auto;
 }
 .passengerbox.hidden-box {
   border-radius: 8px;
@@ -1475,7 +1478,7 @@ body {
   line-height: normal !important;
 }
 .minus-count::selection,
-.plus-count::selection{
+.plus-count::selection {
   background: transparent;
   color: inherit;
 }
@@ -1531,4 +1534,3 @@ body {
   top: 100%;
   right: 100%;
 }
-
