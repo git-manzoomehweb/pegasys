@@ -1317,7 +1317,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0.25rem;
+  margin: 0 !important;
 }
 
 .exchangeRoute svg {
